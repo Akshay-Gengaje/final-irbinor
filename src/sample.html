@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Events - Your Vision, Our Innovation</title>
+    <link rel="stylesheet" href="/public/assets/css/tailwind.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Light mode */
+        :root {
+            --bg-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --border-color: #e5e7eb;
+        }
+        /* Dark mode */
+        .dark {
+            --bg-color: #111827;
+            --text-color: #f9fafb;
+            --card-bg: #1f2937;
+            --header-bg: rgba(17, 24, 39, 0.8);
+            --border-color: #374151;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .card {
+            background-color: var(--card-bg);
+        }
+        header {
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+        }
+        .border-custom {
+            border-color: var(--border-color);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">Stellar Events</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="hover:text-indigo-500 transition-colors">About</a>
+                <a href="#services" class="hover:text-indigo-500 transition-colors">Services</a>
+                <a href="#gallery" class="hover:text-indigo-500 transition-colors">Gallery</a>
+                <a href="#testimonials" class="hover:text-indigo-500 transition-colors">Testimonials</a>
+                <a href="#contact" class="hover:text-indigo-500 transition-colors">Contact</a>
+            </div>
+            <div class="flex items-center">
+                 <button id="theme-toggle" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+                <button class="md:hidden ml-4" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">About</a>
+            <a href="#services" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Services</a>
+            <a href="#gallery" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Gallery</a>
+            <a href="#testimonials" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Testimonials</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center text-center px-6">
+            <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://placehold.co/1920x1080/000000/ffffff?text=Event+Background');">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+            </div>
+            <div class="relative z-10 text-white">
+                <h1 class="text-5xl md:text-7xl font-black mb-4 animate-fade-in-down">Your Vision, Our Innovation</h1>
+                <p class="text-lg md:text-2xl mb-8 animate-fade-in-up">Creating unforgettable experiences tailored to you.</p>
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 animate-fade-in">Book a Consultation</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 px-6">
+            <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <img src="https://placehold.co/600x400/e2e8f0/333333?text=Our+Team" alt="Our Team" class="rounded-lg shadow-2xl w-full">
+                </div>
+                <div class="animate-on-scroll">
+                    <h2 class="text-4xl font-bold mb-4">About Stellar Events</h2>
+                    <p class="mb-6">We are a passionate team of event planners and designers dedicated to crafting exceptional and memorable events. With years of experience in the industry, we have the expertise to bring any vision to life, no matter how big or small. Our philosophy is simple: combine creativity with meticulous planning to deliver flawless results.</p>
+                    <div class="flex space-x-4">
+                        <div class="card p-4 rounded-lg flex-1 text-center border border-custom">
+                            <p class="text-3xl font-bold text-indigo-500">10+</p>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="card p-4 rounded-lg flex-1 text-center border border-custom">
+                            <p class="text-3xl font-bold text-indigo-500">500+</p>
+                            <p>Successful Events</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 px-6 bg-opacity-50" style="background-color: var(--card-bg);">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-12">Our Services</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-8 rounded-lg shadow-lg animate-on-scroll border border-custom">
+                        <div class="text-indigo-500 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Corporate Events</h3>
+                        <p>From conferences to product launches, we handle all the details to ensure your corporate event is a resounding success.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg shadow-lg animate-on-scroll border border-custom">
+                        <div class="text-indigo-500 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Weddings</h3>
+                        <p>We create magical weddings that reflect your unique love story. Let us handle the planning, so you can enjoy your special day.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg shadow-lg animate-on-scroll border border-custom">
+                        <div class="text-indigo-500 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Social Gatherings</h3>
+                        <p>Birthdays, anniversaries, or just a get-together. We design stylish and fun social events for any occasion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center">Event Gallery</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg shadow-lg" src="https://placehold.co/500x800/a78bfa/ffffff?text=Wedding" alt=""></div>
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg shadow-lg" src="https://placehold.co/500x600/818cf8/ffffff?text=Conference" alt=""></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg shadow-lg" src="https://placehold.co/500x600/f472b6/ffffff?text=Gala" alt=""></div>
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg shadow-lg" src="https://placehold.co/500x800/fb923c/ffffff?text=Party" alt=""></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg shadow-lg" src="https://placehold.co/500x800/4ade80/ffffff?text=Outdoor" alt=""></div>
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg shadow-lg" src="https://placehold.co/500x600/22d3ee/ffffff?text=Concert" alt=""></div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg shadow-lg" src="https://placehold.co/500x600/facc15/ffffff?text=Festival" alt=""></div>
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg shadow-lg" src="https://placehold.co/500x800/f87171/ffffff?text=Celebration" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 px-6" style="background-color: var(--card-bg);">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center">What Our Clients Say</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-8 rounded-lg shadow-lg animate-on-scroll border border-custom">
+                        <p class="mb-4">"Stellar Events turned our dream wedding into a reality. Every detail was perfect, and the team was an absolute joy to work with. Highly recommended!"</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/e0e7ff/4338ca?text=J.D." alt="Avatar of Jane Doe">
+                            <div>
+                                <p class="font-bold">Jane & John Doe</p>
+                                <p class="text-sm opacity-70">Wedding Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-8 rounded-lg shadow-lg animate-on-scroll border border-custom">
+                        <p class="mb-4">"Our annual corporate conference was the best one yet, thanks to Stellar Events. Their professionalism and creativity are unmatched."</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/e0e7ff/4338ca?text=S.M." alt="Avatar of Sarah Miller">
+                            <div>
+                                <p class="font-bold">Sarah Miller</p>
+                                <p class="text-sm opacity-70">CEO, TechCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-8 rounded-lg shadow-lg animate-on-scroll border border-custom">
+                        <p class="mb-4">"They organized my 40th birthday party, and it was epic! The theme, the decor, everything was spot on. My friends are still talking about it."</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/e0e7ff/4338ca?text=M.B." alt="Avatar of Mike Brown">
+                            <div>
+                                <p class="font-bold">Mike Brown</p>
+                                <p class="text-sm opacity-70">Birthday Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-4 text-center">Get In Touch</h2>
+                <p class="text-center mb-12 max-w-2xl mx-auto">Have an idea for an event? We'd love to hear about it. Contact us today to schedule a free consultation and let's start planning something extraordinary together.</p>
+                <div class="card max-w-4xl mx-auto p-8 md:p-12 rounded-lg shadow-2xl border border-custom animate-on-scroll">
+                    <form>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <input type="text" placeholder="Your Name" class="w-full p-3 rounded-md bg-transparent border border-custom focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <input type="email" placeholder="Your Email" class="w-full p-3 rounded-md bg-transparent border border-custom focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="mt-6">
+                            <input type="text" placeholder="Subject" class="w-full p-3 rounded-md bg-transparent border border-custom focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="mt-6">
+                            <textarea placeholder="Your Message" rows="5" class="w-full p-3 rounded-md bg-transparent border border-custom focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6" style="background-color: var(--card-bg);">
+        <div class="container mx-auto text-center">
+            <p class="font-bold text-lg mb-2">Stellar Events</p>
+            <p class="mb-4">123 Event Lane, Celebration City, 12345</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-indigo-500 transition-colors">Facebook</a>
+                <a href="#" class="hover:text-indigo-500 transition-colors">Instagram</a>
+                <a href="#" class="hover:text-indigo-500 transition-colors">Twitter</a>
+            </div>
+            <p class="text-sm opacity-70">&copy; 2025 Stellar Events. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.querySelector('html');
+
+        // Check for saved theme in localStorage
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            html.classList.toggle('dark');
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            // Save theme preference to localStorage
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll Reveal Animations
+        ScrollReveal().reveal('.animate-on-scroll', {
+            delay: 200,
+            duration: 800,
+            distance: '50px',
+            origin: 'bottom',
+            easing: 'ease-in-out',
+            reset: false
+        });
+
+        // Hero Section Animations
+        ScrollReveal().reveal('.animate-fade-in-down', {
+            delay: 300,
+            duration: 1000,
+            distance: '30px',
+            origin: 'top',
+            easing: 'ease-out'
+        });
+        ScrollReveal().reveal('.animate-fade-in-up', {
+            delay: 500,
+            duration: 1000,
+            distance: '30px',
+            origin: 'bottom',
+            easing: 'ease-out'
+        });
+        ScrollReveal().reveal('.animate-fade-in', {
+            delay: 700,
+            duration: 1000,
+            easing: 'ease-in'
+        });
+
+    </script>
+</body>
+</html>
