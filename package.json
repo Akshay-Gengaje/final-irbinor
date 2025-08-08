@@ -21,6 +21,7 @@
     "imagemin": "^9.0.1",
     "imagemin-jpegtran": "^8.0.0",
     "imagemin-pngquant": "^10.0.0",
+    "source-map": "^0.7.4",
     "terser": "^5.43.1"
   }
 }
