@@ -13,7 +13,6 @@
     />
     <meta name="author" content="IRBINOR" />
     <link rel="stylesheet" href="./assets/css/tailwind.css" />
-    <!-- intl-tel-input -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css"
@@ -96,8 +95,8 @@
       }
     </style>
   </head>
-  <body class="bg-white">
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
+  <body class="bg-[#F3F0F0]">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-lg">
       <nav aria-label="Main Navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
@@ -140,7 +139,7 @@
                   </li>
                   <li>
                     <a
-                      href="#mission"
+                      href="#mission-vision-values"
                       class="nav-link text-md font-semibold text-gray-800 hover:text-blue-500 transition-all duration-300"
                       >Mission</a
                     >
@@ -210,6 +209,11 @@
             >About</a
           >
           <a
+            href="#mission-vision-values"
+            class="block py-2 text-gray-100 hover:text-blue-500"
+            >Mission</a
+          >
+          <a
             href="#services"
             class="block py-2 text-gray-100 hover:text-blue-500"
             >Services</a
@@ -229,28 +233,34 @@
     <main>
       <section
         id="home"
-        aria-label="Hero video"
-        class="relative overflow-hidden pt-[56.25%]"
+        aria-label="Hero Section: Larger than life with a last mile touch"
+        class="relative flex items-center h-screen bg-cover bg-center bg-no-repeat"
+        style="background-image: url('./assets/images/hero.jpg')"
       >
-        <iframe
-          id="vimeo-player"
-          src="https://player.vimeo.com/video/1101538872?badge=0&autopause=0&player_id=0&app_id=58479&dnt=1&autoplay=1&loop=1&muted=1&controls=0&quality_selector=1"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          title="Introductory Video"
-          class="absolute top-[-5%] left-0 w-full h-full scale-[1.2] origin-center"
-        ></iframe>
-        <div class="absolute inset-0 bg-black/70 z-10"></div>
-        <div class="absolute inset-0 flex items-center z-20 text-center px-4">
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+        <div
+          class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h1
-            class="ml-2 sm:ml-5 md:ml-10 lg:ml-15 text-white text-left text-3xl md:text-5xl lg:text-6xl font-bold leading-tight reveal"
+            class="text-white text-left text-4xl md:text-6xl lg:text-7xl font-bold leading-tight reveal"
           >
-            <span class="text-blue-500">LARGER THAN LIFE</span><br />
-            <span
-              class="font-light drop-shadow-[0_1px_4px_rgba(255,255,255,0.7)] leading-normal"
-              >WITH A LAST MILE TOUCH</span
-            >
+            <span class="text-blue-400">LARGER THAN LIFE</span>
           </h1>
+          <p
+            class="mt-4 text-white text-left text-xl md:text-5xl font-light drop-shadow-[0_1px_4px_rgba(255,255,255,0.7)] leading-normal reveal"
+          >
+            With a Last Mile Touch
+          </p>
+
+          <div class="mt-8 reveal">
+            <a
+              href="#contact"
+              class="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              Get Started
+            </a>
+          </div>
         </div>
       </section>
 
@@ -261,7 +271,7 @@
       >
         <div class="hidden md:grid md:grid-cols-3 md:grid-rows-2 md:gap-5">
           <figure
-            class="relative rounded-lg overflow-hidden group cursor-pointer reveal"
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <img
               src="./assets/images/1.jpg"
@@ -273,7 +283,7 @@
             ></figcaption>
           </figure>
           <figure
-            class="relative rounded-lg overflow-hidden group cursor-pointer reveal"
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-xl transition-shadow duration-300"
             style="transition-delay: 100ms"
           >
             <img
@@ -286,7 +296,7 @@
             ></figcaption>
           </figure>
           <figure
-            class="relative rounded-lg overflow-hidden group cursor-pointer reveal"
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-xl transition-shadow duration-300"
             style="transition-delay: 200ms"
           >
             <img
@@ -299,7 +309,7 @@
             ></figcaption>
           </figure>
           <figure
-            class="relative rounded-lg overflow-hidden group cursor-pointer reveal"
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-xl transition-shadow duration-300"
             style="transition-delay: 300ms"
           >
             <img
@@ -312,7 +322,7 @@
             ></figcaption>
           </figure>
           <figure
-            class="relative rounded-lg overflow-hidden group cursor-pointer reveal"
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-xl transition-shadow duration-300"
             style="transition-delay: 400ms"
           >
             <img
@@ -325,7 +335,7 @@
             ></figcaption>
           </figure>
           <div
-            class="font-poppins bg-blue-500 p-10 rounded-lg text-white reveal"
+            class="font-poppins bg-blue-500 p-10 rounded-lg text-white reveal shadow-lg hover:shadow-xl transition-shadow duration-300"
             style="transition-delay: 500ms"
           >
             <h2 class="text-2xl lg:text-5xl font-bold">
@@ -361,7 +371,7 @@
             style="transition-delay: 200ms"
           >
             <div
-              class="absolute -top-4 left-5 h-full w-[100%] border-[3px] border-blue-500 rounded-2xl"
+              class="absolute -top-4 left-5 h-full w-[100%] border-[3px] border-blue-500 rounded-2xl shadow-lg"
             ></div>
             <video
               autoplay
@@ -369,67 +379,24 @@
               muted
               src="./assets/videos/world.mp4"
               alt="Promotional video placeholder"
-              class="w-full h-80 rounded-lg shadow-lg object-cover"
+              class="w-full h-80 rounded-lg shadow-lg hover:shadow-2xl object-cover transition-shadow duration-300"
               loading="lazy"
             ></video>
           </div>
         </div>
       </section>
       <section
-        id="mission"
-        class="my-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-poppins"
+        id="mission-vision-values"
+        class="my-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-poppins"
         aria-label="Our mission, vision, and values"
       >
-        <!-- Cards Grid -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-8"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12"
         >
-          <!-- Card 1: Mission -->
           <div class="relative flex flex-col items-center">
-            <!-- Icon Circle -->
-            <div
-              class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-red-500 rounded-full shadow-lg border-4 border-white"
-            >
-              <!-- Rocket Icon -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-10 h-10 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                />
-              </svg>
-            </div>
-            <!-- Card Content -->
-            <div
-              class="bg-white rounded-xl shadow-lg p-8 pt-14 w-full border-2 border-red-200 hover:border-red-400 transition-colors duration-300"
-            >
-              <h2
-                class="text-xl font-bold text-center text-red-500 tracking-wider uppercase mb-4"
-              >
-                Mission
-              </h2>
-              <p class="text-center text-gray-600 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad minim veniam.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 2: Vision -->
-          <div class="relative flex flex-col items-center">
-            <!-- Icon Circle -->
             <div
               class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-blue-500 rounded-full shadow-lg border-4 border-white"
             >
-              <!-- Eye Icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-10 h-10 text-white"
@@ -450,30 +417,26 @@
                 />
               </svg>
             </div>
-            <!-- Card Content -->
             <div
-              class="bg-white rounded-xl shadow-lg p-8 pt-14 w-full border-2 border-blue-200 hover:border-blue-400 transition-colors duration-300"
+              class="bg-white rounded-xl shadow-xl p-8 pt-14 w-full h-full border-2 border-gray-100 hover:border-blue-300 transition-all duration-300 hover:shadow-2xl"
             >
               <h2
-                class="text-xl font-bold text-center text-blue-500 tracking-wider uppercase mb-4"
+                class="text-2xl font-bold text-center text-blue-500 tracking-wider uppercase mb-4"
               >
                 Vision
               </h2>
-              <p class="text-center text-gray-600 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad minim veniam.
+              <p class="text-center text-gray-700 leading-relaxed">
+                We craft impactful, story-driven experiences by blending
+                immersive events, and precise design— executed to perfection,
+                with last mile touch.
               </p>
             </div>
           </div>
 
-          <!-- Card 3: Values -->
           <div class="relative flex flex-col items-center">
-            <!-- Icon Circle -->
             <div
-              class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-yellow-500 rounded-full shadow-lg border-4 border-white"
+              class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-red-500 rounded-full shadow-lg border-4 border-white"
             >
-              <!-- Diamond Icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-10 h-10 text-white"
@@ -485,34 +448,63 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                 />
-                <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  fill="currentColor"
-                  stroke="none"
-                ></path>
               </svg>
             </div>
-            <!-- Card Content -->
             <div
-              class="bg-white rounded-xl shadow-lg p-8 pt-14 w-full border-2 border-yellow-200 hover:border-yellow-400 transition-colors duration-300"
+              class="bg-white rounded-xl shadow-xl p-8 pt-14 w-full h-full border-2 border-gray-100 hover:border-red-300 transition-all duration-300 hover:shadow-2xl"
             >
               <h2
-                class="text-xl font-bold text-center text-yellow-500 tracking-wider uppercase mb-4"
+                class="text-2xl font-bold text-center text-red-500 tracking-wider uppercase mb-4"
               >
-                Values
+                Mission
               </h2>
-              <p class="text-center text-gray-600 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad minim veniam.
+              <p class="text-center text-gray-700 leading-relaxed">
+                We aim to redefine experiential luxury in Events and
+                Design—achieving ₹200 Cr in revenue by 2028, with a bold vision
+                to go public by the end of the decade.
               </p>
+            </div>
+          </div>
+
+          <div class="relative flex flex-col items-center">
+            <div
+              class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-yellow-500 rounded-full shadow-lg border-4 border-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-10 h-10 text-white"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="bg-white rounded-xl shadow-xl p-8 pt-14 w-full h-full border-2 border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-2xl"
+            >
+              <h2
+                class="text-2xl font-bold text-center text-yellow-500 tracking-wider uppercase mb-4"
+              >
+                Core Values
+              </h2>
+              <ul class="text-center text-gray-700 leading-relaxed space-y-2">
+                <li>✨ Imaginative Excellence</li>
+                <li>🤝 Client Obsession</li>
+                <li>⚖️ Integrity at the Core</li>
+                <li>🌿 Sustainability</li>
+                <li>🌐 Cultural Agility & Collaboration</li>
+                <li>💡 Innovation</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
-
       <section
         id="services"
         class="my-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-poppins"
@@ -522,7 +514,7 @@
           class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4"
         >
           <article
-            class="card-hover relative bg-gray-100 text-gray-800 h-96 p-6 rounded-lg flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden border border-gray-200 reveal"
+            class="card-hover relative bg-white text-gray-800 h-96 p-6 rounded-lg flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-xl reveal"
           >
             <div
               class="overlay absolute inset-0 opacity-0 transition-opacity duration-300 rounded-lg z-0"
@@ -549,7 +541,7 @@
             </div>
           </article>
           <article
-            class="card-hover relative bg-gray-100 text-gray-800 h-96 p-6 rounded-lg flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden border border-gray-200 reveal"
+            class="card-hover relative bg-white text-gray-800 h-96 p-6 rounded-lg flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-xl reveal"
             style="transition-delay: 150ms"
           >
             <div
@@ -576,7 +568,7 @@
             </div>
           </article>
           <article
-            class="card-hover relative bg-gray-100 text-gray-800 h-96 p-6 rounded-lg flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden border border-gray-200 reveal"
+            class="card-hover relative bg-white text-gray-800 h-96 p-6 rounded-lg flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-xl reveal"
             style="transition-delay: 300ms"
           >
             <div
@@ -604,7 +596,7 @@
             </div>
           </article>
           <article
-            class="card-hover relative bg-gray-100 text-gray-800 h-96 p-6 rounded-lg flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden border border-gray-200 reveal"
+            class="card-hover relative bg-white text-gray-800 h-96 p-6 rounded-lg flex flex-col items-center justify-between text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-xl reveal"
             style="transition-delay: 450ms"
           >
             <div
@@ -640,7 +632,7 @@
         aria-label="Join Us"
       >
         <article
-          class="relative bg-gray-100 rounded-lg overflow-hidden transition-all duration-300 reveal"
+          class="relative bg-gray-100 rounded-lg overflow-hidden transition-all duration-300 reveal shadow-xl"
         >
           <div
             class="flex flex-col md:flex-row justify-between items-center min-h-[20rem] md:min-h-[24rem]"
@@ -687,7 +679,7 @@
         class="my-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-poppins"
         aria-labelledby="contact-heading"
       >
-        <div class="bg-gray-100 shadow-xl rounded-2xl p-6 sm:p-10 reveal">
+        <div class="bg-white shadow-xl rounded-2xl p-6 sm:p-10 reveal">
           <h2
             id="contact-heading"
             class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4"
@@ -863,8 +855,7 @@
                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.136 1.447-2.136 2.941v5.665H9.352V9h3.414v1.561h.048c.477-.9 1.638-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 0 1 2.063-2.065 2.064 2.064 0 0 1 2.064 2.065 2.062 2.062 0 0 1-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"
                   />
                 </svg>
-                ></a
-              >
+              </a>
             </div>
           </div>
         </div>
@@ -876,10 +867,7 @@
       </div>
     </footer>
 
-    <!-- Whatsapp Form Modal -->
-
     <div class="bg-gray-100 relative">
-      <!-- WhatsApp Icon Button -->
       <button
         id="wa-toggle"
         aria-label="Contact us on WhatsApp"
@@ -896,13 +884,12 @@
           />
         </svg>
       </button>
-      <!-- Contact Form Modal -->
       <div
         id="wa-form-container"
         class="fixed hidden inset-0 bg-black/60 z-50 flex items-center justify-center lg:p-6 lg:items-end lg:justify-end"
       >
         <div
-          class="w-screen h-screen flex flex-col lg:h-auto lg:w-80 lg:rounded-xl lg:mb-20 lg:mr-2"
+          class="w-screen h-screen flex flex-col lg:h-auto lg:w-80 lg:rounded-xl lg:mb-20 lg:mr-2 shadow-2xl"
         >
           <header
             class="flex items-center justify-between h-12 bg-[#149467] px-4 flex-shrink-0 lg:rounded-t-xl"
@@ -1013,9 +1000,7 @@
         </div>
       </div>
     </div>
-    <!-- Whatsapp Form Modal -->
-  </body>
-  <!-- intl-tel-input JS -->
+    </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
   <script src="./assets/js/main.js" defer></script>
   <script src="./assets/js/whatsapp-form.js" defer></script>
