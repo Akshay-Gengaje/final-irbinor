@@ -867,141 +867,141 @@
       </div>
     </footer>
 
-    <div class="bg-gray-100 relative">
-      <button
-        id="wa-toggle"
-        aria-label="Contact us on WhatsApp"
-        class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+
+
+    <button
+      id="wa-toggle"
+      aria-label="Contact us on WhatsApp"
+      class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-transform duration-300 hover:scale-110"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        class="w-6 h-6"
+        viewBox="0 0 24 24"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          class="w-6 h-6"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M20.52 3.48A11.87 11.87 0 0012 0a11.87 11.87 0 00-8.52 3.48A11.87 11.87 0 000 12c0 2.11.55 4.12 1.6 5.93L0 24l6.18-1.6A11.87 11.87 0 0012 24c3.16 0 6.14-1.23 8.52-3.48A11.87 11.87 0 0024 12c0-3.16-1.23-6.14-3.48-8.52zM12 22c-2.03 0-4-.54-5.7-1.56l-.4-.23-3.7.95.98-3.61-.26-.42C2.53 15.88 2 13.98 2 12a10 10 0 1120 0c0 2.66-1.03 5.17-2.93 7.07A9.93 9.93 0 0112 22zm5.2-7.28c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15s-.78.98-.95 1.18c-.18.2-.35.22-.65.07s-1.27-.47-2.42-1.49c-.9-.8-1.5-1.8-1.67-2.1s-.02-.47.13-.62c.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52s-.68-1.62-.93-2.23c-.25-.6-.5-.52-.68-.53l-.58-.01c-.2 0-.52.08-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.23 5.14 4.53 1.77.76 2.46.82 3.33.69.53-.08 1.78-.73 2.04-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35z"
-          />
-        </svg>
-      </button>
+        <path
+          d="M20.52 3.48A11.87 11.87 0 0012 0a11.87 11.87 0 00-8.52 3.48A11.87 11.87 0 000 12c0 2.11.55 4.12 1.6 5.93L0 24l6.18-1.6A11.87 11.87 0 0012 24c3.16 0 6.14-1.23 8.52-3.48A11.87 11.87 0 0024 12c0-3.16-1.23-6.14-3.48-8.52zM12 22c-2.03 0-4-.54-5.7-1.56l-.4-.23-3.7.95.98-3.61-.26-.42C2.53 15.88 2 13.98 2 12a10 10 0 1120 0c0 2.66-1.03 5.17-2.93 7.07A9.93 9.93 0 0112 22zm5.2-7.28c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15s-.78.98-.95 1.18c-.18.2-.35.22-.65.07s-1.27-.47-2.42-1.49c-.9-.8-1.5-1.8-1.67-2.1s-.02-.47.13-.62c.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52s-.68-1.62-.93-2.23c-.25-.6-.5-.52-.68-.53l-.58-.01c-.2 0-.52.08-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.23 5.14 4.53 1.77.76 2.46.82 3.33.69.53-.08 1.78-.73 2.04-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35z"
+        />
+      </svg>
+    </button>
+
+    <!-- Whatsapp Modal Form -->
+    <div
+      id="wa-form-container"
+      class="fixed inset-0 bg-black/60 z-90 flex items-center justify-center p-4 lg:items-end lg:justify-end lg:p-0 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
       <div
-        id="wa-form-container"
-        class="fixed hidden inset-0 bg-black/60 z-50 flex items-center justify-center lg:p-6 lg:items-end lg:justify-end"
+        id="wa-form-card"
+        class="w-full flex flex-col transform scale-95 transition-transform duration-300 lg:w-96 lg:mb-6 lg:mr-6 shadow-2xl rounded-xl"
       >
-        <div
-          class="w-screen h-screen flex flex-col lg:h-auto lg:w-80 lg:rounded-xl lg:mb-20 lg:mr-2 shadow-2xl"
+        <header
+          class="flex items-center justify-between bg-[#149467] px-4 py-2 flex-shrink-0 rounded-t-xl"
         >
-          <header
-            class="flex items-center justify-between h-12 bg-[#149467] px-4 flex-shrink-0 lg:rounded-t-xl"
+          <h3 class="text-white text-lg font-semibold">Contact Us</h3>
+          <button
+            id="close-wa-form"
+            aria-label="Close WhatsApp form"
+            class="text-white hover:text-gray-200"
           >
-            <h3 class="text-white text-lg font-semibold">Contact Us</h3>
-            <button
-              id="close-wa-form"
-              aria-label="Close WhatsApp form"
-              class="text-white hover:text-gray-200"
+            <svg
+              class="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
             >
-              <svg
-                class="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </header>
+
+        <form
+          id="whatsapp-form"
+          class="space-y-4 p-6 bg-white overflow-y-auto rounded-b-xl"
+          novalidate
+        >
+          <div>
+            <label for="wa-name" class="block text-sm font-medium text-gray-700"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="wa-name"
+              name="wa-name"
+              required
+              placeholder="John Doe"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition"
+            />
+            <p id="wa-name-error" class="text-sm text-red-600 mt-1 hidden"></p>
+          </div>
+
+          <div>
+            <label for="wa-email" class="block text-sm font-medium text-gray-700"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="wa-email"
+              name="wa-email"
+              required
+              placeholder="john@example.com"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition"
+            />
+            <p id="wa-email-error" class="text-sm text-red-600 mt-1 hidden"></p>
+          </div>
+
+          <div>
+            <label for="wa-phone" class="block text-sm font-medium text-gray-700"
+              >Phone Number</label
+            >
+            <input
+              type="tel"
+              id="wa-phone"
+              name="wa-phone"
+              required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition"
+            />
+            <p id="wa-phone-error" class="text-sm text-red-600 mt-1 hidden"></p>
+          </div>
+
+          <div>
+            <label for="wa-message" class="block text-sm font-medium text-gray-700"
+              >Your Message</label
+            >
+            <textarea
+              id="wa-message"
+              name="wa-message"
+              rows="4"
+              minlength="10"
+              maxlength="300"
+              required
+              placeholder="Type your message here..."
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 resize-none transition"
+            ></textarea>
+            <p id="wa-message-error" class="text-sm text-red-600 mt-1 hidden"></p>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              class="w-full bg-green-600 text-white p-3 rounded-md font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+            >
+              Start WhatsApp Chat
             </button>
-          </header>
-          <form
-            id="whatsapp-form"
-            class="space-y-3 p-6 h-96 bg-white overflow-y-auto lg:rounded-b-xl"
-            novalidate
-          >
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700"
-                >Full Name</label
-              >
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="John Doe"
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500"
-              />
-              <p id="name-error" class="text-sm text-red-600 mt-1 hidden"></p>
-            </div>
-
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700"
-                >Email Address</label
-              >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="john@example.com"
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500"
-              />
-              <p id="email-error" class="text-sm text-red-600 mt-1 hidden"></p>
-            </div>
-
-            <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700"
-                >Phone Number</label
-              >
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500"
-              />
-              <p id="phone-error" class="text-sm text-red-600 mt-1 hidden"></p>
-            </div>
-
-            <div>
-              <label
-                for="message"
-                class="block text-sm font-medium text-gray-700"
-                >Your Message</label
-              >
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                minlength="10"
-                maxlength="300"
-                required
-                placeholder="Type your message here..."
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 resize-none"
-              ></textarea>
-              <p
-                id="message-error"
-                class="text-sm text-red-600 mt-1 hidden"
-              ></p>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                class="w-full bg-green-600 text-white p-3 rounded-md font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-              >
-                Start WhatsApp Chat
-              </button>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
-    </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js" defer></script>
   <script src="./assets/js/main.js" defer></script>
   <script src="./assets/js/whatsapp-form.js" defer></script>
 </html>
