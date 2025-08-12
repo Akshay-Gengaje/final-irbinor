@@ -54,74 +54,92 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // --- Theme Toggler ---
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const darkIcon = document.getElementById('theme-toggle-dark-icon');
-  const lightIcon = document.getElementById('theme-toggle-light-icon');
+// --- Theme Toggler ---
+const themeToggleBtn = document.getElementById('theme-toggle');
+const darkIcon = document.getElementById('theme-toggle-dark-icon');
+const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-  // Function to set the theme state
-  const applyTheme = (theme) => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      darkIcon.classList.remove('hidden');
-      lightIcon.classList.add('hidden');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      darkIcon.classList.add('hidden');
-      lightIcon.classList.remove('hidden');
-      localStorage.setItem('theme', 'light');
-    }
-  };
+// Function to apply theme (but only store if explicitly told)
+const applyTheme = (theme, store = false) => {
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+    darkIcon.classList.remove('hidden');
+    lightIcon.classList.add('hidden');
+    if (store) localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+    darkIcon.classList.add('hidden');
+    lightIcon.classList.remove('hidden');
+    if (store) localStorage.setItem('theme', 'light');
+  }
+};
 
-  // Set initial theme based on localStorage or system preference
-  const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  applyTheme(currentTheme);
+// Set initial theme: default to light if nothing in localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  applyTheme(savedTheme);
+} else {
+  applyTheme('light'); // Default without storing
+}
 
-  // Handle theme toggle button click
-  themeToggleBtn.addEventListener('click', () => {
-    const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-    applyTheme(newTheme);
-  });
+// Handle theme toggle button click
+themeToggleBtn.addEventListener('click', () => {
+  const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+  applyTheme(newTheme, true); // Store only after toggle
+});
 
 
-  // --- Active Nav Link & Centering Logic (On Scroll) ---
-  const navLinks = document.querySelectorAll("a.nav-link");
-  const navContainer = document.querySelector(".nav-container");
-  const sections = document.querySelectorAll("main section[id]");
+// --- Active Nav Link & Centering Logic ---
+const navLinks = document.querySelectorAll("a.nav-link");
+const navContainer = document.querySelector(".nav-container");
+const sections = document.querySelectorAll("main section[id]");
 
-  if (navContainer && sections.length > 0) {
-    /**
-     * IntersectionObserver to watch which section is currently in the viewport.
-     * This is highly performant as it avoids listening to every scroll event.
-     */
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute("id");
-          const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+if (sections.length > 0) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      // Filter for the entry that is currently intersecting
+      const intersectingEntry = entries.find(entry => entry.isIntersecting);
 
-          // Remove active state from all links
-          navLinks.forEach((link) => link.classList.remove("text-[var(--accent)]"));
-          
-          if (activeLink) {
-            // Add active state to the intersecting link
-            activeLink.classList.add("text-[var(--accent)]");
+      if (intersectingEntry) {
+        const id = intersectingEntry.target.getAttribute("id");
+        const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
 
-            // Horizontally center the active link in the navigation bar
+        // First, reset all links to their default, inactive state.
+        navLinks.forEach((link) => {
+          link.classList.remove("text-[var(--accent)]");
+          link.classList.add("text-[var(--text-secondary)]");
+        });
+
+        // Now, apply the active state to the correct link.
+        if (activeLink) {
+          // Remove the inactive class and add the active one.
+          activeLink.classList.remove("text-[var(--text-secondary)]");
+          activeLink.classList.add("text-[var(--accent)]");
+
+          // Center the active link in the navigation bar (for desktop).
+          if (navContainer) {
             const containerRect = navContainer.getBoundingClientRect();
             const linkRect = activeLink.getBoundingClientRect();
-            const scrollLeft = navContainer.scrollLeft + linkRect.left - containerRect.left - (containerRect.width / 2) + (linkRect.width / 2);
-            
+            const scrollLeft =
+              navContainer.scrollLeft +
+              linkRect.left -
+              containerRect.left -
+              containerRect.width / 2 +
+              linkRect.width / 2;
+
             navContainer.scrollTo({ left: scrollLeft, behavior: "smooth" });
           }
         }
-      });
-    }, { rootMargin: "-50% 0px -50% 0px", threshold: 0 }); // Triggers when the section center crosses the viewport center
+      }
+    },
+    {
+      rootMargin: "0px 0px -50% 0px", // Trigger when a section is at 50% of the viewport height.
+      threshold: 0.25,
+    }
+  );
 
-    sections.forEach((section) => sectionObserver.observe(section));
-  }
-
+  sections.forEach((section) => sectionObserver.observe(section));
+}
 
   // --- Reveal on Scroll Animation ---
   const revealElements = document.querySelectorAll(".reveal");
