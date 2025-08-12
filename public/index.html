@@ -11,14 +11,26 @@
       content="IRBINOR delivers larger-than-life experiences with a last-mile touch. Explore our innovative design, management, hospitality, and gifting services."
     />
     <link rel="canonical" href="https://www.yourwebsite.com/" />
-    
-    <meta property="og:title" content="IRBINOR | Creative Services, Design, Hospitality & Management" />
-    <meta property="og:description" content="Larger than life experiences with a last mile touch." />
-    <meta property="og:image" content="https://www.yourwebsite.com/assets/images/social-share.jpg" />
+
+    <meta
+      property="og:title"
+      content="IRBINOR | Creative Services, Design, Hospitality & Management"
+    />
+    <meta
+      property="og:description"
+      content="Larger than life experiences with a last mile touch."
+    />
+    <meta
+      property="og:image"
+      content="https://www.yourwebsite.com/assets/images/social-share.jpg"
+    />
     <meta property="og:url" content="https://www.yourwebsite.com/" />
     <meta property="og:type" content="website" />
 
-    <meta name="keywords" content="Design, Management, Hospitality, Gifting, Creative Services, Events" />
+    <meta
+      name="keywords"
+      content="Design, Management, Hospitality, Gifting, Creative Services, Events"
+    />
     <meta name="author" content="IRBINOR" />
 
     <link href="./assets/css/tailwind.css" rel="stylesheet" />
@@ -28,16 +40,13 @@
     />
 
     <script>
-      // Performance: Inlined script to prevent Flash of Unstyled Content (FOUC).
-      // It immediately applies the theme from localStorage or system preference.
+      // Prevent FOUC: Apply theme instantly before page renders
       (function () {
         const theme = localStorage.getItem("theme");
         if (theme === "dark") {
           document.documentElement.classList.add("dark");
-        } else if (theme === "light") {
-          document.documentElement.classList.remove("dark");
-        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark"); // Default: light mode
         }
       })();
     </script>
@@ -60,7 +69,6 @@
                   class="h-16"
                   src="./assets/images/logo.png"
                   alt="IRBINOR Company Logo"
-                  onerror="this.onerror=null; this.src='https://placehold.co/100x64/ffffff/000000?text=Logo';"
                 />
               </a>
             </div>
@@ -68,12 +76,48 @@
             <div class="hidden md:flex items-center justify-center flex-grow">
               <div class="nav-container overflow-x-auto whitespace-nowrap">
                 <ul id="nav-links" class="flex space-x-8 items-center">
-                  <li><a href="#home" class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300">Home</a></li>
-                  <li><a href="#work" class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300">Work</a></li>
-                  <li><a href="#story" class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300">Our Story</a></li>
-                  <li><a href="#services" class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300">Services</a></li>
-                  <li><a href="#join" class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300">Join Us</a></li>
-                  <li><a href="#contact" class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300">Contact</a></li>
+                  <li>
+                    <a
+                      href="#home"
+                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#work"
+                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
+                      >Work</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#story"
+                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
+                      >Our Story</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#services"
+                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
+                      >Services</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#join"
+                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
+                      >Join Us</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#contact"
+                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
+                      >Contact</a
+                    >
+                  </li>
                 </ul>
               </div>
             </div>
@@ -84,13 +128,52 @@
                 aria-label="Toggle dark and light mode"
                 class="p-2 rounded-full text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--bg-secondary)] focus:outline-none transition-colors duration-300"
               >
-                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                <svg
+                  id="theme-toggle-dark-icon"
+                  class="w-5 h-5 hidden"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                  ></path>
+                </svg>
+                <svg
+                  id="theme-toggle-light-icon"
+                  class="w-5 h-5 hidden"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
               </button>
 
               <div class="md:hidden ml-2">
-                <button id="menu-btn" class="text-[var(--text-secondary)] focus:outline-none z-50" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
-                  <svg class="w-6 h-6 hamburger-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <button
+                  id="menu-btn"
+                  class="text-[var(--text-secondary)] focus:outline-none z-50"
+                  aria-label="Toggle mobile menu"
+                  aria-expanded="false"
+                  aria-controls="mobile-menu"
+                >
+                  <svg
+                    class="w-6 h-6 hamburger-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h16m-7 6h7"
+                    ></path>
+                  </svg>
                 </button>
               </div>
             </div>
@@ -104,279 +187,773 @@
       class="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-[var(--bg-secondary)] z-40 transform translate-x-full transition-transform duration-300 ease-in-out"
       aria-label="Mobile Navigation"
     >
-      <button id="sidebar-close-btn" aria-label="Close menu" class="absolute top-5 right-5 text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
-        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      <button
+        id="sidebar-close-btn"
+        aria-label="Close menu"
+        class="absolute top-5 right-5 text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+      >
+        <svg
+          class="w-8 h-8"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
       </button>
       <div id="mobile-menu-links" class="flex flex-col gap-4 mt-20 p-6">
-        <a href="#home" class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]">Home</a>
-        <a href="#story" class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]">Our Story</a>
-        <a href="#services" class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]">Services</a>
-        <a href="#join" class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]">Join Us</a>
-        <a href="#contact" class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]">Contact</a>
+        <a
+          href="#home"
+          class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+          >Home</a
+        >
+        <a
+          href="#story"
+          class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+          >Our Story</a
+        >
+        <a
+          href="#services"
+          class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+          >Services</a
+        >
+        <a
+          href="#join"
+          class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+          >Join Us</a
+        >
+        <a
+          href="#contact"
+          class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+          >Contact</a
+        >
       </div>
     </aside>
 
     <main>
-      <section id="home" aria-labelledby="hero-heading" class="relative flex items-center h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('./assets/images/hero.jpg')">
+      <section
+        id="home"
+        aria-labelledby="hero-heading"
+        class="relative flex items-center h-screen bg-cover bg-center bg-no-repeat"
+        style="background-image: url('./assets/images/hero.jpg')"
+      >
         <div class="absolute inset-0 bg-black/60 z-10"></div>
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 id="hero-heading" class="text-white text-left text-4xl md:text-6xl lg:text-7xl font-bold leading-tight reveal">
+        <div
+          class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <h1
+            id="hero-heading"
+            class="text-white text-left text-4xl md:text-6xl lg:text-7xl font-bold leading-tight reveal"
+          >
             <span class="text-[var(--accent)]">LARGER THAN LIFE</span>
-            <span class="block mt-4 text-xl md:text-5xl font-light drop-shadow-lg leading-normal">
+            <span
+              class="block mt-4 text-xl md:text-5xl font-light drop-shadow-lg leading-normal"
+            >
               With a Last Mile Touch
             </span>
           </h1>
           <div class="mt-8 reveal">
-            <a href="#contact" class="inline-block bg-[var(--accent)] text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-[var(--accent-hover)] transition-colors duration-300 shadow-lg hover:shadow-xl shadow-amber-500/20">
+            <a
+              href="#contact"
+              class="inline-block bg-[var(--accent)] text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-[var(--accent-hover)] transition-colors duration-300 shadow-lg hover:shadow-xl shadow-amber-500/20"
+            >
               Get Started
             </a>
           </div>
         </div>
       </section>
 
-      <section id="work" aria-labelledby="work-heading" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-32">
+      <section
+        id="work"
+        aria-labelledby="work-heading"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-32"
+      >
         <h2 id="work-heading" class="sr-only">Our Work</h2>
         <div class="hidden md:grid md:grid-cols-3 md:grid-rows-2 md:gap-6">
-          <figure class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            <img src="./assets/images/1.jpg" alt="A beautifully arranged event table setting" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            <figcaption class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></figcaption>
+          <figure
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300"
+          >
+            <img
+              src="./assets/images/1.jpg"
+              alt="A beautifully arranged event table setting"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <figcaption
+              class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></figcaption>
           </figure>
-          <figure class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300" style="transition-delay: 100ms">
-            <img src="./assets/images/2.jpg" alt="A modern architectural design showcase" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            <figcaption class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></figcaption>
+          <figure
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            style="transition-delay: 100ms"
+          >
+            <img
+              src="./assets/images/2.jpg"
+              alt="A modern architectural design showcase"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <figcaption
+              class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></figcaption>
           </figure>
-          <figure class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300" style="transition-delay: 200ms">
-            <img src="./assets/images/3.jpg" alt="A creative corporate gifting package" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            <figcaption class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></figcaption>
+          <figure
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            style="transition-delay: 200ms"
+          >
+            <img
+              src="./assets/images/3.jpg"
+              alt="A creative corporate gifting package"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <figcaption
+              class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></figcaption>
           </figure>
-          <figure class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300" style="transition-delay: 300ms">
-            <img src="./assets/images/5.jpg" alt="Luxurious hospitality setup at an event" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            <figcaption class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></figcaption>
+          <figure
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            style="transition-delay: 300ms"
+          >
+            <img
+              src="./assets/images/5.jpg"
+              alt="Luxurious hospitality setup at an event"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <figcaption
+              class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></figcaption>
           </figure>
-          <figure class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300" style="transition-delay: 400ms">
-            <img src="./assets/images/6.jpg" alt="Vibrant stage design for a conference" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            <figcaption class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></figcaption>
+          <figure
+            class="relative rounded-lg overflow-hidden group cursor-pointer reveal shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            style="transition-delay: 400ms"
+          >
+            <img
+              src="./assets/images/6.jpg"
+              alt="Vibrant stage design for a conference"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <figcaption
+              class="absolute inset-0 bg-[var(--accent)]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></figcaption>
           </figure>
-          <div class="bg-[var(--accent)] p-10 rounded-lg text-white reveal shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-center items-start" style="transition-delay: 500ms">
-            <p class="text-4xl lg:text-5xl font-bold">EXPERIENCE<br /><strong class="text-stroke">WORK</strong></p>
-            <button class="mt-5 px-6 py-2 font-semibold border-2 border-white rounded-full cursor-pointer hover:bg-white hover:text-[var(--accent)] transition-colors duration-300">EXPLORE</button>
+          <div
+            class="bg-[var(--accent)] p-10 rounded-lg text-white reveal shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-center items-start"
+            style="transition-delay: 500ms"
+          >
+            <p class="text-4xl lg:text-5xl font-bold">
+              EXPERIENCE<br /><strong class="text-stroke">WORK</strong>
+            </p>
+            <button
+              class="mt-5 px-6 py-2 font-semibold border-2 border-white rounded-full cursor-pointer hover:bg-white hover:text-[var(--accent)] transition-colors duration-300"
+            >
+              EXPLORE
+            </button>
           </div>
         </div>
       </section>
 
-      <section id="story" class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="story-heading">
+      <section
+        id="story"
+        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        aria-labelledby="story-heading"
+      >
         <div class="text-center mb-16 reveal">
-          <h2 id="story-heading" class="text-4xl md:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight">Our Story</h2>
-          <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">From a strong legacy to a new-age, experience-first company.</p>
+          <h2
+            id="story-heading"
+            class="text-4xl md:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight"
+          >
+            Our Story
+          </h2>
+          <p
+            class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto"
+          >
+            From a strong legacy to a new-age, experience-first company.
+          </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 100ms">
-            <div class="flex-shrink-0 mb-4"><img src="./assets/images/pillars.png" alt="Legacy icon" loading="lazy" class="w-12 h-12" /></div>
-            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">A Legacy in Motion</h3>
-            <p class="text-[var(--text-secondary)] leading-relaxed">Backed by the strategic foundation of JCSSSS Ltd., we've translated decades of operational know-how into a new-age, experience-first company.</p>
+          <div
+            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal"
+            style="transition-delay: 100ms"
+          >
+            <div class="flex-shrink-0 mb-4">
+              <img
+                src="./assets/images/pillars.png"
+                alt="Legacy icon"
+                loading="lazy"
+                class="w-12 h-12"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">
+              A Legacy in Motion
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Backed by the strategic foundation of JCSSSS Ltd., we've
+              translated decades of operational know-how into a new-age,
+              experience-first company.
+            </p>
           </div>
-          <div class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 200ms">
-            <div class="flex-shrink-0 mb-4"><img src="./assets/images/plant.png" alt="Sustainability icon" loading="lazy" class="w-12 h-12" /></div>
-            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Self-Sustained by Design</h3>
-            <p class="text-[var(--text-secondary)] leading-relaxed">Built on a cash-rich, competency-driven foundation, we're positioned for sustainable growth without reliance on early-stage external funding.</p>
+          <div
+            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal"
+            style="transition-delay: 200ms"
+          >
+            <div class="flex-shrink-0 mb-4">
+              <img
+                src="./assets/images/plant.png"
+                alt="Sustainability icon"
+                loading="lazy"
+                class="w-12 h-12"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">
+              Self-Sustained by Design
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Built on a cash-rich, competency-driven foundation, we're
+              positioned for sustainable growth without reliance on early-stage
+              external funding.
+            </p>
           </div>
-          <div class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 300ms">
-            <div class="flex-shrink-0 mb-4"><img src="./assets/images/graphic-designer.png" alt="Creativity icon" loading="lazy" class="w-12 h-12" /></div>
-            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">In-House Creative Power</h3>
-            <p class="text-[var(--text-secondary)] leading-relaxed">Our integrated design arm enhances the storytelling and aesthetic depth of every experience, ensuring strategic coherence across all touchpoints.</p>
+          <div
+            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal"
+            style="transition-delay: 300ms"
+          >
+            <div class="flex-shrink-0 mb-4">
+              <img
+                src="./assets/images/graphic-designer.png"
+                alt="Creativity icon"
+                loading="lazy"
+                class="w-12 h-12"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">
+              In-House Creative Power
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Our integrated design arm enhances the storytelling and aesthetic
+              depth of every experience, ensuring strategic coherence across all
+              touchpoints.
+            </p>
           </div>
-          <div class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 400ms">
-            <div class="flex-shrink-0 mb-4"><img src="./assets/images/podium.png" alt="Experience icon" loading="lazy" class="w-12 h-12" /></div>
-            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">Experience at Scale</h3>
-            <p class="text-[var(--text-secondary)] leading-relaxed">We inherit a rich portfolio of mega-scale events, embedding landmark executional frameworks into our DNA to empower events of any size.</p>
+          <div
+            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal"
+            style="transition-delay: 400ms"
+          >
+            <div class="flex-shrink-0 mb-4">
+              <img
+                src="./assets/images/podium.png"
+                alt="Experience icon"
+                loading="lazy"
+                class="w-12 h-12"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-3">
+              Experience at Scale
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              We inherit a rich portfolio of mega-scale events, embedding
+              landmark executional frameworks into our DNA to empower events of
+              any size.
+            </p>
           </div>
         </div>
       </section>
 
-<section id="mission-vision-values" class="my-20 lg:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="mission-heading">
-  <div class="text-center reveal">
-    <h2 id="testimonial-heading" class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">Our Vision, Mission & Values</h2>
-    <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">Shaping immersive, story-driven luxury experiences with creativity, integrity, and impact.</p>
-  </div>
+      <section
+        id="mission-vision-values"
+        class="my-20 lg:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        aria-labelledby="mission-heading"
+      >
+        <div class="text-center reveal">
+          <h2
+            id="testimonial-heading"
+            class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
+          >
+            Our Vision, Mission & Values
+          </h2>
+          <p
+            class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
+          >
+            Shaping immersive, story-driven luxury experiences with creativity,
+            integrity, and impact.
+          </p>
+        </div>
 
-  <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
-    <div class="relative flex flex-col items-center reveal">
-      <div class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-[var(--accent)] rounded-full shadow-lg border-4 border-[var(--bg-primary)]">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-      </div>
-      <div class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl">
-        <h3 class="text-2xl font-bold text-center text-[var(--accent)] tracking-wider uppercase mb-4">Vision</h3>
-        <p class="text-center text-[var(--text-secondary)] leading-relaxed">We craft impactful, story-driven experiences by blending immersive events, and precise design—executed to perfection, with last mile touch.</p>
-      </div>
-    </div>
+        <div
+          class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12"
+        >
+          <div class="relative flex flex-col items-center reveal">
+            <div
+              class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-[var(--accent)] rounded-full shadow-lg border-4 border-[var(--bg-primary)]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-10 h-10 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+              </svg>
+            </div>
+            <div
+              class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl"
+            >
+              <h3
+                class="text-2xl font-bold text-center text-[var(--accent)] tracking-wider uppercase mb-4"
+              >
+                Vision
+              </h3>
+              <p
+                class="text-center text-[var(--text-secondary)] leading-relaxed"
+              >
+                We craft impactful, story-driven experiences by blending
+                immersive events, and precise design—executed to perfection,
+                with last mile touch.
+              </p>
+            </div>
+          </div>
 
-    <div class="relative flex flex-col items-center reveal" style="transition-delay: 150ms">
-      <div class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-[var(--accent)] rounded-full shadow-lg border-4 border-[var(--bg-primary)]">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-        </svg>
-      </div>
-      <div class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl">
-        <h3 class="text-2xl font-bold text-center text-[var(--accent)] tracking-wider uppercase mb-4">Mission</h3>
-        <p class="text-center text-[var(--text-secondary)] leading-relaxed">We aim to redefine experiential luxury in Events and Design—achieving ₹200 Cr in revenue by 2028, with a bold vision to go public by the end of the decade.</p>
-      </div>
-    </div>
+          <div
+            class="relative flex flex-col items-center reveal"
+            style="transition-delay: 150ms"
+          >
+            <div
+              class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-[var(--accent)] rounded-full shadow-lg border-4 border-[var(--bg-primary)]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-10 h-10 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                />
+              </svg>
+            </div>
+            <div
+              class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl"
+            >
+              <h3
+                class="text-2xl font-bold text-center text-[var(--accent)] tracking-wider uppercase mb-4"
+              >
+                Mission
+              </h3>
+              <p
+                class="text-center text-[var(--text-secondary)] leading-relaxed"
+              >
+                We aim to redefine experiential luxury in Events and
+                Design—achieving ₹200 Cr in revenue by 2028, with a bold vision
+                to go public by the end of the decade.
+              </p>
+            </div>
+          </div>
 
-    <div class="relative flex flex-col items-center reveal" style="transition-delay: 300ms">
-      <div class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-[var(--accent)] rounded-full shadow-lg border-4 border-[var(--bg-primary)]">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-        </svg>
-      </div>
-      <div class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl">
-        <h3 class="text-2xl font-bold text-center text-[var(--accent)] tracking-wider uppercase mb-4">Core Values</h3>
-        <ul class="text-center text-[var(--text-secondary)] leading-relaxed space-y-1 font-medium">
-          <li>Imaginative Excellence</li>
-          <li>Client Obsession</li>
-          <li>Integrity at the Core</li>
-          <li>Sustainability</li>
-          <li>Cultural Agility & Collaboration</li>
-          <li>Innovation</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+          <div
+            class="relative flex flex-col items-center reveal"
+            style="transition-delay: 300ms"
+          >
+            <div
+              class="absolute -top-10 flex items-center justify-center w-20 h-20 bg-[var(--accent)] rounded-full shadow-lg border-4 border-[var(--bg-primary)]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-10 h-10 text-white"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl"
+            >
+              <h3
+                class="text-2xl font-bold text-center text-[var(--accent)] tracking-wider uppercase mb-4"
+              >
+                Core Values
+              </h3>
+              <ul
+                class="text-center text-[var(--text-secondary)] leading-relaxed space-y-1 font-medium"
+              >
+                <li>Imaginative Excellence</li>
+                <li>Client Obsession</li>
+                <li>Integrity at the Core</li>
+                <li>Sustainability</li>
+                <li>Cultural Agility & Collaboration</li>
+                <li>Innovation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section id="services" class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="services-heading">
-  <div class="text-center reveal">
-    <h2 id="testimonial-heading" class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">Our Signature Services</h2>
-    <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-      From inspired design to flawless execution, we bring every detail of your event to life with creativity, precision, and warmth.
-    </p>
-  </div>
+      <section
+        id="services"
+        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        aria-labelledby="services-heading"
+      >
+        <div class="text-center reveal">
+          <h2
+            id="testimonial-heading"
+            class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
+          >
+            Our Signature Services
+          </h2>
+          <p
+            class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
+          >
+            From inspired design to flawless execution, we bring every detail of
+            your event to life with creativity, precision, and warmth.
+          </p>
+        </div>
 
-  <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-    
-    <!-- Design -->
-    <article class="group relative bg-[var(--bg-secondary)] h-96 p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal">
-      <div class="relative z-10 flex flex-col justify-center items-center transition-all duration-300 group-hover:text-white">
-        <img src="./assets/icons/design.png" alt="Design Icon" loading="lazy" 
-             class="w-24 h-24 mb-4 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg" />
-        <p class="text-6xl font-bold text-[var(--accent)] group-hover:text-white mb-6 transition-colors duration-300" data-target="70">0</p>
-        <h3 class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white">Design</h3>
-        <p class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300">
-          Our creative team crafts stunning visuals and spaces that captivate and inspire.
-        </p>
-      </div>
-    </article>
+        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Design -->
+          <article
+            class="group relative bg-[var(--bg-secondary)] h-96 p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal"
+          >
+            <div
+              class="relative z-10 flex flex-col justify-center items-center transition-all duration-300 group-hover:text-white"
+            >
+              <img
+                src="./assets/icons/design.png"
+                alt="Design Icon"
+                loading="lazy"
+                class="w-24 h-24 mb-4 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+              />
+              <p
+                class="text-6xl font-bold text-[var(--accent)] group-hover:text-white mb-6 transition-colors duration-300"
+                data-target="70"
+              >
+                0
+              </p>
+              <h3
+                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white"
+              >
+                Design
+              </h3>
+              <p
+                class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300"
+              >
+                Our creative team crafts stunning visuals and spaces that
+                captivate and inspire.
+              </p>
+            </div>
+          </article>
 
-    <!-- Management -->
-    <article class="group relative bg-[var(--bg-secondary)] h-96 p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal">
-      <div class="relative z-10 flex flex-col justify-center items-center transition-all duration-300 group-hover:text-white">
-        <img src="./assets/icons/management.png" alt="Management Icon" loading="lazy" 
-             class="w-24 h-24 mb-4 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg" />
-        <p class="text-6xl font-bold text-[var(--accent)] group-hover:text-white mb-6 transition-colors duration-300" data-target="50">0</p>
-        <h3 class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white">Management</h3>
-        <p class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300">
-          We plan and execute flawless events tailored to your vision.
-        </p>
-      </div>
-    </article>
+          <!-- Management -->
+          <article
+            class="group relative bg-[var(--bg-secondary)] h-96 p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal"
+          >
+            <div
+              class="relative z-10 flex flex-col justify-center items-center transition-all duration-300 group-hover:text-white"
+            >
+              <img
+                src="./assets/icons/management.png"
+                alt="Management Icon"
+                loading="lazy"
+                class="w-24 h-24 mb-4 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+              />
+              <p
+                class="text-6xl font-bold text-[var(--accent)] group-hover:text-white mb-6 transition-colors duration-300"
+                data-target="50"
+              >
+                0
+              </p>
+              <h3
+                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white"
+              >
+                Management
+              </h3>
+              <p
+                class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300"
+              >
+                We plan and execute flawless events tailored to your vision.
+              </p>
+            </div>
+          </article>
 
-    <!-- Hospitality -->
-    <article class="group relative bg-[var(--bg-secondary)] h-96 p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal">
-      <div class="relative z-10 flex flex-col justify-center items-center transition-all duration-300 group-hover:text-white">
-        <img src="./assets/icons/hospitality.png" alt="Hospitality Icon" loading="lazy" 
-             class="w-24 h-24 mb-4 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg" />
-        <p class="text-6xl font-bold text-[var(--accent)] group-hover:text-white mb-6 transition-colors duration-300" data-target="100">0</p>
-        <h3 class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white">Hospitality</h3>
-        <p class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300">
-          Elevate your guest experience with our world-class hospitality services.
-        </p>
-      </div>
-    </article>
+          <!-- Hospitality -->
+          <article
+            class="group relative bg-[var(--bg-secondary)] h-96 p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal"
+          >
+            <div
+              class="relative z-10 flex flex-col justify-center items-center transition-all duration-300 group-hover:text-white"
+            >
+              <img
+                src="./assets/icons/hospitality.png"
+                alt="Hospitality Icon"
+                loading="lazy"
+                class="w-24 h-24 mb-4 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+              />
+              <p
+                class="text-6xl font-bold text-[var(--accent)] group-hover:text-white mb-6 transition-colors duration-300"
+                data-target="100"
+              >
+                0
+              </p>
+              <h3
+                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white"
+              >
+                Hospitality
+              </h3>
+              <p
+                class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300"
+              >
+                Elevate your guest experience with our world-class hospitality
+                services.
+              </p>
+            </div>
+          </article>
 
-    <!-- Gifting -->
-    <article class="group relative bg-[var(--bg-secondary)] h-96 p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal">
-      <div class="relative z-10 flex flex-col justify-center items-center flex-grow transition-all duration-300 group-hover:text-white">
-        <img src="./assets/icons/gifting.png" alt="Gifting Icon" loading="lazy" 
-             class="w-24 h-24 mb-4 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg" />
-        <p class="text-6xl font-bold text-[var(--accent)] group-hover:text-white mb-6 transition-colors duration-300" data-target="70">0</p>
-        <h3 class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white">Gifting</h3>
-        <p class="text-sm text-[var(--text-secondary)] group-hover:text-white mb-4 transition-colors duration-300">
-          Thoughtful, curated gifts designed to leave a lasting impression.
-        </p>
-      </div>
-    </article>
+          <!-- Gifting -->
+          <article
+            class="group relative bg-[var(--bg-secondary)] h-96 p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal"
+          >
+            <div
+              class="relative z-10 flex flex-col justify-center items-center flex-grow transition-all duration-300 group-hover:text-white"
+            >
+              <img
+                src="./assets/icons/gifting.png"
+                alt="Gifting Icon"
+                loading="lazy"
+                class="w-24 h-24 mb-4 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+              />
+              <p
+                class="text-6xl font-bold text-[var(--accent)] group-hover:text-white mb-6 transition-colors duration-300"
+                data-target="70"
+              >
+                0
+              </p>
+              <h3
+                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white"
+              >
+                Gifting
+              </h3>
+              <p
+                class="text-sm text-[var(--text-secondary)] group-hover:text-white mb-4 transition-colors duration-300"
+              >
+                Thoughtful, curated gifts designed to leave a lasting
+                impression.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-  </div>
-</section>
-
-
-
-      <section id="testimonials" class="my-20 md:my-32" aria-labelledby="testimonial-heading">
+      <section
+        id="testimonials"
+        class="my-20 md:my-32"
+        aria-labelledby="testimonial-heading"
+      >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center reveal">
-            <h2 id="testimonial-heading" class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">What Our Clients Say</h2>
-            <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">We're passionate about our work, but don't just take our word for it.</p>
+            <h2
+              id="testimonial-heading"
+              class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
+            >
+              What Our Clients Say
+            </h2>
+            <p
+              class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
+            >
+              We're passionate about our work, but don't just take our word for
+              it.
+            </p>
           </div>
           <div class="relative mt-12 reveal">
-            <div id="testimonial-container-new" class="testimonial-container flex overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 -mx-4">
-              <article class="flex-none w-full sm:w-1/2 lg:w-1/3 px-4 snap-center">
-                <div class="bg-[var(--bg-secondary)] rounded-xl shadow-lg p-8 h-full flex flex-col justify-between border border-[var(--border-color)]">
+            <div
+              id="testimonial-container-new"
+              class="testimonial-container flex overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 -mx-4"
+            >
+              <article
+                class="flex-none w-full sm:w-1/2 lg:w-1/3 px-4 snap-center"
+              >
+                <div
+                  class="bg-[var(--bg-secondary)] rounded-xl shadow-lg p-8 h-full flex flex-col justify-between border border-[var(--border-color)]"
+                >
                   <div>
-                    <svg class="w-10 h-10 text-[var(--accent)] mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 22.667h5.333l2.667-5.333v-8h-8v8h2.667L9.333 22.667zM20 22.667h5.333l2.667-5.333v-8h-8v8h2.667L20 22.667z"></path></svg>
-                    <p class="text-[var(--text-secondary)] leading-relaxed">"Working with this team was an absolute pleasure. Their creativity and attention to detail transformed our event into something truly spectacular."</p>
+                    <svg
+                      class="w-10 h-10 text-[var(--accent)] mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 32 32"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M9.333 22.667h5.333l2.667-5.333v-8h-8v8h2.667L9.333 22.667zM20 22.667h5.333l2.667-5.333v-8h-8v8h2.667L20 22.667z"
+                      ></path>
+                    </svg>
+                    <p class="text-[var(--text-secondary)] leading-relaxed">
+                      "Working with this team was an absolute pleasure. Their
+                      creativity and attention to detail transformed our event
+                      into something truly spectacular."
+                    </p>
                   </div>
                   <footer class="mt-6 flex items-center">
-                    <img class="h-14 w-14 rounded-full object-cover" src="https://i.pravatar.cc/150?img=1" alt="Profile picture of Sarah L." loading="lazy" />
+                    <img
+                      class="h-14 w-14 rounded-full object-cover"
+                      src="https://i.pravatar.cc/150?img=1"
+                      alt="Profile picture of Sarah L."
+                      loading="lazy"
+                    />
                     <div class="ml-4">
-                      <p class="font-semibold text-[var(--text-primary)]">Sarah L.</p>
-                      <p class="text-sm text-[var(--text-secondary)]">Marketing Director, TechCorp</p>
+                      <p class="font-semibold text-[var(--text-primary)]">
+                        Sarah L.
+                      </p>
+                      <p class="text-sm text-[var(--text-secondary)]">
+                        Marketing Director, TechCorp
+                      </p>
                     </div>
                   </footer>
                 </div>
               </article>
-              <article class="flex-none w-full sm:w-1/2 lg:w-1/3 px-4 snap-center">
-                <div class="bg-[var(--bg-secondary)] rounded-xl shadow-lg p-8 h-full flex flex-col justify-between border border-[var(--border-color)]">
+              <article
+                class="flex-none w-full sm:w-1/2 lg:w-1/3 px-4 snap-center"
+              >
+                <div
+                  class="bg-[var(--bg-secondary)] rounded-xl shadow-lg p-8 h-full flex flex-col justify-between border border-[var(--border-color)]"
+                >
                   <div>
-                    <svg class="w-10 h-10 text-[var(--accent)] mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 22.667h5.333l2.667-5.333v-8h-8v8h2.667L9.333 22.667zM20 22.667h5.333l2.667-5.333v-8h-8v8h2.667L20 22.667z"></path></svg>
-                    <p class="text-[var(--text-secondary)] leading-relaxed">"The management and hospitality services were flawless. Our guests felt incredibly well-cared for, and the entire process was seamless from start to finish."</p>
+                    <svg
+                      class="w-10 h-10 text-[var(--accent)] mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 32 32"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M9.333 22.667h5.333l2.667-5.333v-8h-8v8h2.667L9.333 22.667zM20 22.667h5.333l2.667-5.333v-8h-8v8h2.667L20 22.667z"
+                      ></path>
+                    </svg>
+                    <p class="text-[var(--text-secondary)] leading-relaxed">
+                      "The management and hospitality services were flawless.
+                      Our guests felt incredibly well-cared for, and the entire
+                      process was seamless from start to finish."
+                    </p>
                   </div>
                   <footer class="mt-6 flex items-center">
-                    <img class="h-14 w-14 rounded-full object-cover" src="https://i.pravatar.cc/150?img=2" alt="Profile picture of Michael B." loading="lazy" />
+                    <img
+                      class="h-14 w-14 rounded-full object-cover"
+                      src="https://i.pravatar.cc/150?img=2"
+                      alt="Profile picture of Michael B."
+                      loading="lazy"
+                    />
                     <div class="ml-4">
-                      <p class="font-semibold text-[var(--text-primary)]">Michael B.</p>
-                      <p class="text-sm text-[var(--text-secondary)]">CEO, Innovate Solutions</p>
+                      <p class="font-semibold text-[var(--text-primary)]">
+                        Michael B.
+                      </p>
+                      <p class="text-sm text-[var(--text-secondary)]">
+                        CEO, Innovate Solutions
+                      </p>
                     </div>
                   </footer>
                 </div>
               </article>
-              <article class="flex-none w-full sm:w-1/2 lg:w-1/3 px-4 snap-center">
-                <div class="bg-[var(--bg-secondary)] rounded-xl shadow-lg p-8 h-full flex flex-col justify-between border border-[var(--border-color)]">
+              <article
+                class="flex-none w-full sm:w-1/2 lg:w-1/3 px-4 snap-center"
+              >
+                <div
+                  class="bg-[var(--bg-secondary)] rounded-xl shadow-lg p-8 h-full flex flex-col justify-between border border-[var(--border-color)]"
+                >
                   <div>
-                    <svg class="w-10 h-10 text-[var(--accent)] mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 22.667h5.333l2.667-5.333v-8h-8v8h2.667L9.333 22.667zM20 22.667h5.333l2.667-5.333v-8h-8v8h2.667L20 22.667z"></path></svg>
-                    <p class="text-[var(--text-secondary)] leading-relaxed">"From the initial design concepts to the final execution, their team demonstrated unparalleled professionalism. We couldn't be happier with the results."</p>
+                    <svg
+                      class="w-10 h-10 text-[var(--accent)] mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 32 32"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M9.333 22.667h5.333l2.667-5.333v-8h-8v8h2.667L9.333 22.667zM20 22.667h5.333l2.667-5.333v-8h-8v8h2.667L20 22.667z"
+                      ></path>
+                    </svg>
+                    <p class="text-[var(--text-secondary)] leading-relaxed">
+                      "From the initial design concepts to the final execution,
+                      their team demonstrated unparalleled professionalism. We
+                      couldn't be happier with the results."
+                    </p>
                   </div>
                   <footer class="mt-6 flex items-center">
-                    <img class="h-14 w-14 rounded-full object-cover" src="https://i.pravatar.cc/150?img=3" alt="Profile picture of Emily R." loading="lazy" />
+                    <img
+                      class="h-14 w-14 rounded-full object-cover"
+                      src="https://i.pravatar.cc/150?img=3"
+                      alt="Profile picture of Emily R."
+                      loading="lazy"
+                    />
                     <div class="ml-4">
-                      <p class="font-semibold text-[var(--text-primary)]">Emily R.</p>
-                      <p class="text-sm text-[var(--text-secondary)]">Founder, Creative Co.</p>
+                      <p class="font-semibold text-[var(--text-primary)]">
+                        Emily R.
+                      </p>
+                      <p class="text-sm text-[var(--text-secondary)]">
+                        Founder, Creative Co.
+                      </p>
                     </div>
                   </footer>
                 </div>
               </article>
-              <article class="flex-none w-full sm:w-1/2 lg:w-1/3 px-4 snap-center">
-                <div class="bg-[var(--bg-secondary)] rounded-xl shadow-lg p-8 h-full flex flex-col justify-between border border-[var(--border-color)]">
+              <article
+                class="flex-none w-full sm:w-1/2 lg:w-1/3 px-4 snap-center"
+              >
+                <div
+                  class="bg-[var(--bg-secondary)] rounded-xl shadow-lg p-8 h-full flex flex-col justify-between border border-[var(--border-color)]"
+                >
                   <div>
-                    <svg class="w-10 h-10 text-[var(--accent)] mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 22.667h5.333l2.667-5.333v-8h-8v8h2.667L9.333 22.667zM20 22.667h5.333l2.667-5.333v-8h-8v8h2.667L20 22.667z"></path></svg>
-                    <p class="text-[var(--text-secondary)] leading-relaxed">"The gifting service is exceptional. They curated unique gifts for our clients that perfectly represented our brand and left a lasting impression."</p>
+                    <svg
+                      class="w-10 h-10 text-[var(--accent)] mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 32 32"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M9.333 22.667h5.333l2.667-5.333v-8h-8v8h2.667L9.333 22.667zM20 22.667h5.333l2.667-5.333v-8h-8v8h2.667L20 22.667z"
+                      ></path>
+                    </svg>
+                    <p class="text-[var(--text-secondary)] leading-relaxed">
+                      "The gifting service is exceptional. They curated unique
+                      gifts for our clients that perfectly represented our brand
+                      and left a lasting impression."
+                    </p>
                   </div>
                   <footer class="mt-6 flex items-center">
-                    <img class="h-14 w-14 rounded-full object-cover" src="https://i.pravatar.cc/150?img=4" alt="Profile picture of David Chen" loading="lazy" />
+                    <img
+                      class="h-14 w-14 rounded-full object-cover"
+                      src="https://i.pravatar.cc/150?img=4"
+                      alt="Profile picture of David Chen"
+                      loading="lazy"
+                    />
                     <div class="ml-4">
-                      <p class="font-semibold text-[var(--text-primary)]">David Chen</p>
-                      <p class="text-sm text-[var(--text-secondary)]">Partner, Apex Ventures</p>
+                      <p class="font-semibold text-[var(--text-primary)]">
+                        David Chen
+                      </p>
+                      <p class="text-sm text-[var(--text-secondary)]">
+                        Partner, Apex Ventures
+                      </p>
                     </div>
                   </footer>
                 </div>
@@ -386,47 +963,138 @@
         </div>
       </section>
 
-      <section id="join" class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="join-heading">
-        <article class="relative bg-[var(--bg-secondary)] rounded-2xl overflow-hidden transition-all duration-300 reveal shadow-xl border border-[var(--border-color)]">
+      <section
+        id="join"
+        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        aria-labelledby="join-heading"
+      >
+        <article
+          class="relative bg-[var(--bg-secondary)] rounded-2xl overflow-hidden transition-all duration-300 reveal shadow-xl border border-[var(--border-color)]"
+        >
           <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="w-full md:w-1/2 p-8 md:p-12 text-left space-y-4 z-10">
-              <h2 id="join-heading" class="text-4xl md:text-5xl font-bold text-[var(--text-primary)]">Join Us</h2>
-              <p class="text-base md:text-lg leading-relaxed text-[var(--text-secondary)]">We believe great work starts with great people. If you're ready to grow, create, and make an impact — we'd love to hear from you.</p>
-              <a href="#" class="inline-block mt-5 bg-[var(--accent)] text-white font-bold rounded-full px-8 py-3 hover:bg-[var(--accent-hover)] transition-colors duration-300">MORE</a>
+              <h2
+                id="join-heading"
+                class="text-4xl md:text-5xl font-bold text-[var(--text-primary)]"
+              >
+                Join Us
+              </h2>
+              <p
+                class="text-base md:text-lg leading-relaxed text-[var(--text-secondary)]"
+              >
+                We believe great work starts with great people. If you're ready
+                to grow, create, and make an impact — we'd love to hear from
+                you.
+              </p>
+              <a
+                href="#"
+                class="inline-block mt-5 bg-[var(--accent)] text-white font-bold rounded-full px-8 py-3 hover:bg-[var(--accent-hover)] transition-colors duration-300"
+                >MORE</a
+              >
             </div>
             <div class="w-full md:w-1/2 h-64 md:h-auto md:self-stretch">
-              <img src="./assets/images/join_us.jpg" alt="A diverse team collaborating in a modern office" loading="lazy" class="w-full h-full object-cover" />
+              <img
+                src="./assets/images/join_us.jpg"
+                alt="A diverse team collaborating in a modern office"
+                loading="lazy"
+                class="w-full h-full object-cover"
+              />
             </div>
           </div>
         </article>
       </section>
 
-      <section id="contact" class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="contact-heading">
-        <div class="bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-xl rounded-2xl p-6 sm:p-10 reveal">
-          <h2 id="contact-heading" class="text-3xl md:text-4xl font-bold text-center text-[var(--text-primary)] mb-4">Get in Touch</h2>
-          <p class="text-center text-[var(--text-secondary)] text-base md:text-lg mb-10">We’d love to hear from you. Fill out the form below and we’ll get back to you soon.</p>
+      <section
+        id="contact"
+        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        aria-labelledby="contact-heading"
+      >
+        <div
+          class="bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-xl rounded-2xl p-6 sm:p-10 reveal"
+        >
+          <h2
+            id="contact-heading"
+            class="text-3xl md:text-4xl font-bold text-center text-[var(--text-primary)] mb-4"
+          >
+            Get in Touch
+          </h2>
+          <p
+            class="text-center text-[var(--text-secondary)] text-base md:text-lg mb-10"
+          >
+            We’d love to hear from you. Fill out the form below and we’ll get
+            back to you soon.
+          </p>
           <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="space-y-6">
               <div>
-                <label for="name" class="block text-sm font-medium text-[var(--text-secondary)] mb-1">Name</label>
-                <input type="text" id="name" name="name" required class="w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)]" placeholder="Your Name" />
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-[var(--text-secondary)] mb-1"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)]"
+                  placeholder="Your Name"
+                />
               </div>
               <div>
-                <label for="email" class="block text-sm font-medium text-[var(--text-secondary)] mb-1">Email</label>
-                <input type="email" id="email" name="email" required class="w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)]" placeholder="your.email@example.com" />
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-[var(--text-secondary)] mb-1"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)]"
+                  placeholder="your.email@example.com"
+                />
               </div>
               <div>
-                <label for="subject" class="block text-sm font-medium text-[var(--text-secondary)] mb-1">Subject</label>
-                <input type="text" id="subject" name="subject" required class="w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)]" placeholder="Subject of your message" />
+                <label
+                  for="subject"
+                  class="block text-sm font-medium text-[var(--text-secondary)] mb-1"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  class="w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)]"
+                  placeholder="Subject of your message"
+                />
               </div>
             </div>
             <div class="flex flex-col justify-between h-full space-y-6">
               <div class="flex-grow">
-                <label for="message" class="block text-sm font-medium text-[var(--text-secondary)] mb-1">Message</label>
-                <textarea id="message" name="message" rows="9" required class="w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)]" placeholder="Your message here"></textarea>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-[var(--text-secondary)] mb-1"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="9"
+                  required
+                  class="w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)]"
+                  placeholder="Your message here"
+                ></textarea>
               </div>
               <div class="text-center pt-4">
-                <button type="submit" class="inline-block bg-[var(--accent)] text-white font-bold rounded-full px-8 py-3 hover:bg-[var(--accent-hover)] transition-colors duration-300">Send Message</button>
+                <button
+                  type="submit"
+                  class="inline-block bg-[var(--accent)] text-white font-bold rounded-full px-8 py-3 hover:bg-[var(--accent-hover)] transition-colors duration-300"
+                >
+                  Send Message
+                </button>
               </div>
             </div>
           </form>
@@ -434,106 +1102,312 @@
       </section>
     </main>
 
-    <section id="map-section" class="my-12 sm:my-16 md:my-20" aria-labelledby="map-heading-2">
+    <section
+      id="map-section"
+      class="my-12 sm:my-16 md:my-20"
+      aria-labelledby="map-heading-2"
+    >
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 id="map-heading-2" class="text-3xl md:text-4xl font-bold text-center text-[var(--text-primary)] mb-8">Our Global Presence</h2>
+        <h2
+          id="map-heading-2"
+          class="text-3xl md:text-4xl font-bold text-center text-[var(--text-primary)] mb-8"
+        >
+          Our Global Presence
+        </h2>
         <div id="globe-container" class="relative w-full mx-auto aspect-[2/1]">
-          <img src="./assets/images/blackmap.png" alt="A stylized world map showing our global presence" loading="lazy" class="absolute inset-0 w-full h-full object-contain opacity-40" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/111827/ffffff?text=Map+Not+Found';" />
-          <div class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer" style="top: 35%; left: 20%; transform: translate(-50%, -50%)">
-            <span class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]">New York, USA</span>
+          <img
+            src="./assets/images/blackmap.png"
+            alt="A stylized world map showing our global presence"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-contain opacity-40"
+            onerror="this.onerror=null;this.src='https://placehold.co/1200x600/111827/ffffff?text=Map+Not+Found';"
+          />
+          <div
+            class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
+            style="top: 35%; left: 20%; transform: translate(-50%, -50%)"
+          >
+            <span
+              class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
+              >New York, USA</span
+            >
           </div>
-          <div class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer" style="top: 65%; left: 28%; transform: translate(-50%, -50%)">
-            <span class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]">São Paulo, Brazil</span>
+          <div
+            class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
+            style="top: 65%; left: 28%; transform: translate(-50%, -50%)"
+          >
+            <span
+              class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
+              >São Paulo, Brazil</span
+            >
           </div>
-          <div class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer" style="top: 40%; left: 52%; transform: translate(-50%, -50%)">
-            <span class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]">Paris, France</span>
+          <div
+            class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
+            style="top: 40%; left: 52%; transform: translate(-50%, -50%)"
+          >
+            <span
+              class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
+              >Paris, France</span
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="bg-[var(--bg-primary)] text-[var(--text-secondary)] py-10 border-t border-[var(--border-color)]">
+    <footer
+      class="bg-[var(--bg-primary)] text-[var(--text-secondary)] py-10 border-t border-[var(--border-color)]"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="flex flex-col items-center md:items-start">
-            <a href="#home" class="mb-4"><img class="h-12" src="./assets/images/logo.png" alt="IRBINOR Company Logo" /></a>
-            <p class="text-sm text-center md:text-left">Delivering innovative design, management, hospitality, and gifting solutions.</p>
+            <a href="#home" class="mb-4"
+              ><img
+                class="h-12"
+                src="./assets/images/logo.png"
+                alt="IRBINOR Company Logo"
+            /></a>
+            <p class="text-sm text-center md:text-left">
+              Delivering innovative design, management, hospitality, and gifting
+              solutions.
+            </p>
           </div>
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">Quick Links</h3>
+            <h3 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">
+              Quick Links
+            </h3>
             <ul class="space-y-2 text-sm">
-              <li><a href="#home" class="hover:text-[var(--accent)]">Home</a></li>
-              <li><a href="#services" class="hover:text-[var(--accent)]">Services</a></li>
-              <li><a href="#story" class="hover:text-[var(--accent)]">Our Story</a></li>
-              <li><a href="#contact" class="hover:text-[var(--accent)]">Contact</a></li>
+              <li>
+                <a href="#home" class="hover:text-[var(--accent)]">Home</a>
+              </li>
+              <li>
+                <a href="#services" class="hover:text-[var(--accent)]"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#story" class="hover:text-[var(--accent)]"
+                  >Our Story</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-[var(--accent)]"
+                  >Contact</a
+                >
+              </li>
             </ul>
           </div>
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">Contact Us</h3>
+            <h3 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">
+              Contact Us
+            </h3>
             <ul class="space-y-2 text-sm">
               <li>123 Creative Street, Suite 100</li>
               <li>Pune, Maharashtra, 411001</li>
-              <li><a href="mailto:info@irbinor.com" class="hover:text-[var(--accent)]">info@irbinor.com</a></li>
-              <li><a href="tel:+918888591205" class="hover:text-[var(--accent)]">+91 88885 91205</a></li>
+              <li>
+                <a
+                  href="mailto:info@irbinor.com"
+                  class="hover:text-[var(--accent)]"
+                  >info@irbinor.com</a
+                >
+              </li>
+              <li>
+                <a href="tel:+918888591205" class="hover:text-[var(--accent)]"
+                  >+91 88885 91205</a
+                >
+              </li>
             </ul>
           </div>
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">Follow Us</h3>
+            <h3 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">
+              Follow Us
+            </h3>
             <div class="flex space-x-4">
-              <a href="#" class="hover:text-[var(--accent)]" aria-label="Follow us on Facebook" rel="noopener noreferrer" target="_blank"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" /></svg></a>
-              <a href="#" class="hover:text-[var(--accent)]" aria-label="Follow us on Twitter" rel="noopener noreferrer" target="_blank"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" /></svg></a>
-              <a href="#" class="hover:text-[var(--accent)]" aria-label="Follow us on LinkedIn" rel="noopener noreferrer" target="_blank"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.136 1.447-2.136 2.941v5.665H9.352V9h3.414v1.561h.048c.477-.9 1.638-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 0 1 2.063-2.065 2.064 2.064 0 0 1 2.064 2.065 2.062 2.062 0 0 1-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z" /></svg></a>
+              <a
+                href="#"
+                class="hover:text-[var(--accent)]"
+                aria-label="Follow us on Facebook"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="hover:text-[var(--accent)]"
+                aria-label="Follow us on Twitter"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                  /></svg
+              ></a>
+              <a
+                href="#"
+                class="hover:text-[var(--accent)]"
+                aria-label="Follow us on LinkedIn"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.136 1.447-2.136 2.941v5.665H9.352V9h3.414v1.561h.048c.477-.9 1.638-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 0 1 2.063-2.065 2.064 2.064 0 0 1 2.064 2.065 2.062 2.062 0 0 1-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"
+                  /></svg
+              ></a>
             </div>
           </div>
         </div>
-        <div class="mt-8 border-t border-[var(--border-color)] pt-6 text-center">
+        <div
+          class="mt-8 border-t border-[var(--border-color)] pt-6 text-center"
+        >
           <p class="text-sm">&copy; 2025 IRBINOR. All rights reserved.</p>
         </div>
       </div>
     </footer>
 
-    <button id="wa-toggle" aria-label="Contact us on WhatsApp" class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-transform duration-300 hover:scale-110">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24"><path d="M20.52 3.48A11.87 11.87 0 0012 0a11.87 11.87 0 00-8.52 3.48A11.87 11.87 0 000 12c0 2.11.55 4.12 1.6 5.93L0 24l6.18-1.6A11.87 11.87 0 0012 24c3.16 0 6.14-1.23 8.52-3.48A11.87 11.87 0 0024 12c0-3.16-1.23-6.14-3.48-8.52zM12 22c-2.03 0-4-.54-5.7-1.56l-.4-.23-3.7.95.98-3.61-.26-.42C2.53 15.88 2 13.98 2 12a10 10 0 1120 0c0 2.66-1.03 5.17-2.93 7.07A9.93 9.93 0 0112 22zm5.2-7.28c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15s-.78.98-.95 1.18c-.18.2-.35.22-.65.07s-1.27-.47-2.42-1.49c-.9-.8-1.5-1.8-1.67-2.1s-.02-.47.13-.62c.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52s-.68-1.62-.93-2.23c-.25-.6-.5-.52-.68-.53l-.58-.01c-.2 0-.52.08-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.23 5.14 4.53 1.77.76 2.46.82 3.33.69.53-.08 1.78-.73 2.04-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35z" /></svg>
+    <button
+      id="wa-toggle"
+      aria-label="Contact us on WhatsApp"
+      class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-transform duration-300 hover:scale-110"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        class="w-6 h-6"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20.52 3.48A11.87 11.87 0 0012 0a11.87 11.87 0 00-8.52 3.48A11.87 11.87 0 000 12c0 2.11.55 4.12 1.6 5.93L0 24l6.18-1.6A11.87 11.87 0 0012 24c3.16 0 6.14-1.23 8.52-3.48A11.87 11.87 0 0024 12c0-3.16-1.23-6.14-3.48-8.52zM12 22c-2.03 0-4-.54-5.7-1.56l-.4-.23-3.7.95.98-3.61-.26-.42C2.53 15.88 2 13.98 2 12a10 10 0 1120 0c0 2.66-1.03 5.17-2.93 7.07A9.93 9.93 0 0112 22zm5.2-7.28c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15s-.78.98-.95 1.18c-.18.2-.35.22-.65.07s-1.27-.47-2.42-1.49c-.9-.8-1.5-1.8-1.67-2.1s-.02-.47.13-.62c.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52s-.68-1.62-.93-2.23c-.25-.6-.5-.52-.68-.53l-.58-.01c-.2 0-.52.08-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.23 5.14 4.53 1.77.76 2.46.82 3.33.69.53-.08 1.78-.73 2.04-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35z"
+        />
+      </svg>
     </button>
-    <div id="wa-form-container" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 lg:items-end lg:justify-end lg:p-0 opacity-0 pointer-events-none transition-opacity duration-300">
-      <div id="wa-form-card" class="w-full flex flex-col transform scale-95 transition-transform duration-300 lg:w-96 lg:mb-6 lg:mr-6 shadow-2xl rounded-xl">
-        <header class="flex items-center justify-between bg-[#149467] px-4 py-2 flex-shrink-0 rounded-t-xl">
+    <div
+      id="wa-form-container"
+      class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 lg:items-end lg:justify-end lg:p-0 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="wa-form-card"
+        class="w-full flex flex-col transform scale-95 transition-transform duration-300 lg:w-96 lg:mb-6 lg:mr-6 shadow-2xl rounded-xl"
+      >
+        <header
+          class="flex items-center justify-between bg-[#149467] px-4 py-2 flex-shrink-0 rounded-t-xl"
+        >
           <h3 class="text-white text-lg font-semibold">Contact Us</h3>
-          <button id="close-wa-form" aria-label="Close WhatsApp form" class="text-white hover:text-gray-200">
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+          <button
+            id="close-wa-form"
+            aria-label="Close WhatsApp form"
+            class="text-white hover:text-gray-200"
+          >
+            <svg
+              class="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </button>
         </header>
-        <form id="whatsapp-form" class="space-y-4 p-6 bg-white overflow-y-auto rounded-b-xl" novalidate>
+        <form
+          id="whatsapp-form"
+          class="space-y-4 p-6 bg-white overflow-y-auto rounded-b-xl"
+          novalidate
+        >
           <div>
-            <label for="wa-name" class="block text-sm font-medium text-gray-700">Full Name</label>
-            <input type="text" id="wa-name" name="wa-name" required placeholder="John Doe" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition" />
+            <label for="wa-name" class="block text-sm font-medium text-gray-700"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="wa-name"
+              name="wa-name"
+              required
+              placeholder="John Doe"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition"
+            />
             <p id="wa-name-error" class="text-sm text-red-600 mt-1 hidden"></p>
           </div>
           <div>
-            <label for="wa-email" class="block text-sm font-medium text-gray-700">Email Address</label>
-            <input type="email" id="wa-email" name="wa-email" required placeholder="john@example.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition" />
+            <label
+              for="wa-email"
+              class="block text-sm font-medium text-gray-700"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="wa-email"
+              name="wa-email"
+              required
+              placeholder="john@example.com"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition"
+            />
             <p id="wa-email-error" class="text-sm text-red-600 mt-1 hidden"></p>
           </div>
           <div>
-            <label for="wa-phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-            <input type="tel" id="wa-phone" name="wa-phone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition" />
+            <label
+              for="wa-phone"
+              class="block text-sm font-medium text-gray-700"
+              >Phone Number</label
+            >
+            <input
+              type="tel"
+              id="wa-phone"
+              name="wa-phone"
+              required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 transition"
+            />
             <p id="wa-phone-error" class="text-sm text-red-600 mt-1 hidden"></p>
           </div>
           <div>
-            <label for="wa-message" class="block text-sm font-medium text-gray-700">Your Message</label>
-            <textarea id="wa-message" name="wa-message" rows="4" minlength="10" maxlength="300" required placeholder="Type your message here..." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 resize-none transition"></textarea>
-            <p id="wa-message-error" class="text-sm text-red-600 mt-1 hidden"></p>
+            <label
+              for="wa-message"
+              class="block text-sm font-medium text-gray-700"
+              >Your Message</label
+            >
+            <textarea
+              id="wa-message"
+              name="wa-message"
+              rows="4"
+              minlength="10"
+              maxlength="300"
+              required
+              placeholder="Type your message here..."
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-green-500 focus:ring-green-500 resize-none transition"
+            ></textarea>
+            <p
+              id="wa-message-error"
+              class="text-sm text-red-600 mt-1 hidden"
+            ></p>
           </div>
           <div>
-            <button type="submit" class="w-full bg-green-600 text-white p-3 rounded-md font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors">Start WhatsApp Chat</button>
+            <button
+              type="submit"
+              class="w-full bg-green-600 text-white p-3 rounded-md font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+            >
+              Start WhatsApp Chat
+            </button>
           </div>
         </form>
       </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js" defer></script>
-    
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
+      defer
+    ></script>
+
     <script src="./assets/js/main.js" defer></script>
     <script src="./assets/js/whatsapp-form.js" defer></script>
     <script src="./assets/js/testimonials.js" defer></script>
