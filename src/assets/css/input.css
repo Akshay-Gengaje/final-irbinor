@@ -92,10 +92,10 @@
 
 
   /* A utility for creating a text stroke effect using the accent color */
-  .text-stroke {
-    -webkit-text-stroke: 0.8px white;
-    color: transparent;
-  }
+.text-stroke {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
+}
 
   /* Utility to hide scrollbars on specific containers for a cleaner look */
   .nav-container::-webkit-scrollbar,
