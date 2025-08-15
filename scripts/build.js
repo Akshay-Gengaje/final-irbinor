@@ -146,6 +146,28 @@ const copyHTML = () => {
   }
 };
 
+// Copy Fonts
+const copyFonts = () => {
+  console.log("Copying fonts...");
+  const fontsInputDir = path.join(srcDir, "assets/fonts");
+  const fontsOutputDir = path.join(publicDir, "assets/fonts");
+
+  ensureDir(fontsOutputDir);
+
+  if (fs.existsSync(fontsInputDir)) {
+    const fontFiles = fs.readdirSync(fontsInputDir);
+    for (const file of fontFiles) {
+      fs.copyFileSync(
+        path.join(fontsInputDir, file),
+        path.join(fontsOutputDir, file)
+      );
+    }
+    console.log("Fonts copied successfully!");
+  } else {
+    console.log("No fonts directory found. Skipping.");
+  }
+};
+
 // Run build process
 (async () => {
   console.log("Building project...");
@@ -157,6 +179,7 @@ const copyHTML = () => {
       minifyJS(),
       optimizeImages(),
       copyHTML(),
+      copyFonts(),
     ]);
     console.log("Build completed successfully!");
   } catch (error) {
