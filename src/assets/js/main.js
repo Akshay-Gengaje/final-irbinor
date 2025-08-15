@@ -196,3 +196,43 @@ if (sections.length > 0) {
   }
 
 });
+
+
+// FAQ Accordion
+document.addEventListener("DOMContentLoaded", () => {
+  const faqQuestions = document.querySelectorAll(".faq-question");
+
+  faqQuestions.forEach((question) => {
+    question.addEventListener("click", () => {
+      const answer = question.nextElementSibling;
+      const icon = question.querySelector("svg");
+
+      // Close other open answers
+      faqQuestions.forEach((otherQuestion) => {
+        if (otherQuestion !== question) {
+          const otherAnswer = otherQuestion.nextElementSibling;
+          const otherIcon = otherQuestion.querySelector("svg");
+          if (otherAnswer.classList.contains("open")) {
+            otherAnswer.classList.remove("open");
+            otherAnswer.style.maxHeight = "0px";
+            otherIcon.style.transform = "rotate(0deg)";
+            otherQuestion.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+
+      // Toggle the clicked answer
+      if (answer.classList.contains("open")) {
+        answer.classList.remove("open");
+        answer.style.maxHeight = "0px";
+        icon.style.transform = "rotate(0deg)";
+        question.setAttribute("aria-expanded", "false");
+      } else {
+        answer.classList.add("open");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        icon.style.transform = "rotate(180deg)";
+        question.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+});

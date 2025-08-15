@@ -3,6 +3,7 @@
    - Imports Google Fonts used in the project.
    - Using @import is fine here as Tailwind CLI will process it into a single file.
    ========================================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
 
 /* ==========================================================================
@@ -12,103 +13,112 @@
 @import "tailwindcss";
 
 /* ==========================================================================
+
+/* --- START: @font-face rules for Garet --- */
+
+/* Garet Regular (Book) */
+@font-face {
+  font-family: 'Garet';
+  src: url('../assets/fonts/Garet-Book.woff2') format('woff2'), /* */
+       url('../assets/fonts/Garet-Book.woff') format('woff');   /* */
+  font-weight: 400; /* 'normal' weight */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Garet Heavy */
+@font-face {
+  font-family: 'Garet';
+  src: url('../assets/fonts/Garet-Heavy.woff2') format('woff2'), /* */
+       url('../assets/fonts/Garet-Heavy.woff') format('woff');   /* */
+  font-weight: 900; /* 'heavy' or 'black' weight */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- END: @font-face rules for Garet --- */
+
+
+/* ==========================================================================
    BASE LAYER & THEME VARIABLES
-   - The `@layer base` directive allows us to add our own base styles and have them
-     processed by Tailwind.
-   - We define CSS custom properties (variables) for our color palettes,
-     enabling easy theme switching.
-   - The default theme is light. The `html.dark` selector overrides these
-     variables for the dark theme.
    ========================================================================== */
 @layer base {
   html {
     scroll-padding-top: 90px;
-    /* Or whatever the height of your nav bar is */
     scroll-behavior: smooth;
-    /* This adds a nice smooth scroll effect */
   }
 
   :root {
-    /* Light Theme Palette (Default) */
-    --bg-primary: #F9FAFB;
-    /* gray-50 */
-    --bg-secondary: #FFFFFF;
-    /* white */
-    --text-primary: #1F2937;
-    /* gray-800 */
-    --text-secondary: #4B5563;
-    /* gray-600 */
-    --accent: #3B82F6;
-    /* blue-500 */
-    --accent-hover: #2563EB;
-    /* blue-600 */
-    --border-color: #E5E7EB;
-    /* gray-200 */
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    /* Light Theme Palette (NEW) */
+    --bg-primary: #eff5ed;      /* saltpan */
+    --bg-secondary: #FFFFFF;    /* white */
+    --text-primary: #064520;    /* zuccini */
+    --text-secondary: #39624b;  /* killarney */
+    --accent: #dcaf64;          /* equator */
+    --accent-hover: #c99b50;    /* darker equator */
+    --border-color: #d1d9ce;    /* light gray-green */
+    --shadow-color: rgba(6, 69, 32, 0.1);
   }
 
   html.dark {
-    /* Dark Theme Palette */
-    --bg-primary: #111827;
-    /* gray-900 */
-    --bg-secondary: #1F2937;
-    /* gray-800 */
-    --text-primary: #F9FAFB;
-    /* gray-50 */
-    --text-secondary: #9CA3AF;
-    /* gray-400 */
-    --accent: #F59E0B;
-    /* amber-500 */
-    --accent-hover: #D97706;
-    /* amber-600 */
-    --border-color: #374151;
-    /* gray-700 */
+    /* Dark Theme Palette (NEW) */
+    --bg-primary: #064520;      /* zuccini */
+    --bg-secondary: #245e44;    /* green-pea */
+    --text-primary: #eff5ed;    /* saltpan */
+    --text-secondary: #8bab99;  /* envy */
+    --accent: #dcaf64;          /* equator */
+    --accent-hover: #c99b50;    /* darker equator */
+    --border-color: #39624b;    /* killarney */
     --shadow-color: rgba(0, 0, 0, 0.2);
   }
 
-  /* Set the base font for the entire document */
+  /* Set the base font for the entire document (Secondary Typeface) */
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
-  /* Set a different font for headings for stylistic contrast */
+  /* Set a different font for headings for stylistic contrast (Primary Typeface) */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Garet', sans-serif;
   }
 }
 
-
 /* ==========================================================================
    UTILITIES LAYER
-   - The `@layer utilities` directive is for creating your own custom utility classes.
-   - These utilities can then be used directly in your HTML.
    ========================================================================== */
 @layer utilities {
-
-
   /* A utility for creating a text stroke effect using the accent color */
-.text-stroke {
+  .text-stroke {
     -webkit-text-stroke: 1px white;
     -webkit-text-fill-color: transparent;
-}
+  }
 
   /* Utility to hide scrollbars on specific containers for a cleaner look */
   .nav-container::-webkit-scrollbar,
   .testimonial-container::-webkit-scrollbar {
     display: none;
-    /* For Chrome, Safari, and Opera */
   }
 
   .nav-container,
   .testimonial-container {
     -ms-overflow-style: none;
-    /* For Internet Explorer and Edge */
     scrollbar-width: none;
-    /* For Firefox */
+  }
+
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.visible { /* This class now matches your JavaScript */
+    opacity: 1;
+    transform: translateY(0);
   }
 }
