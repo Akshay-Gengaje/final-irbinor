@@ -64,14 +64,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex-shrink-0">
-              <a href="#home" aria-label="Go to Homepage">
-                <img
-                  class="h-10"
-                  src="./assets/images/logo.png"
-                  alt="IRBINOR Company Logo"
-                  loading="lazy"
-                />
-              </a>
+              <a 
+                href="#home" 
+                aria-label="IRBINOR Company Logo"
+                class="h-10 w-40 logo-themed"
+                >
+                </a>
             </div>
 
             <div class="hidden md:flex items-center justify-center flex-grow">
@@ -84,13 +82,13 @@
                       >Home</a
                     >
                   </li>
-                  <li>
+                  <!-- <li>
                     <a
                       href="#work"
                       class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
                       >Work</a
                     >
-                  </li>
+                  </li> -->
                   <li>
                     <a
                       href="#gallery"
@@ -263,6 +261,141 @@
       </section>
 
       <section
+        id="services"
+        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        aria-labelledby="services-heading"
+      >
+        <div class="text-center reveal">
+          <h2
+            id="testimonial-heading"
+            class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
+          >
+            Our Signature Services
+          </h2>
+          <p
+            class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
+          >
+            From inspired design to flawless execution, we bring every detail of
+            your event to life with creativity, precision, and warmth.
+          </p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <article
+            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
+          >
+            <div
+              class="relative z-10 flex flex-col justify-center items-center h-full"
+            >
+              <img
+                src="./assets/icons/design.png"
+                alt="Design Icon"
+                loading="lazy"
+                class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+              />
+              <h3
+                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+              >
+                Design
+              </h3>
+              <p
+                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
+              >
+                We believe great experiences begin with exceptional design. Our
+                process involves conceptualizing unique themes, creating
+                immersive spatial designs, and developing cohesive branding that
+                tells your story.
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
+          >
+            <div
+              class="relative z-10 flex flex-col justify-center items-center h-full"
+            >
+              <img
+                src="./assets/icons/management.png"
+                alt="Management Icon"
+                loading="lazy"
+                class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+              />
+              <h3
+                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+              >
+                Management
+              </h3>
+              <p
+                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
+              >
+                From concept to execution, we provide meticulous end-to-end
+                event management. Our services include detailed logistical
+                planning, vendor coordination, and on-site leadership to ensure
+                every detail is handled flawlessly.
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
+          >
+            <div
+              class="relative z-10 flex flex-col justify-center items-center h-full"
+            >
+              <img
+                src="./assets/icons/hospitality.png"
+                alt="Hospitality Icon"
+                loading="lazy"
+                class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+              />
+              <h3
+                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+              >
+                Hospitality
+              </h3>
+              <p
+                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
+              >
+                Hospitality is at the heart of every memorable event. We focus
+                on curating a seamless guest journey, providing personalized
+                services, and ensuring every attendee feels welcomed and valued
+                from start to finish.
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
+          >
+            <div
+              class="relative z-10 flex flex-col justify-center items-center h-full"
+            >
+              <img
+                src="./assets/icons/gifting.png"
+                alt="Gifting Icon"
+                loading="lazy"
+                class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+              />
+              <h3
+                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+              >
+                Gifting
+              </h3>
+              <p
+                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
+              >
+                A perfect gift extends the memory of an event. We specialize in
+                curating bespoke gifting experiences, from sourcing unique
+                products to designing branded merchandise that leaves a lasting
+                impression.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- <section
         id="work"
         aria-labelledby="work-heading"
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-32"
@@ -352,8 +485,8 @@
             </button>
           </div>
         </div>
-      </section>
-
+      </section> -->
+      
       <section
         id="gallery"
         class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -378,102 +511,205 @@
           id="category-grid"
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16"
         >
-          <div
-            class="category-card relative h-96 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl reveal"
-            data-category-id="luxury-weddings"
-          >
-            <img
-              src="https://images.pexels.com/photos/1730877/pexels-photo-1730877.jpeg"
-              alt="Luxury Weddings"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-            ></div>
-            <div
-              class="absolute bottom-0 left-0 p-6 text-white group-hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <h3 class="text-2xl font-black">Luxury Weddings</h3>
-              <p class="mt-1 opacity-90">
-                Opulent florals, timeless elegance, and breathtaking details.
-              </p>
-            </div>
+          <div class="category-card relative h-96 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl reveal" data-category-id="luxury-weddings">
+              <img src="https://images.pexels.com/photos/931179/pexels-photo-931179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Luxury Wedding Inspiration Thumbnail" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x800/4b5563/ffffff?text=Image+Not+Found';">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-6 text-white group-hover:text-[var(--accent)] transition-colors duration-300">
+                  <h3 class="text-2xl font-black">Luxury Weddings</h3>
+                  <p class="mt-1 opacity-90">Opulent florals, timeless elegance, and breathtaking details.</p>
+              </div>
           </div>
-
-          <div
-            class="category-card relative h-96 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl reveal"
-            data-category-id="corporate-gala"
-            style="transition-delay: 150ms"
-          >
-            <img
-              src="https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Corporate Galas"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-            ></div>
-            <div
-              class="absolute bottom-0 left-0 p-6 text-white group-hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <h3 class="text-2xl font-black">Corporate Galas</h3>
-              <p class="mt-1 opacity-90">
-                Sophisticated, professional, and impactful designs.
-              </p>
-            </div>
+          <div class="category-card relative h-96 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl reveal" data-category-id="corporate-gala" style="transition-delay: 150ms">
+              <img src="https://images.pexels.com/photos/6519188/pexels-photo-6519188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Corporate Galas Inspiration Thumbnail" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x800/4b5563/ffffff?text=Image+Not+Found';">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-6 text-white group-hover:text-[var(--accent)] transition-colors duration-300">
+                  <h3 class="text-2xl font-black">Corporate Galas</h3>
+                  <p class="mt-1 opacity-90">Sophisticated, professional, and impactful designs.</p>
+              </div>
           </div>
-
-          <div
-            class="category-card relative h-96 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl reveal"
-            data-category-id="minimalist-events"
-            style="transition-delay: 300ms"
-          >
-            <img
-              src="https://images.pexels.com/photos/2433985/pexels-photo-2433985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Minimalist Designs"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-            ></div>
-            <div
-              class="absolute bottom-0 left-0 p-6 text-white group-hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <h3 class="text-2xl font-black">Minimalist Designs</h3>
-              <p class="mt-1 opacity-90">
-                Clean lines, simple palettes, and intentional details.
-              </p>
-            </div>
+          <div class="category-card relative h-96 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl reveal" data-category-id="minimalist-events" style="transition-delay: 300ms">
+              <img src="https://images.pexels.com/photos/6492397/pexels-photo-6492397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Minimalist Designs Inspiration Thumbnail" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x800/4b5563/ffffff?text=Image+Not+Found';">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-6 text-white group-hover:text-[var(--accent)] transition-colors duration-300">
+                  <h3 class="text-2xl font-black">Minimalist Designs</h3>
+                  <p class="mt-1 opacity-90">Clean lines, simple color palettes, and intentional details.</p>
+              </div>
           </div>
-
-          <div
-            class="category-card relative h-96 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl reveal"
-            data-category-id="destination-events"
-            style="transition-delay: 450ms"
-          >
-            <img
-              src="https://images.pexels.com/photos/1683989/pexels-photo-1683989.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Destination Events"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
-            ></div>
-            <div
-              class="absolute bottom-0 left-0 p-6 text-white group-hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <h3 class="text-2xl font-black">Destination Events</h3>
-              <p class="mt-1 opacity-90">
-                Stunning landscapes and unique venues worldwide.
-              </p>
-            </div>
+          <div class="category-card relative h-96 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl reveal" data-category-id="destination-events" style="transition-delay: 450ms">
+              <img src="https://images.pexels.com/photos/1834407/pexels-photo-1834407.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Destination Events Inspiration Thumbnail" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x800/4b5563/ffffff?text=Image+Not+Found';">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-6 text-white group-hover:text-[var(--accent)] transition-colors duration-300">
+                  <h3 class="text-2xl font-black">Destination Events</h3>
+                  <p class="mt-1 opacity-90">Stunning landscapes and unique venues from around the world.</p>
+              </div>
           </div>
         </div>
       </section>
+
+      <section
+        id="why-us"
+        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        aria-labelledby="why-us-heading"
+      >
+        <div class="text-center reveal">
+          <h2
+            id="why-us-heading"
+            class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
+          >
+            Why Partner With Us?
+          </h2>
+          <p
+            class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto"
+          >
+            We blend grand-scale execution with meticulous attention to detail,
+            turning your vision into an unforgettable reality.
+          </p>
+        </div>
+
+        <div
+          class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left"
+        >
+          <article
+            class="custom-card p-8 reveal flex flex-col items-center md:flex-row md:items-start"
+            style="transition-delay: 100ms"
+          >
+            <div
+              class="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-[var(--text-primary)] mb-3">
+                Integrated In-House Expertise
+              </h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">
+                From design and management to hospitality and gifting, our
+                services are seamlessly integrated. This ensures a cohesive
+                experience and flawless execution from a single, dedicated
+                partner.
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="custom-card p-8 reveal flex flex-col items-center md:flex-row md:items-start"
+            style="transition-delay: 200ms"
+          >
+            <div
+              class="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-[var(--text-primary)] mb-3">
+                Larger Than Life, Executed Perfectly
+              </h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">
+                We specialize in creating "larger than life" experiences with a
+                proven track record in mega-scale events. Our operational
+                frameworks are designed to handle any challenge, ensuring your
+                event is both grand and graceful.
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="custom-card p-8 reveal flex flex-col items-center md:flex-row md:items-start"
+            style="transition-delay: 300ms"
+          >
+            <div
+              class="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 10l.01.01"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-[var(--text-primary)] mb-3">
+                Obsessive Attention to Detail
+              </h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">
+                Our promise of a "last mile touch" is built on a core value of
+                client obsession. We meticulously manage every detail, from
+                vendor coordination to final wrap-up, providing you with a
+                seamless and stress-free experience.
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="custom-card p-8 reveal flex flex-col items-center md:flex-row md:items-start"
+            style="transition-delay: 400ms"
+          >
+            <div
+              class="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-[var(--text-primary)] mb-3">
+                A Foundation of Stability & Trust
+              </h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">
+                Backed by a strong legacy and built on a self-sustained,
+                competency-driven foundation, we are a partner you can rely on
+                for sustainable growth and long-term success.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section
         id="story"
         class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -494,7 +730,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div
-            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal"
+            class="custom-card p-8 reveal"
             style="transition-delay: 100ms"
           >
             <div class="flex-shrink-0 mb-4">
@@ -515,7 +751,7 @@
             </p>
           </div>
           <div
-            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal"
+            class="custom-card p-8 reveal"
             style="transition-delay: 200ms"
           >
             <div class="flex-shrink-0 mb-4">
@@ -536,7 +772,7 @@
             </p>
           </div>
           <div
-            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal"
+            class="custom-card p-8 reveal"
             style="transition-delay: 300ms"
           >
             <div class="flex-shrink-0 mb-4">
@@ -557,7 +793,7 @@
             </p>
           </div>
           <div
-            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal"
+            class="custom-card p-8 reveal"
             style="transition-delay: 400ms"
           >
             <div class="flex-shrink-0 mb-4">
@@ -579,6 +815,7 @@
           </div>
         </div>
       </section>
+
       <section
         id="mission-vision-values"
         class="my-20 lg:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -626,9 +863,7 @@
                 />
               </svg>
             </div>
-            <div
-              class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl"
-            >
+            <div class="custom-card pt-14 p-8 w-full h-full">
               <h3
                 class="text-2xl font-black text-center text-[var(--accent)] tracking-wider uppercase mb-4"
               >
@@ -666,9 +901,7 @@
                 />
               </svg>
             </div>
-            <div
-              class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl"
-            >
+            <div class="custom-card pt-14 p-8 w-full h-full">
               <h3
                 class="text-2xl font-black text-center text-[var(--accent)] tracking-wider uppercase mb-4"
               >
@@ -704,9 +937,7 @@
                 />
               </svg>
             </div>
-            <div
-              class="bg-[var(--bg-secondary)] rounded-xl shadow-xl p-8 pt-14 w-full h-full border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-2xl"
-            >
+            <div class="custom-card pt-14 p-8 w-full h-full">
               <h3
                 class="text-2xl font-black text-center text-[var(--accent)] tracking-wider uppercase mb-4"
               >
@@ -749,7 +980,7 @@
         <div class="mt-16 flex flex-col gap-8">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <article
-              class="relative bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal border border-[var(--border-color)] h-full"
+              class="relative custom-card p-8 h-full reveal"
             >
               <div
                 class="absolute -top-5 -left-5 w-16 h-16 bg-[var(--accent)] text-white text-3xl font-bold flex items-center justify-center rounded-full shadow-md"
@@ -772,7 +1003,7 @@
             </article>
 
             <article
-              class="relative bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal border border-[var(--border-color)] h-full"
+              class="relative custom-card p-8 h-full reveal"
               style="transition-delay: 150ms"
             >
               <div
@@ -796,7 +1027,7 @@
             </article>
 
             <article
-              class="relative bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal border border-[var(--border-color)] h-full"
+              class="relative custom-card p-8 h-full reveal"
               style="transition-delay: 300ms"
             >
               <div
@@ -822,7 +1053,7 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <article
-              class="relative bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal border border-[var(--border-color)] h-full"
+              class="relative custom-card p-8 h-full reveal"
               style="transition-delay: 450ms"
             >
               <div
@@ -846,7 +1077,7 @@
             </article>
 
             <article
-              class="relative bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal border border-[var(--border-color)] h-full"
+              class="relative custom-card p-8 h-full reveal"
               style="transition-delay: 600ms"
             >
               <div
@@ -872,311 +1103,305 @@
         </div>
       </section>
 
-      <section
-        id="services"
-        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        aria-labelledby="services-heading"
-      >
-        <div class="text-center reveal">
-          <h2
-            id="testimonial-heading"
-            class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
-          >
-            Our Signature Services
-          </h2>
-          <p
-            class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
-          >
-            From inspired design to flawless execution, we bring every detail of
-            your event to life with creativity, precision, and warmth.
-          </p>
-        </div>
-
-        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <article
-            class="group relative bg-[var(--bg-secondary)] min-h-[24rem] flex p-8 rounded-2xl flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full transition-all duration-300 group-hover:text-white"
+      <section id="faq" class="my-20 md:my-32" aria-labelledby="faq-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center reveal">
+            <h2
+              id="faq-heading"
+              class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
             >
-              <img
-                src="./assets/icons/design.png"
-                alt="Design Icon"
-                loading="lazy"
-                class="w-24 h-24 mb-6 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-              />
-              <h3
-                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white"
-              >
-                Design
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300"
-              >
-                We believe great experiences begin with exceptional design. Our
-                process involves conceptualizing unique themes, creating
-                immersive spatial designs, and developing cohesive branding that
-                tells your story.
-              </p>
-            </div>
-          </article>
-
-          <article
-            class="group relative bg-[var(--bg-secondary)] min-h-[24rem] flex p-8 rounded-2xl flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full transition-all duration-300 group-hover:text-white"
+              Frequently Asked Questions
+            </h2>
+            <p
+              class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
             >
-              <img
-                src="./assets/icons/management.png"
-                alt="Management Icon"
-                loading="lazy"
-                class="w-24 h-24 mb-6 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-              />
-              <h3
-                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white"
-              >
-                Management
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300"
-              >
-                From concept to execution, we provide meticulous end-to-end
-                event management. Our services include detailed logistical
-                planning, vendor coordination, and on-site leadership to ensure
-                every detail is handled flawlessly.
-              </p>
-            </div>
-          </article>
+              Have questions? We have answers. If you can't find what you're
+              looking for, feel free to contact us.
+            </p>
+          </div>
 
-          <article
-            class="group relative bg-[var(--bg-secondary)] min-h-[24rem] flex p-8 rounded-2xl flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full transition-all duration-300 group-hover:text-white"
-            >
-              <img
-                src="./assets/icons/hospitality.png"
-                alt="Hospitality Icon"
-                loading="lazy"
-                class="w-24 h-24 mb-6 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-              />
-              <h3
-                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white"
-              >
-                Hospitality
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300"
-              >
-                Hospitality is at the heart of every memorable event. We focus
-                on curating a seamless guest journey, providing personalized
-                services, and ensuring every attendee feels welcomed and valued
-                from start to finish.
-              </p>
-            </div>
-          </article>
-
-          <article
-            class="group relative bg-[var(--bg-secondary)] min-h-[24rem] flex p-8 rounded-2xl flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:bg-[var(--accent)] reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full transition-all duration-300 group-hover:text-white"
-            >
-              <img
-                src="./assets/icons/gifting.png"
-                alt="Gifting Icon"
-                loading="lazy"
-                class="w-24 h-24 mb-6 transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-              />
-              <h3
-                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] group-hover:text-white"
-              >
-                Gifting
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors duration-300"
-              >
-                A perfect gift extends the memory of an event. We specialize in
-                curating bespoke gifting experiences, from sourcing unique
-                products to designing branded merchandise that leaves a lasting
-                impression.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section
-        id="why-us"
-        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        aria-labelledby="why-us-heading"
-      >
-        <div class="text-center reveal">
-          <h2
-            id="why-us-heading"
-            class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
-          >
-            Why Partner With Us?
-          </h2>
-          <p
-            class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto"
-          >
-            We blend grand-scale execution with meticulous attention to detail,
-            turning your vision into an unforgettable reality.
-          </p>
-        </div>
-
-        <div
-          class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left"
-        >
-          <article
-            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal flex flex-col items-center md:flex-row md:items-start"
-            style="transition-delay: 100ms"
-          >
-            <div
-              class="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full flex items-center justify-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-black text-[var(--text-primary)] mb-3">
-                Integrated In-House Expertise
-              </h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">
-                From design and management to hospitality and gifting, our
-                services are seamlessly integrated. This ensures a cohesive
-                experience and flawless execution from a single, dedicated
-                partner.
-              </p>
-            </div>
-          </article>
-
-          <article
-            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal flex flex-col items-center md:flex-row md:items-start"
+          <div
+            class="mt-16 max-w-4xl mx-auto space-y-4 reveal"
             style="transition-delay: 200ms"
           >
             <div
-              class="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full flex items-center justify-center"
+              class="custom-card overflow-hidden p-0"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
+              <button
+                class="faq-question w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+                aria-controls="faq-answer-1"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >What services does IRBINOR offer?</span
+                >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="faq-answer-1"
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    We provide a comprehensive suite of creative services. Our
+                    four signature pillars are Design, Management, Hospitality,
+                    and Gifting. We offer an integrated, in-house solution to
+                    ensure a cohesive and flawlessly executed experience for your
+                    event.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 class="text-xl font-black text-[var(--text-primary)] mb-3">
-                Larger Than Life, Executed Perfectly
-              </h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">
-                We specialize in creating "larger than life" experiences with a
-                proven track record in mega-scale events. Our operational
-                frameworks are designed to handle any challenge, ensuring your
-                event is both grand and graceful.
-              </p>
-            </div>
-          </article>
 
-          <article
-            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal flex flex-col items-center md:flex-row md:items-start"
-            style="transition-delay: 300ms"
-          >
             <div
-              class="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full flex items-center justify-center"
+              class="custom-card overflow-hidden p-0"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
+              <button
+                class="faq-question w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+                aria-controls="faq-answer-2"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 10l.01.01"
-                />
-              </svg>
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >What types of events do you specialize in?</span
+                >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="faq-answer-2"
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    We specialize in crafting "larger than life" experiences and
+                    have a proven history of managing mega-scale events. Whether
+                    it's a large corporate conference, an intimate brand launch,
+                    or a private celebration, our framework is built to deliver
+                    impactful, story-driven events of any size.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 class="text-xl font-black text-[var(--text-primary)] mb-3">
-                Obsessive Attention to Detail
-              </h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">
-                Our promise of a "last mile touch" is built on a core value of
-                client obsession. We meticulously manage every detail, from
-                vendor coordination to final wrap-up, providing you with a
-                seamless and stress-free experience.
-              </p>
-            </div>
-          </article>
 
-          <article
-            class="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg hover:shadow-[var(--accent)]/10 hover:-translate-y-2 transition-all duration-300 reveal flex flex-col items-center md:flex-row md:items-start"
-            style="transition-delay: 400ms"
-          >
             <div
-              class="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full flex items-center justify-center"
+              class="custom-card overflow-hidden p-0"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
+              <button
+                class="faq-question w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+                aria-controls="faq-answer-3"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >What makes IRBINOR different from other event companies?</span
+                >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="faq-answer-3"
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    Our core difference lies in our ability to deliver grand-scale
+                    execution with a meticulous "last mile touch". We are
+                    distinguished by our integrated in-house creative power, a
+                    strong legacy that ensures stability, and a core value of
+                    "Client Obsession" that guarantees a seamless, stress-free
+                    process for you.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 class="text-xl font-black text-[var(--text-primary)] mb-3">
-                A Foundation of Stability & Trust
-              </h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">
-                Backed by a strong legacy and built on a self-sustained,
-                competency-driven foundation, we are a partner you can rely on
-                for sustainable growth and long-term success.
-              </p>
+
+            <div
+              class="custom-card overflow-hidden p-0"
+            >
+              <button
+                class="faq-question w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+                aria-controls="faq-answer-4"
+              >
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >What is your process for planning an event?</span
+                >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="faq-answer-4"
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    Our client journey is structured in five phases to ensure
+                    clarity and perfection. It begins with an 'Inquiry' to
+                    understand your vision, followed by 'Concept' and 'Design' to
+                    bring it to life visually. We then move to flawless
+                    'Execution' on event day and conclude with a thorough
+                    'Follow-Up'. You can learn more in our
+                    <a
+                      href="#process"
+                      class="text-[var(--accent)] hover:underline"
+                      >Our Process</a
+                    >
+                    section.
+                  </p>
+                </div>
+              </div>
             </div>
-          </article>
+
+            <div
+              class="custom-card overflow-hidden p-0"
+            >
+              <button
+                class="faq-question w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+                aria-controls="faq-answer-5"
+              >
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >Where are you located and what regions do you serve?</span
+                >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="faq-answer-5"
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    Our main office is located in Pune, Maharashtra, India.
+                    However, we have a global presence and have delivered
+                    experiences for clients around the world, including in the
+                    USA, Brazil, and France.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
+      
+      <section
+        id="map-section"
+        class="my-12 sm:my-16 md:my-20"
+        aria-labelledby="map-heading-2"
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            id="map-heading-2"
+            class="text-3xl md:text-4xl font-black text-center text-[var(--text-primary)] mb-8"
+          >
+            Our Global Presence
+          </h2>
+          <div id="globe-container" class="relative w-full mx-auto aspect-[2/1]">
+            <img
+              src="./assets/images/blackmap.png"
+              alt="A stylized world map showing our global presence"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain opacity-40"
+              onerror="this.onerror=null;this.src='https://placehold.co/1200x600/111827/ffffff?text=Map+Not+Found';"
+            />
+            <div
+              class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
+              style="top: 35%; left: 20%; transform: translate(-50%, -50%)"
+            >
+              <span
+                class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
+                >New York, USA</span
+              >
+            </div>
+            <div
+              class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
+              style="top: 65%; left: 28%; transform: translate(-50%, -50%)"
+            >
+              <span
+                class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
+                >São Paulo, Brazil</span
+              >
+            </div>
+            <div
+              class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
+              style="top: 40%; left: 52%; transform: translate(-50%, -50%)"
+            >
+              <span
+                class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
+                >Paris, France</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <section
         id="join"
         class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-labelledby="join-heading"
       >
         <article
-          class="relative bg-[var(--bg-secondary)] rounded-2xl overflow-hidden transition-all duration-300 reveal shadow-xl border border-[var(--border-color)]"
+          class="relative custom-card p-0 overflow-hidden reveal"
         >
           <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="w-full md:w-1/2 p-8 md:p-12 text-left space-y-4 z-10">
@@ -1210,14 +1435,14 @@
           </div>
         </article>
       </section>
-
+      
       <section
         id="contact"
         class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-labelledby="contact-heading"
       >
         <div
-          class="bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-xl rounded-2xl p-6 sm:p-10 reveal"
+          class="custom-card p-6 sm:p-10 reveal"
         >
           <h2
             id="contact-heading"
@@ -1307,311 +1532,20 @@
           </form>
         </div>
       </section>
+
     </main>
-
-    <section
-      id="map-section"
-      class="my-12 sm:my-16 md:my-20"
-      aria-labelledby="map-heading-2"
-    >
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          id="map-heading-2"
-          class="text-3xl md:text-4xl font-black text-center text-[var(--text-primary)] mb-8"
-        >
-          Our Global Presence
-        </h2>
-        <div id="globe-container" class="relative w-full mx-auto aspect-[2/1]">
-          <img
-            src="./assets/images/blackmap.png"
-            alt="A stylized world map showing our global presence"
-            loading="lazy"
-            class="absolute inset-0 w-full h-full object-contain opacity-40"
-            onerror="this.onerror=null;this.src='https://placehold.co/1200x600/111827/ffffff?text=Map+Not+Found';"
-          />
-          <div
-            class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
-            style="top: 35%; left: 20%; transform: translate(-50%, -50%)"
-          >
-            <span
-              class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
-              >New York, USA</span
-            >
-          </div>
-          <div
-            class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
-            style="top: 65%; left: 28%; transform: translate(-50%, -50%)"
-          >
-            <span
-              class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
-              >São Paulo, Brazil</span
-            >
-          </div>
-          <div
-            class="group absolute rounded-full w-3 h-3 bg-[var(--accent)] animate-pulse cursor-pointer"
-            style="top: 40%; left: 52%; transform: translate(-50%, -50%)"
-          >
-            <span
-              class="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-primary)] opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none border border-[var(--border-color)]"
-              >Paris, France</span
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="my-20 md:my-32" aria-labelledby="faq-heading">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center reveal">
-          <h2
-            id="faq-heading"
-            class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
-          >
-            Frequently Asked Questions
-          </h2>
-          <p
-            class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
-          >
-            Have questions? We have answers. If you can't find what you're
-            looking for, feel free to contact us.
-          </p>
-        </div>
-
-        <div
-          class="mt-16 max-w-4xl mx-auto space-y-4 reveal"
-          style="transition-delay: 200ms"
-        >
-          <div
-            class="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl overflow-hidden"
-          >
-            <button
-              class="faq-question w-full text-left flex justify-between items-center p-6"
-              aria-expanded="false"
-              aria-controls="faq-answer-1"
-            >
-              <span class="text-lg font-semibold text-[var(--text-primary)]"
-                >What services does IRBINOR offer?</span
-              >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              id="faq-answer-1"
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
-            >
-              <div class="p-6 pt-0 text-[var(--text-secondary)]">
-                <p>
-                  We provide a comprehensive suite of creative services. Our
-                  four signature pillars are Design, Management, Hospitality,
-                  and Gifting. We offer an integrated, in-house solution to
-                  ensure a cohesive and flawlessly executed experience for your
-                  event.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl overflow-hidden"
-          >
-            <button
-              class="faq-question w-full text-left flex justify-between items-center p-6"
-              aria-expanded="false"
-              aria-controls="faq-answer-2"
-            >
-              <span class="text-lg font-semibold text-[var(--text-primary)]"
-                >What types of events do you specialize in?</span
-              >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              id="faq-answer-2"
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
-            >
-              <div class="p-6 pt-0 text-[var(--text-secondary)]">
-                <p>
-                  We specialize in crafting "larger than life" experiences and
-                  have a proven history of managing mega-scale events. Whether
-                  it's a large corporate conference, an intimate brand launch,
-                  or a private celebration, our framework is built to deliver
-                  impactful, story-driven events of any size.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl overflow-hidden"
-          >
-            <button
-              class="faq-question w-full text-left flex justify-between items-center p-6"
-              aria-expanded="false"
-              aria-controls="faq-answer-3"
-            >
-              <span class="text-lg font-semibold text-[var(--text-primary)]"
-                >What makes IRBINOR different from other event companies?</span
-              >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              id="faq-answer-3"
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
-            >
-              <div class="p-6 pt-0 text-[var(--text-secondary)]">
-                <p>
-                  Our core difference lies in our ability to deliver grand-scale
-                  execution with a meticulous "last mile touch". We are
-                  distinguished by our integrated in-house creative power, a
-                  strong legacy that ensures stability, and a core value of
-                  "Client Obsession" that guarantees a seamless, stress-free
-                  process for you.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl overflow-hidden"
-          >
-            <button
-              class="faq-question w-full text-left flex justify-between items-center p-6"
-              aria-expanded="false"
-              aria-controls="faq-answer-4"
-            >
-              <span class="text-lg font-semibold text-[var(--text-primary)]"
-                >What is your process for planning an event?</span
-              >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              id="faq-answer-4"
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
-            >
-              <div class="p-6 pt-0 text-[var(--text-secondary)]">
-                <p>
-                  Our client journey is structured in five phases to ensure
-                  clarity and perfection. It begins with an 'Inquiry' to
-                  understand your vision, followed by 'Concept' and 'Design' to
-                  bring it to life visually. We then move to flawless
-                  'Execution' on event day and conclude with a thorough
-                  'Follow-Up'. You can learn more in our
-                  <a
-                    href="#process"
-                    class="text-[var(--accent)] hover:underline"
-                    >Our Process</a
-                  >
-                  section.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl overflow-hidden"
-          >
-            <button
-              class="faq-question w-full text-left flex justify-between items-center p-6"
-              aria-expanded="false"
-              aria-controls="faq-answer-5"
-            >
-              <span class="text-lg font-semibold text-[var(--text-primary)]"
-                >Where are you located and what regions do you serve?</span
-              >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-[var(--accent)] transition-transform duration-300 transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              id="faq-answer-5"
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
-            >
-              <div class="p-6 pt-0 text-[var(--text-secondary)]">
-                <p>
-                  Our main office is located in Pune, Maharashtra, India.
-                  However, we have a global presence and have delivered
-                  experiences for clients around the world, including in the
-                  USA, Brazil, and France.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
     <footer
       class="bg-[var(--bg-primary)] text-[var(--text-secondary)] py-10 border-t border-[var(--border-color)]"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="flex flex-col items-center md:items-start">
-            <a href="#home" class="mb-4">
-              <img
-                class="h-12"
-                src="./assets/images/logo.png"
-                alt="IRBINOR Company Logo"
-              />
+            <a 
+              href="#home" 
+              aria-label="IRBINOR Company Logo"
+              class="h-12 w-48 logo-themed mb-4"
+              >
             </a>
             <p class="text-sm text-center md:text-left">
               Delivering innovative design, management, hospitality, and gifting
@@ -1716,98 +1650,31 @@
       </div>
     </footer>
 
-    <div
-      id="image-modal"
-      class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity duration-300"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-    >
-      <div
-        class="modal-content w-full max-w-5xl bg-[var(--bg-secondary)] rounded-2xl shadow-2xl relative overflow-hidden opacity-0 scale-95 -translate-y-5 transition-all duration-300"
-      >
-        <button
-          id="close-modal"
-          aria-label="Close gallery viewer"
-          class="absolute top-4 right-4 text-[var(--text-primary)] bg-[var(--bg-secondary)]/50 rounded-full p-2 z-20 hover:bg-[var(--accent)] hover:text-white transition-colors duration-300"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-
-        <div class="relative">
-          <div
-            id="carousel-container"
-            class="w-full h-[60vh] md:h-[75vh] bg-[var(--bg-primary)] flex items-center justify-center"
-          >
-            </div>
-
-          <button
-            id="prev-btn"
-            aria-label="Previous image"
-            class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-[var(--accent)] transition-colors z-10"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+    <div id="image-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-content w-full max-w-5xl bg-[var(--bg-secondary)] rounded-2xl shadow-2xl relative overflow-hidden opacity-0 scale-95 -translate-y-5 transition-all duration-300">
+          <button id="close-modal" aria-label="Close gallery viewer" class="absolute top-4 right-4 text-[var(--text-primary)] bg-[var(--bg-secondary)]/50 rounded-full p-2 z-20 hover:bg-[var(--accent)] hover:text-white transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
           </button>
-          <button
-            id="next-btn"
-            aria-label="Next image"
-            class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-[var(--accent)] transition-colors z-10"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-
-          <div
-            class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white"
-          >
-            <h3 id="modal-title" class="text-2xl font-black"></h3>
-            <p id="modal-counter" class="text-sm mt-1"></p>
-            <p class="text-xs text-white/70 mt-2">
-              Note: Images are for inspirational purposes to showcase styles we
-              can create for your event.
-            </p>
+          <div class="relative">
+              <div id="carousel-container" class="w-full h-[60vh] md:h-[75vh] bg-[var(--bg-primary)] relative flex items-center justify-center">
+              </div>
+              <button id="prev-btn" aria-label="Previous image" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-[var(--accent)] transition-colors z-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button id="next-btn" aria-label="Next image" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-[var(--accent)] transition-colors z-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </button>
+              <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                  <h3 id="modal-title" class="text-2xl font-black"></h3>
+                  <p id="modal-counter" class="text-sm mt-1"></p>
+                  <p class="modal-disclaimer">Note: Images are for inspirational purposes to showcase styles we can create for your event.</p>
+              </div>
           </div>
-        </div>
       </div>
     </div>
+
     <button
       id="wa-toggle"
       aria-label="Contact us on WhatsApp"

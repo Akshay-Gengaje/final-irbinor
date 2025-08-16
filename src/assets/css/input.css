@@ -71,6 +71,11 @@
     --border-color: #d1d9ce;
     /* light gray-green */
     --shadow-color: rgba(6, 69, 32, 0.1);
+
+    /* Custom Card Variables */
+    --card-border-color: #e2e8f0;
+    --card-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07);
+    --card-shadow-hover: 0 10px 20px 0 rgba(6, 69, 32, 0.1);
   }
 
   html.dark {
@@ -90,6 +95,11 @@
     --border-color: #39624b;
     /* killarney */
     --shadow-color: rgba(0, 0, 0, 0.2);
+
+    /* Custom Card Variables */
+    --card-border-color: var(--border-color);
+    --card-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+    --card-shadow-hover: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   }
 
   /* Set the base font for the entire document (Secondary Typeface) */
@@ -107,6 +117,90 @@
     font-family: 'Garet', sans-serif;
   }
 }
+
+/* ==========================================================================
+   COMPONENTS LAYER
+   ========================================================================== */
+@layer components {
+
+  .logo-themed {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* Set the background to the light logo by default */
+    background-image: url('../images/logo-light.png');
+  }
+
+  .dark .logo-themed {
+    /* Change the background to the dark logo in dark mode */
+    background-image: url('../images/logo-dark.png');
+  }
+
+  .custom-card {
+    background-color: var(--bg-secondary);
+    border-radius: 1rem;
+    /* equivalent to rounded-2xl */
+    border: 1px solid var(--card-border-color);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .custom-card:hover {
+    /* transform: translateY(-8px); */
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--accent);
+  }
+
+  /* --- START: Gallery Modal, Loader, and Error State Styles --- */
+  .modal-content.modal-enter {
+    opacity: 1;
+    transform: none;
+  }
+  .loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  .loading-spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--accent, #dcaf64);
+    border-radius: 50%;
+    animation: spin 1s ease-in-out infinite, pulse 1.5s ease-in-out infinite;
+  }
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(200, 50, 50, 0.8));
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  .error-container p {
+    @apply text-xl font-medium mb-4;
+  }
+  .error-container button {
+    @apply bg-white/20 text-white py-2 px-4 border border-white/50 rounded-md cursor-pointer transition-colors hover:bg-white/30;
+  }
+  .modal-disclaimer {
+    @apply text-xs text-white/70 mt-2;
+  }
+  /* --- END: Gallery Modal, Loader, and Error State Styles --- */
+}
+
 
 /* ==========================================================================
    UTILITIES LAYER
@@ -143,4 +237,13 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Keyframe animations need to be outside of layers */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
 }
