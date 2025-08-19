@@ -33,6 +33,12 @@
     />
     <meta name="author" content="IRBINOR" />
 
+    <link href="./assets/css/tailwind.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css"
+    />
+
     <script>
       // Prevent FOUC: Apply theme instantly before page renders
       (function () {
@@ -237,11 +243,11 @@
     <main>
       <section
         id="home"
+        aria-labelledby="hero-heading"
         class="relative flex items-center overflow-hidden"
       >
-        <video autoplay loop muted playsinline class="hero-video" poster="./assets/images/hero-poster.jpg">
+        <video autoplay loop muted playsinline class="hero-video">
           <source src="./assets/videos/hero-video.mp4" type="video/mp4" />
-          <track kind="captions" src="./assets/captions/hero-video.vtt" srclang="en" label="English" />
         </video>
 
         <div class="absolut z-10"></div>
@@ -1769,13 +1775,6 @@
         </form>
       </div>
     </div>
-    
-    <link href="./assets/css/tailwind.css" rel="stylesheet" defer/>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css"
-      defer
-    />
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"
