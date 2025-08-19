@@ -73,19 +73,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Configuration ---
     const carouselImages = [
       {
-        src: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        src: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1",
         alt: "Corporate Gala Dinner",
       },
       {
-        src: "https://images.pexels.com/photos/6492397/pexels-photo-6492397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        src: "https://images.pexels.com/photos/6492397/pexels-photo-6492397.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1",
         alt: "Minimalist Event Design",
       },
       {
-        src: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        src: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1",
         alt: "Destination Event by the Water",
       },
       {
-        src: "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        src: "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1",
         alt: "Elegant Table Setting",
       },
     ];
