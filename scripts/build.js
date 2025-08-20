@@ -19,11 +19,11 @@ async function ensureDir(dir) {
   }
 }
 
-// Check if file exists and has same size
-async function fileExistsAndSameSize(src, dest) {
+// Check if file exists
+async function fileExists(dest) {
   try {
-    const [srcStat, destStat] = await Promise.all([fs.stat(src), fs.stat(dest)]);
-    return srcStat.size === destStat.size;
+    await fs.access(dest);
+    return true;
   } catch {
     return false;
   }
@@ -52,7 +52,7 @@ async function processImagesRecursive(inputDir, outputDir) {
           const processingTasks = [];
 
           // Original format
-          if (!(await fileExistsAndSameSize(inputPath, outputPath))) {
+          if (!(await fileExists(outputPath))) {
             if (ext === ".png") {
               processingTasks.push(
                 sharpInstance.clone().png({ quality: 90, compressionLevel: 9 }).toFile(outputPath)
@@ -63,27 +63,27 @@ async function processImagesRecursive(inputDir, outputDir) {
               );
             }
           } else {
-            console.log(`⏩ Skipped ${file} (already optimized)`);
+            console.log(`⏩ Skipped ${file} (already exists)`);
           }
 
           // WebP
           const webpPath = path.join(outputDir, `${baseName}.webp`);
-          if (!(await fileExistsAndSameSize(inputPath, webpPath))) {
+          if (!(await fileExists(webpPath))) {
             processingTasks.push(
               sharpInstance.clone().webp({ quality: 80, nearLossless: true }).toFile(webpPath)
             );
           } else {
-            console.log(`⏩ Skipped ${baseName}.webp (already optimized)`);
+            console.log(`⏩ Skipped ${baseName}.webp (already exists)`);
           }
 
           // AVIF
           const avifPath = path.join(outputDir, `${baseName}.avif`);
-          if (!(await fileExistsAndSameSize(inputPath, avifPath))) {
+          if (!(await fileExists(avifPath))) {
             processingTasks.push(
               sharpInstance.clone().avif({ quality: 65, effort: 4 }).toFile(avifPath)
             );
           } else {
-            console.log(`⏩ Skipped ${baseName}.avif (already optimized)`);
+            console.log(`⏩ Skipped ${baseName}.avif (already exists)`);
           }
 
           if (processingTasks.length > 0) {
@@ -97,21 +97,21 @@ async function processImagesRecursive(inputDir, outputDir) {
           console.error(`❌ Error processing ${file}:`, err.message);
         }
       } else if (ext === ".svg") {
-        if (!(await fileExistsAndSameSize(inputPath, outputPath))) {
+        if (!(await fileExists(outputPath))) {
           tasks.push(
             optimizeSvg(inputPath, outputPath).then(() =>
               console.log(`✅ Processed SVG ${file}`)
             )
           );
         } else {
-          console.log(`⏩ Skipped SVG ${file} (already optimized)`);
+          console.log(`⏩ Skipped SVG ${file} (already exists)`);
         }
       } else {
-        if (!(await fileExistsAndSameSize(inputPath, outputPath))) {
+        if (!(await fileExists(outputPath))) {
           await fs.copyFile(inputPath, outputPath);
           console.log(`✅ Copied ${file}`);
         } else {
-          console.log(`⏩ Skipped ${file} (already exists, same size)`);
+          console.log(`⏩ Skipped ${file} (already exists)`);
         }
       }
     }
@@ -165,11 +165,11 @@ async function copyFonts() {
     const tasks = files.map(async (file) => {
       const srcPath = path.join(fontsSrc, file);
       const destPath = path.join(fontsDest, file);
-      if (!(await fileExistsAndSameSize(srcPath, destPath))) {
+      if (!(await fileExists(destPath))) {
         await fs.copyFile(srcPath, destPath);
         console.log(`✅ Copied font: ${file}`);
       } else {
-        console.log(`⏩ Skipped font ${file} (already exists, same size)`);
+        console.log(`⏩ Skipped font ${file} (already exists)`);
       }
     });
     await Promise.all(tasks);
@@ -179,7 +179,7 @@ async function copyFonts() {
   }
 }
 
-// Process Videos (MP4 compression with skip if same size)
+// Process Videos (MP4 compression with skip if exists)
 async function processVideos() {
   const videoSrcDir = path.join(srcDir, "assets/videos");
   const videoOutDir = path.join(publicDir, "assets/videos");
@@ -193,8 +193,8 @@ async function processVideos() {
     const outputPath = path.join(videoOutDir, file);
     const ext = path.extname(file).toLowerCase();
 
-    if (await fileExistsAndSameSize(inputPath, outputPath)) {
-      console.log(`⏩ Skipped video ${file} (already exists, same size)`);
+    if (await fileExists(outputPath)) {
+      console.log(`⏩ Skipped video ${file} (already exists)`);
       continue;
     }
 
@@ -239,8 +239,8 @@ async function minifyHtml() {
       const inputPath = path.join(htmlSrcDir, file);
       const outputPath = path.join(htmlOutDir, file);
 
-      if (await fileExistsAndSameSize(inputPath, outputPath)) {
-        console.log(`⏩ Skipped HTML ${file} (already exists, same size)`);
+      if (await fileExists(outputPath)) {
+        console.log(`⏩ Skipped HTML ${file} (already exists)`);
         continue;
       }
 
@@ -283,8 +283,8 @@ async function minifyJs() {
       const inputPath = path.join(jsSrcDir, file);
       const outputPath = path.join(jsOutDir, file);
 
-      if (await fileExistsAndSameSize(inputPath, outputPath)) {
-        console.log(`⏩ Skipped JS ${file} (already exists, same size)`);
+      if (await fileExists(outputPath)) {
+        console.log(`⏩ Skipped JS ${file} (already exists)`);
         continue;
       }
 
