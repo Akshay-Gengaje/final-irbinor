@@ -4,9 +4,10 @@
  * 1. Mobile sidebar navigation.
  * 2. Theme (dark/light mode) switching.
  * 3. Active navigation link highlighting.
- * 4. Circular carousel for the main gallery.
+ * 4. Circular carousel for the main gallery with optimized images.
  * 5. Revealing elements on scroll.
  * 6. FAQ Accordion.
+ * 7. Smooth scrolling for anchor links.
  */
 document.addEventListener("DOMContentLoaded", function () {
   // --- Mobile Sidebar, Theme Toggler, and Nav Link Logic ---
@@ -71,22 +72,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const circularCarousel = document.getElementById("circular-carousel");
   if (circularCarousel) {
     // --- Configuration ---
+    // Use local paths with webp and fallback formats for optimal performance.
     const carouselImages = [
       {
-        src: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Corporate Gala Dinner",
+        avif: "assets/images/carosels/corporate-conference-event.avif",
+        webp: "assets/images/carosels/corporate-conference-event.webp",
+        fallback: "assets/images/carosels/corporate-conference-event.jpg",
+        alt: "Corporate conference event setup with seating and stage",
       },
       {
-        src: "https://images.pexels.com/photos/6492397/pexels-photo-6492397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Minimalist Event Design",
+        avif: "assets/images/carosels/event-at-sea-side.avif",
+        webp: "assets/images/carosels/event-at-sea-side.webp",
+        fallback: "assets/images/carosels/event-at-sea-side.jpg",
+        alt: "An event setup by the seaside with decorations",
       },
       {
-        src: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Destination Event by the Water",
+        avif: "assets/images/carosels/stage-decoration-at-event.avif",
+        webp: "assets/images/carosels/stage-decoration-at-event.webp",
+        fallback: "assets/images/carosels/stage-decoration-at-event.jpg",
+        alt: "Stage decorated for an event with lighting and drapes",
       },
       {
-        src: "https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Elegant Table Setting",
+        avif: "assets/images/carosels/tent-outdoor-event-managment.avif",
+        webp: "assets/images/carosels/tent-outdoor-event-managment.webp",
+        fallback: "assets/images/carosels/tent-outdoor-event-managment.jpg",
+        alt: "Outdoor event management setup with decorated tents",
       },
     ];
 
@@ -101,11 +111,16 @@ document.addEventListener("DOMContentLoaded", function () {
     function initializeCarousel() {
       let carouselHTML = "";
       carouselImages.forEach((image) => {
+        // Use the <picture> element to serve optimized WebP images with a JPG/PNG fallback.
         carouselHTML += `
-                    <div class="carousel-item absolute w-3/4 md:w-1/2 transition-all duration-500 ease-in-out">
-                        <img src="${image.src}" alt="${image.alt}" class="w-full h-full object-cover rounded-xl shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/800x450/333/fff?text=Image+Not+Found';">
-                    </div>
-                `;
+            <div class="carousel-item absolute w-3/4 md:w-1/2 transition-all duration-500 ease-in-out">
+                <picture>
+                    <source srcset="${image.avif}" type="image/avif">
+                    <source srcset="${image.webp}" type="image/webp">
+                    <img src="${image.fallback}" alt="${image.alt}" class="w-full h-full object-cover rounded-xl shadow-2xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/800x450/333/fff?text=Image+Not+Found';">
+                </picture>
+            </div>
+        `;
       });
       circularCarousel.innerHTML = carouselHTML;
     }
@@ -207,36 +222,34 @@ document.addEventListener("DOMContentLoaded", function () {
         : "rotate(180deg)";
     });
   });
-});
 
-/* Add this new section to your main.js file */
+  // =========================================================================
+  // --- START: SMOOTH SCROLL & SECTION CENTERING ---
+  // =========================================================================
+  const navLinks = document.querySelectorAll('a[href^="#"]');
+  const header = document.querySelector("header");
 
-// =========================================================================
-// --- START: SMOOTH SCROLL & SECTION CENTERING ---
-// =========================================================================
-const navLinks = document.querySelectorAll('a[href^="#"]');
-const header = document.querySelector("header");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // Stop the default anchor link behavior
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault(); // Stop the default anchor link behavior
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
 
-    const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerHeight = header ? header.offsetHeight : 0;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerHeight - 30;
 
-    if (targetElement) {
-      const headerHeight = header ? header.offsetHeight : 0;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerHeight - 30;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    });
   });
+  // =========================================================================
+  // --- END: SMOOTH SCROLL & SECTION CENTERING ---
+  // =========================================================================
 });
-// =========================================================================
-// --- END: SMOOTH SCROLL & SECTION CENTERING ---
-// =========================================================================
