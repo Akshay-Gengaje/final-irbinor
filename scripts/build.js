@@ -19,6 +19,16 @@ async function ensureDir(dir) {
   }
 }
 
+// Check if file exists and has same size
+async function fileExistsAndSameSize(src, dest) {
+  try {
+    const [srcStat, destStat] = await Promise.all([fs.stat(src), fs.stat(dest)]);
+    return srcStat.size === destStat.size;
+  } catch {
+    return false;
+  }
+}
+
 // Process images recursively (optimized PNG, JPEG, WebP, AVIF)
 async function processImagesRecursive(inputDir, outputDir) {
   await ensureDir(outputDir);
@@ -41,55 +51,68 @@ async function processImagesRecursive(inputDir, outputDir) {
           const sharpInstance = sharp(inputPath, { failOn: "none" });
           const processingTasks = [];
 
-          if (ext === ".png") {
-            processingTasks.push(
-              sharpInstance
-                .clone()
-                .png({ quality: 90, compressionLevel: 9 })
-                .toFile(outputPath)
-            );
+          // Original format
+          if (!(await fileExistsAndSameSize(inputPath, outputPath))) {
+            if (ext === ".png") {
+              processingTasks.push(
+                sharpInstance.clone().png({ quality: 90, compressionLevel: 9 }).toFile(outputPath)
+              );
+            } else {
+              processingTasks.push(
+                sharpInstance.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(outputPath)
+              );
+            }
           } else {
-            processingTasks.push(
-              sharpInstance
-                .clone()
-                .jpeg({ quality: 80, mozjpeg: true })
-                .toFile(outputPath)
-            );
+            console.log(`⏩ Skipped ${file} (already optimized)`);
           }
 
+          // WebP
           const webpPath = path.join(outputDir, `${baseName}.webp`);
-          processingTasks.push(
-            sharpInstance
-              .clone()
-              .webp({ quality: 80, nearLossless: true })
-              .toFile(webpPath)
-          );
+          if (!(await fileExistsAndSameSize(inputPath, webpPath))) {
+            processingTasks.push(
+              sharpInstance.clone().webp({ quality: 80, nearLossless: true }).toFile(webpPath)
+            );
+          } else {
+            console.log(`⏩ Skipped ${baseName}.webp (already optimized)`);
+          }
 
+          // AVIF
           const avifPath = path.join(outputDir, `${baseName}.avif`);
-          processingTasks.push(
-            sharpInstance
-              .clone()
-              .avif({ quality: 65, effort: 4 })
-              .toFile(avifPath)
-          );
+          if (!(await fileExistsAndSameSize(inputPath, avifPath))) {
+            processingTasks.push(
+              sharpInstance.clone().avif({ quality: 65, effort: 4 }).toFile(avifPath)
+            );
+          } else {
+            console.log(`⏩ Skipped ${baseName}.avif (already optimized)`);
+          }
 
-          tasks.push(
-            Promise.all(processingTasks).then(() =>
-              console.log(`Processed ${file} → Optimized Original, WebP, AVIF`)
-            )
-          );
+          if (processingTasks.length > 0) {
+            tasks.push(
+              Promise.all(processingTasks).then(() =>
+                console.log(`✅ Processed ${file}`)
+              )
+            );
+          }
         } catch (err) {
           console.error(`❌ Error processing ${file}:`, err.message);
         }
       } else if (ext === ".svg") {
-        tasks.push(
-          optimizeSvg(inputPath, outputPath).then(() =>
-            console.log(`Processed SVG ${file}`)
-          )
-        );
+        if (!(await fileExistsAndSameSize(inputPath, outputPath))) {
+          tasks.push(
+            optimizeSvg(inputPath, outputPath).then(() =>
+              console.log(`✅ Processed SVG ${file}`)
+            )
+          );
+        } else {
+          console.log(`⏩ Skipped SVG ${file} (already optimized)`);
+        }
       } else {
-        await fs.copyFile(inputPath, outputPath);
-        console.log(`Copied ${file}`);
+        if (!(await fileExistsAndSameSize(inputPath, outputPath))) {
+          await fs.copyFile(inputPath, outputPath);
+          console.log(`✅ Copied ${file}`);
+        } else {
+          console.log(`⏩ Skipped ${file} (already exists, same size)`);
+        }
       }
     }
   }
@@ -112,7 +135,7 @@ async function optimizeSvg(inputPath, outputPath) {
     await fs.writeFile(outputPath, result.data);
   } catch (err) {
     console.error(`❌ Error optimizing SVG ${path.basename(inputPath)}:`, err.message);
-    await fs.copyFile(inputPath, outputPath); // Fallback to copying
+    await fs.copyFile(inputPath, outputPath); // fallback
     console.log(`Copied SVG ${path.basename(inputPath)}`);
   }
 }
@@ -139,18 +162,24 @@ async function copyFonts() {
 
   try {
     const files = await fs.readdir(fontsSrc);
-    const tasks = files.map((file) =>
-      fs.copyFile(path.join(fontsSrc, file), path.join(fontsDest, file))
-    );
+    const tasks = files.map(async (file) => {
+      const srcPath = path.join(fontsSrc, file);
+      const destPath = path.join(fontsDest, file);
+      if (!(await fileExistsAndSameSize(srcPath, destPath))) {
+        await fs.copyFile(srcPath, destPath);
+        console.log(`✅ Copied font: ${file}`);
+      } else {
+        console.log(`⏩ Skipped font ${file} (already exists, same size)`);
+      }
+    });
     await Promise.all(tasks);
-    console.log("Fonts copied successfully!");
   } catch (err) {
     console.error(`❌ Error copying fonts:`, err.message);
     throw err;
   }
 }
 
-// Process Videos (MP4 compression with fallback)
+// Process Videos (MP4 compression with skip if same size)
 async function processVideos() {
   const videoSrcDir = path.join(srcDir, "assets/videos");
   const videoOutDir = path.join(publicDir, "assets/videos");
@@ -164,6 +193,11 @@ async function processVideos() {
     const outputPath = path.join(videoOutDir, file);
     const ext = path.extname(file).toLowerCase();
 
+    if (await fileExistsAndSameSize(inputPath, outputPath)) {
+      console.log(`⏩ Skipped video ${file} (already exists, same size)`);
+      continue;
+    }
+
     if (ext === ".mp4") {
       tasks.push(
         new Promise((resolve) => {
@@ -171,25 +205,21 @@ async function processVideos() {
             .outputOptions(["-c:v libx264", "-crf 28", "-preset", "fast"])
             .save(outputPath)
             .on("end", () => {
-              console.log(`Saved MP4: ${file}`);
+              console.log(`✅ Saved MP4: ${file}`);
               resolve();
             })
             .on("error", (err) => {
               console.error(`❌ Error processing video ${file}:`, err.message);
-              fs.copyFile(inputPath, outputPath, (copyErr) => {
-                if (copyErr) {
-                  console.error(`❌ Error copying video ${file}:`, copyErr.message);
-                } else {
-                  console.log(`Copied video ${file} due to processing error`);
-                }
-                resolve(); // Continue build even if video processing fails
+              fs.copyFile(inputPath, outputPath).then(() => {
+                console.log(`Copied video ${file} due to processing error`);
+                resolve();
               });
             });
         })
       );
     } else {
       await fs.copyFile(inputPath, outputPath);
-      console.log(`Copied video ${file}`);
+      console.log(`✅ Copied video ${file}`);
     }
   }
   await Promise.all(tasks);
@@ -208,6 +238,12 @@ async function minifyHtml() {
     if (path.extname(file).toLowerCase() === ".html") {
       const inputPath = path.join(htmlSrcDir, file);
       const outputPath = path.join(htmlOutDir, file);
+
+      if (await fileExistsAndSameSize(inputPath, outputPath)) {
+        console.log(`⏩ Skipped HTML ${file} (already exists, same size)`);
+        continue;
+      }
+
       tasks.push(
         (async () => {
           try {
@@ -220,7 +256,7 @@ async function minifyHtml() {
               removeEmptyAttributes: true,
             });
             await fs.writeFile(outputPath, minified);
-            console.log(`Minified HTML: ${file}`);
+            console.log(`✅ Minified HTML: ${file}`);
           } catch (err) {
             console.error(`❌ Error minifying HTML ${file}:`, err.message);
             await fs.copyFile(inputPath, outputPath);
@@ -246,6 +282,12 @@ async function minifyJs() {
     if (path.extname(file).toLowerCase() === ".js") {
       const inputPath = path.join(jsSrcDir, file);
       const outputPath = path.join(jsOutDir, file);
+
+      if (await fileExistsAndSameSize(inputPath, outputPath)) {
+        console.log(`⏩ Skipped JS ${file} (already exists, same size)`);
+        continue;
+      }
+
       tasks.push(
         (async () => {
           try {
@@ -256,7 +298,7 @@ async function minifyJs() {
               sourceMap: false,
             });
             await fs.writeFile(outputPath, minified.code);
-            console.log(`Minified JS: ${file}`);
+            console.log(`✅ Minified JS: ${file}`);
           } catch (err) {
             console.error(`❌ Error minifying JS ${file}:`, err.message);
             await fs.copyFile(inputPath, outputPath);
