@@ -75,27 +75,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // Use local paths with webp and fallback formats for optimal performance.
     const carouselImages = [
       {
-        avif: "assets/images/carosels/corporate-conference-event.avif",
-        webp: "assets/images/carosels/corporate-conference-event.webp",
-        fallback: "assets/images/carosels/corporate-conference-event.jpg",
+        avif: "assets/images/carousel/corporate-conference-event.avif",
+        webp: "assets/images/carousel/corporate-conference-event.webp",
+        fallback: "assets/images/carousel/corporate-conference-event.jpg",
         alt: "Corporate conference event setup with seating and stage",
       },
       {
-        avif: "assets/images/carosels/event-at-sea-side.avif",
-        webp: "assets/images/carosels/event-at-sea-side.webp",
-        fallback: "assets/images/carosels/event-at-sea-side.jpg",
+        avif: "assets/images/carousel/event-at-sea-side.avif",
+        webp: "assets/images/carousel/event-at-sea-side.webp",
+        fallback: "assets/images/carousel/event-at-sea-side.jpg",
         alt: "An event setup by the seaside with decorations",
       },
       {
-        avif: "assets/images/carosels/stage-decoration-at-event.avif",
-        webp: "assets/images/carosels/stage-decoration-at-event.webp",
-        fallback: "assets/images/carosels/stage-decoration-at-event.jpg",
+        avif: "assets/images/carousel/stage-decoration-at-event.avif",
+        webp: "assets/images/carousel/stage-decoration-at-event.webp",
+        fallback: "assets/images/carousel/stage-decoration-at-event.jpg",
         alt: "Stage decorated for an event with lighting and drapes",
       },
       {
-        avif: "assets/images/carosels/tent-outdoor-event-managment.avif",
-        webp: "assets/images/carosels/tent-outdoor-event-managment.webp",
-        fallback: "assets/images/carosels/tent-outdoor-event-managment.jpg",
+        avif: "assets/images/carousel/tent-outdoor-event-managment.avif",
+        webp: "assets/images/carousel/tent-outdoor-event-managment.webp",
+        fallback: "assets/images/carousel/tent-outdoor-event-managment.jpg",
         alt: "Outdoor event management setup with decorated tents",
       },
     ];

@@ -1,189 +1,292 @@
-const fs = require("fs");
+const fs = require("fs").promises;
 const path = require("path");
-const CleanCSS = require("clean-css");
-const Terser = require("terser");
-const imagemin = require("imagemin");
-const imageminJpegtran = require("imagemin-jpegtran");
-const imageminPngquant = require("imagemin-pngquant");
+const sharp = require("sharp");
 const ffmpeg = require("fluent-ffmpeg");
-// Define paths
+const { minify: htmlMinify } = require("html-minifier-terser");
+const { minify: jsMinify } = require("terser");
+const svgo = require("svgo");
+
 const srcDir = path.join(__dirname, "../src");
 const publicDir = path.join(__dirname, "../public");
-const videoDir = "assets/videos";
-// Ensure public directories exist
-const ensureDir = (dir) => {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-};
-// Compress Videos
-async function compressVideos() {
-  console.log("Compressing videos...");
-  const videoInputDir = path.join(srcDir, videoDir);
-  const videoOutputDir = path.join(publicDir, videoDir);
 
-  // Use the existing helper function for consistency
-  ensureDir(videoOutputDir);
-
-  // Use readdirSync for consistency with other functions in the script
-  const files = fs.readdirSync(videoInputDir);
-
-  for (const file of files) {
-    if (file.endsWith(".mp4")) {
-      // FIX: Correctly join paths using the specific video input/output directories
-      const inputPath = path.join(videoInputDir, file);
-      const outputPath = path.join(videoOutputDir, file);
-
-      // Using a Promise to wrap the event-based ffmpeg process is correct
-      await new Promise((resolve, reject) => {
-        ffmpeg(inputPath)
-          .videoCodec("libx264")
-          .audioCodec("aac")
-          .outputOptions([
-            "-crf 28", // Good balance of quality/size
-            "-preset fast", // Good balance of speed/compression
-            "-movflags +faststart", // Essential for web streaming
-          ])
-          .on("end", () => {
-            console.log(`Compressed ${file}`);
-            resolve();
-          })
-          .on("error", (err) => {
-            console.error(`Error compressing ${file}:`, err.message);
-            reject(err);
-          })
-          .save(outputPath);
-      });
+async function ensureDir(dir) {
+  try {
+    await fs.mkdir(dir, { recursive: true });
+  } catch (err) {
+    if (err.code !== "EEXIST") {
+      throw err;
     }
   }
 }
-// Minify JS
-const minifyJS = async () => {
-  const jsInputDir = path.join(srcDir, "assets/js");
-  const jsOutputDir = path.join(publicDir, "assets/js");
 
-  ensureDir(jsOutputDir);
-  const jsFiles = fs
-    .readdirSync(jsInputDir)
-    .filter((file) => file.endsWith(".js"));
+// Process images recursively (optimized PNG, JPEG, WebP, AVIF)
+async function processImagesRecursive(inputDir, outputDir) {
+  await ensureDir(outputDir);
+  const files = await fs.readdir(inputDir);
+  const tasks = [];
 
-  for (const file of jsFiles) {
-    const jsContent = fs.readFileSync(path.join(jsInputDir, file), "utf8");
-    const minified = await Terser.minify(jsContent);
-    fs.writeFileSync(path.join(jsOutputDir, file), minified.code);
+  for (const file of files) {
+    const inputPath = path.join(inputDir, file);
+    const outputPath = path.join(outputDir, file);
+    const stat = await fs.stat(inputPath);
+
+    if (stat.isDirectory()) {
+      tasks.push(processImagesRecursive(inputPath, outputPath));
+    } else {
+      const ext = path.extname(file).toLowerCase();
+      const baseName = path.basename(file, ext);
+
+      if ([".jpg", ".jpeg", ".png"].includes(ext)) {
+        try {
+          const sharpInstance = sharp(inputPath, { failOn: "none" });
+          const processingTasks = [];
+
+          if (ext === ".png") {
+            processingTasks.push(
+              sharpInstance
+                .clone()
+                .png({ quality: 90, compressionLevel: 9 })
+                .toFile(outputPath)
+            );
+          } else {
+            processingTasks.push(
+              sharpInstance
+                .clone()
+                .jpeg({ quality: 80, mozjpeg: true })
+                .toFile(outputPath)
+            );
+          }
+
+          const webpPath = path.join(outputDir, `${baseName}.webp`);
+          processingTasks.push(
+            sharpInstance
+              .clone()
+              .webp({ quality: 80, nearLossless: true })
+              .toFile(webpPath)
+          );
+
+          const avifPath = path.join(outputDir, `${baseName}.avif`);
+          processingTasks.push(
+            sharpInstance
+              .clone()
+              .avif({ quality: 65, effort: 4 })
+              .toFile(avifPath)
+          );
+
+          tasks.push(
+            Promise.all(processingTasks).then(() =>
+              console.log(`Processed ${file} → Optimized Original, WebP, AVIF`)
+            )
+          );
+        } catch (err) {
+          console.error(`❌ Error processing ${file}:`, err.message);
+        }
+      } else if (ext === ".svg") {
+        tasks.push(
+          optimizeSvg(inputPath, outputPath).then(() =>
+            console.log(`Processed SVG ${file}`)
+          )
+        );
+      } else {
+        await fs.copyFile(inputPath, outputPath);
+        console.log(`Copied ${file}`);
+      }
+    }
   }
-};
+  await Promise.all(tasks);
+}
 
-// Optimize images
-const optimizeImages = async () => {
+// Optimize SVG files
+async function optimizeSvg(inputPath, outputPath) {
+  try {
+    const data = await fs.readFile(inputPath, "utf8");
+    const result = await svgo.optimize(data, {
+      path: inputPath,
+      multipass: true,
+      plugins: [
+        { name: "preset-default" },
+        { name: "removeViewBox", active: false },
+        { name: "removeDimensions", active: true },
+      ],
+    });
+    await fs.writeFile(outputPath, result.data);
+  } catch (err) {
+    console.error(`❌ Error optimizing SVG ${path.basename(inputPath)}:`, err.message);
+    await fs.copyFile(inputPath, outputPath); // Fallback to copying
+    console.log(`Copied SVG ${path.basename(inputPath)}`);
+  }
+}
+
+// Optimize Images
+async function optimizeImages() {
   const imageInputDir = path.join(srcDir, "assets/images");
   const imageOutputDir = path.join(publicDir, "assets/images");
+  await processImagesRecursive(imageInputDir, imageOutputDir);
+}
 
-  ensureDir(imageOutputDir);
-  try {
-    const imageminFn = imagemin.default || imagemin; // Handle ESM default export
-    await imageminFn([`${imageInputDir}/*.{jpg,png}`], {
-      destination: imageOutputDir,
-      plugins: [
-        (imageminJpegtran.default || imageminJpegtran)(),
-        (imageminPngquant.default || imageminPngquant)({ quality: [0.6, 0.8] }),
-      ],
-    });
-    console.log("Images optimized successfully!");
-  } catch (error) {
-    console.error("Error optimizing images:", error);
-    throw error; // Rethrow to prevent build from succeeding on failure
-  }
-};
-// Optimize icons
-const optimizeIcons = async () => {
-  const imageInputDir = path.join(srcDir, "assets/icons");
-  const imageOutputDir = path.join(publicDir, "assets/icons");
-
-  ensureDir(imageOutputDir);
-  try {
-    const imageminFn = imagemin.default || imagemin; // Handle ESM default export
-    await imageminFn([`${imageInputDir}/*.{jpg,png}`], {
-      destination: imageOutputDir,
-      plugins: [
-        (imageminJpegtran.default || imageminJpegtran)(),
-        (imageminPngquant.default || imageminPngquant)({ quality: [0.6, 0.8] }),
-      ],
-    });
-    console.log("Images optimized successfully!");
-  } catch (error) {
-    console.error("Error optimizing images:", error);
-    throw error; // Rethrow to prevent build from succeeding on failure
-  }
-};
-
-// Copy HTML files
-const copyHTML = () => {
-  const htmlOutputDir = path.join(publicDir);
-  ensureDir(htmlOutputDir);
-
-  // Copy index.html
-  fs.copyFileSync(
-    path.join(srcDir, "index.html"),
-    path.join(publicDir, "index.html")
-  );
-
-  // Copy pages
-  const pagesDir = path.join(srcDir, "pages");
-  const pagesOutputDir = path.join(publicDir, "pages");
-  ensureDir(pagesOutputDir);
-
-  if (fs.existsSync(pagesDir)) {
-    const htmlFiles = fs
-      .readdirSync(pagesDir)
-      .filter((file) => file.endsWith(".html"));
-    for (const file of htmlFiles) {
-      fs.copyFileSync(
-        path.join(pagesDir, file),
-        path.join(pagesOutputDir, file)
-      );
-    }
-  }
-};
+// Optimize Icons
+async function optimizeIcons() {
+  const iconInputDir = path.join(srcDir, "assets/icons");
+  const iconOutputDir = path.join(publicDir, "assets/icons");
+  await processImagesRecursive(iconInputDir, iconOutputDir);
+}
 
 // Copy Fonts
-const copyFonts = () => {
-  console.log("Copying fonts...");
-  const fontsInputDir = path.join(srcDir, "assets/fonts");
-  const fontsOutputDir = path.join(publicDir, "assets/fonts");
+async function copyFonts() {
+  const fontsSrc = path.join(srcDir, "assets/fonts");
+  const fontsDest = path.join(publicDir, "assets/fonts");
+  await ensureDir(fontsDest);
 
-  ensureDir(fontsOutputDir);
+  try {
+    const files = await fs.readdir(fontsSrc);
+    const tasks = files.map((file) =>
+      fs.copyFile(path.join(fontsSrc, file), path.join(fontsDest, file))
+    );
+    await Promise.all(tasks);
+    console.log("Fonts copied successfully!");
+  } catch (err) {
+    console.error(`❌ Error copying fonts:`, err.message);
+    throw err;
+  }
+}
 
-  if (fs.existsSync(fontsInputDir)) {
-    const fontFiles = fs.readdirSync(fontsInputDir);
-    for (const file of fontFiles) {
-      fs.copyFileSync(
-        path.join(fontsInputDir, file),
-        path.join(fontsOutputDir, file)
+// Process Videos (MP4 compression with fallback)
+async function processVideos() {
+  const videoSrcDir = path.join(srcDir, "assets/videos");
+  const videoOutDir = path.join(publicDir, "assets/videos");
+  await ensureDir(videoOutDir);
+
+  const files = await fs.readdir(videoSrcDir);
+  const tasks = [];
+
+  for (const file of files) {
+    const inputPath = path.join(videoSrcDir, file);
+    const outputPath = path.join(videoOutDir, file);
+    const ext = path.extname(file).toLowerCase();
+
+    if (ext === ".mp4") {
+      tasks.push(
+        new Promise((resolve) => {
+          ffmpeg(inputPath)
+            .outputOptions(["-c:v libx264", "-crf 28", "-preset", "fast"])
+            .save(outputPath)
+            .on("end", () => {
+              console.log(`Saved MP4: ${file}`);
+              resolve();
+            })
+            .on("error", (err) => {
+              console.error(`❌ Error processing video ${file}:`, err.message);
+              fs.copyFile(inputPath, outputPath, (copyErr) => {
+                if (copyErr) {
+                  console.error(`❌ Error copying video ${file}:`, copyErr.message);
+                } else {
+                  console.log(`Copied video ${file} due to processing error`);
+                }
+                resolve(); // Continue build even if video processing fails
+              });
+            });
+        })
+      );
+    } else {
+      await fs.copyFile(inputPath, outputPath);
+      console.log(`Copied video ${file}`);
+    }
+  }
+  await Promise.all(tasks);
+}
+
+// Minify HTML
+async function minifyHtml() {
+  const htmlSrcDir = srcDir;
+  const htmlOutDir = publicDir;
+  await ensureDir(htmlOutDir);
+
+  const files = await fs.readdir(htmlSrcDir);
+  const tasks = [];
+
+  for (const file of files) {
+    if (path.extname(file).toLowerCase() === ".html") {
+      const inputPath = path.join(htmlSrcDir, file);
+      const outputPath = path.join(htmlOutDir, file);
+      tasks.push(
+        (async () => {
+          try {
+            const html = await fs.readFile(inputPath, "utf8");
+            const minified = await htmlMinify(html, {
+              collapseWhitespace: true,
+              removeComments: true,
+              minifyCSS: true,
+              minifyJS: true,
+              removeEmptyAttributes: true,
+            });
+            await fs.writeFile(outputPath, minified);
+            console.log(`Minified HTML: ${file}`);
+          } catch (err) {
+            console.error(`❌ Error minifying HTML ${file}:`, err.message);
+            await fs.copyFile(inputPath, outputPath);
+            console.log(`Copied HTML ${file} due to minification error`);
+          }
+        })()
       );
     }
-    console.log("Fonts copied successfully!");
-  } else {
-    console.log("No fonts directory found. Skipping.");
   }
-};
+  await Promise.all(tasks);
+}
 
-// Run build process
-(async () => {
-  console.log("Building project...");
-  try {
-    ensureDir(publicDir);
-    await Promise.all([
-      compressVideos(),
-      optimizeIcons(),
-      minifyJS(),
-      optimizeImages(),
-      copyHTML(),
-      copyFonts(),
-    ]);
-    console.log("Build completed successfully!");
-  } catch (error) {
-    console.error("Build failed:", error);
-    process.exit(1); // Exit with failure code
+// Minify JS
+async function minifyJs() {
+  const jsSrcDir = path.join(srcDir, "assets/js");
+  const jsOutDir = path.join(publicDir, "assets/js");
+  await ensureDir(jsOutDir);
+
+  const files = await fs.readdir(jsSrcDir);
+  const tasks = [];
+
+  for (const file of files) {
+    if (path.extname(file).toLowerCase() === ".js") {
+      const inputPath = path.join(jsSrcDir, file);
+      const outputPath = path.join(jsOutDir, file);
+      tasks.push(
+        (async () => {
+          try {
+            const code = await fs.readFile(inputPath, "utf8");
+            const minified = await jsMinify(code, {
+              compress: true,
+              mangle: true,
+              sourceMap: false,
+            });
+            await fs.writeFile(outputPath, minified.code);
+            console.log(`Minified JS: ${file}`);
+          } catch (err) {
+            console.error(`❌ Error minifying JS ${file}:`, err.message);
+            await fs.copyFile(inputPath, outputPath);
+            console.log(`Copied JS ${file} due to minification error`);
+          }
+        })()
+      );
+    }
   }
-})();
+  await Promise.all(tasks);
+}
+
+// Main Build Function
+async function build() {
+  console.log("🚀 Starting build process...");
+
+  try {
+    await Promise.all([
+      processVideos().then(() => console.log("✅ Videos processed")),
+      copyFonts().then(() => console.log("✅ Fonts copied")),
+      optimizeIcons().then(() => console.log("✅ Icons optimized")),
+      optimizeImages().then(() => console.log("✅ Images optimized")),
+      minifyHtml().then(() => console.log("✅ HTML minified")),
+      minifyJs().then(() => console.log("✅ JS minified")),
+    ]);
+    console.log("🎉 Build completed successfully!");
+  } catch (err) {
+    console.error("❌ Build failed:", err);
+    process.exit(1);
+  }
+}
+
+build();
