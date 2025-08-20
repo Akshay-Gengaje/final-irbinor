@@ -55,7 +55,7 @@
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+91-88885-91205",
-          "email": "info@irbinor.com"
+          "email": "info@irbinor.com"#ser
         }
       }
     </script>
@@ -78,7 +78,8 @@
     ></div>
 
     <header
-      class="sticky top-0 z-20 bg-[var(--bg-primary)]/80 backdrop-blur-sm shadow-lg shadow-[var(--shadow-color)]"
+      id="main-header"
+      class="sticky top-0 z-20 bg-[var(--bg-primary)]/80 backdrop-blur-sm transition-shadow duration-300"
     >
       <nav aria-label="Main Navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,54 +93,39 @@
               </a>
             </div>
 
-            <div class="hidden md:flex items-center justify-center flex-grow">
-              <div class="nav-container overflow-x-auto whitespace-nowrap">
-                <ul id="nav-links" class="flex space-x-8 items-center">
-                  <li>
-                    <a
-                      href="#home"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Home</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#services"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Services</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#gallery"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Gallery</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#story"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Our Story</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#join"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Join Us</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#contact"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Contact</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center justify-center flex-grow">
+        <ul id="nav-links" class="flex space-x-8 items-center">
+          <li><a href="#home" class="nav-link">Home</a></li>
+
+          <!-- Services Dropdown -->
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle">
+              Services
+              <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 
+                     10.586l3.293-3.293a1 1 0 111.414 
+                     1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 
+                     1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="design.html">Design</a></li>
+              <li><a href="management.html">Management</a></li>
+              <li><a href="hospitality.html">Hospitality</a></li>
+              <li><a href="gifting.html">Gifting</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#story" class="nav-link">Our Story</a></li>
+          <li><a href="#join" class="nav-link">Join Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
 
             <div class="flex items-center">
               <button
@@ -232,11 +218,51 @@
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
           >Home</a
         >
-        <a
-          href="#services"
-          class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
-          >Services</a
-        >
+        <!-- Mobile Services Accordion -->
+        <div>
+          <button
+            id="mobile-services-toggle"
+            class="w-full flex justify-between items-center text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+            aria-expanded="false"
+          >
+            <span>Services</span>
+            <svg
+              id="mobile-services-chevron"
+              class="w-6 h-6 transition-transform duration-300"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <div id="mobile-services-submenu" class="pl-4 mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <a
+              href="design.html"
+              class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+              >Design</a
+            >
+            <a
+              href="management.html"
+              class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+              >Management</a
+            >
+            <a
+              href="hospitality.html"
+              class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+              >Hospitality</a
+            >
+            <a
+              href="gifting.html"
+              class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+              >Gifting</a
+            >
+          </div>
+        </div>
         <a
           href="#gallery"
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
@@ -302,159 +328,167 @@
         </div>
 
         <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <article
-            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full"
+          <a href="design.html" class="block group">
+            <article
+              class="custom-card min-h-[24rem] h-full flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
             >
-              <picture>
-                <source srcset="./assets/icons/design.avif" type="image/avif" />
-                <source srcset="./assets/icons/design.webp" type="image/webp" />
-                <img
-                  src="./assets/icons/design.png"
-                  alt="Design Icon"
-                  loading="lazy"
-                  class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-                  width="96"
-                  height="96"
-                />
-              </picture>
-              <h3
-                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+              <div
+                class="relative z-10 flex flex-col justify-center items-center h-full"
               >
-                Design
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
-              >
-                We believe great experiences begin with exceptional design. Our
-                process involves conceptualizing unique themes, creating
-                immersive spatial designs, and developing cohesive branding that
-                tells your story.
-              </p>
-            </div>
-          </article>
+                <picture>
+                  <source srcset="./assets/icons/design.avif" type="image/avif" />
+                  <source srcset="./assets/icons/design.webp" type="image/webp" />
+                  <img
+                    src="./assets/icons/design.png"
+                    alt="Design Icon"
+                    loading="lazy"
+                    class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+                    width="96"
+                    height="96"
+                  />
+                </picture>
+                <h3
+                  class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+                >
+                  Design
+                </h3>
+                <p
+                  class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
+                >
+                  We believe great experiences begin with exceptional design. Our
+                  process involves conceptualizing unique themes, creating
+                  immersive spatial designs, and developing cohesive branding that
+                  tells your story.
+                </p>
+              </div>
+            </article>
+          </a>
 
-          <article
-            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full"
+          <a href="management.html" class="block group">
+            <article
+              class="custom-card min-h-[24rem] h-full flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
             >
-              <picture>
-                <source
-                  srcset="./assets/icons/management.avif"
-                  type="image/avif"
-                />
-                <source
-                  srcset="./assets/icons/management.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="./assets/icons/management.png"
-                  alt="Management Icon"
-                  loading="lazy"
-                  class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-                  width="96"
-                  height="96"
-                />
-              </picture>
-              <h3
-                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+              <div
+                class="relative z-10 flex flex-col justify-center items-center h-full"
               >
-                Management
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
-              >
-                From concept to execution, we provide meticulous end-to-end
-                event management. Our services include detailed logistical
-                planning, vendor coordination, and on-site leadership to ensure
-                every detail is handled flawlessly.
-              </p>
-            </div>
-          </article>
+                <picture>
+                  <source
+                    srcset="./assets/icons/management.avif"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="./assets/icons/management.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="./assets/icons/management.png"
+                    alt="Management Icon"
+                    loading="lazy"
+                    class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+                    width="96"
+                    height="96"
+                  />
+                </picture>
+                <h3
+                  class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+                >
+                  Management
+                </h3>
+                <p
+                  class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
+                >
+                  From concept to execution, we provide meticulous end-to-end
+                  event management. Our services include detailed logistical
+                  planning, vendor coordination, and on-site leadership to ensure
+                  every detail is handled flawlessly.
+                </p>
+              </div>
+            </article>
+          </a>
 
-          <article
-            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full"
+          <a href="hospitality.html" class="block group">
+            <article
+              class="custom-card min-h-[24rem] h-full flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
             >
-              <picture>
-                <source
-                  srcset="./assets/icons/hospitality.avif"
-                  type="image/avif"
-                />
-                <source
-                  srcset="./assets/icons/hospitality.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="./assets/icons/hospitality.png"
-                  alt="Hospitality Icon"
-                  loading="lazy"
-                  class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-                  width="96"
-                  height="96"
-                />
-              </picture>
-              <h3
-                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+              <div
+                class="relative z-10 flex flex-col justify-center items-center h-full"
               >
-                Hospitality
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
-              >
-                Hospitality is at the heart of every memorable event. We focus
-                on curating a seamless guest journey, providing personalized
-                services, and ensuring every attendee feels welcomed and valued
-                from start to finish.
-              </p>
-            </div>
-          </article>
+                <picture>
+                  <source
+                    srcset="./assets/icons/hospitality.avif"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="./assets/icons/hospitality.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="./assets/icons/hospitality.png"
+                    alt="Hospitality Icon"
+                    loading="lazy"
+                    class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+                    width="96"
+                    height="96"
+                  />
+                </picture>
+                <h3
+                  class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+                >
+                  Hospitality
+                </h3>
+                <p
+                  class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
+                >
+                  Hospitality is at the heart of every memorable event. We focus
+                  on curating a seamless guest journey, providing personalized
+                  services, and ensuring every attendee feels welcomed and valued
+                  from start to finish.
+                </p>
+              </div>
+            </article>
+          </a>
 
-          <article
-            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full"
+          <a href="gifting.html" class="block group">
+            <article
+              class="custom-card min-h-[24rem] h-full flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
             >
-              <picture>
-                <source
-                  srcset="./assets/icons/gifting.avif"
-                  type="image/avif"
-                />
-                <source
-                  srcset="./assets/icons/gifting.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="./assets/icons/gifting.png"
-                  alt="Gifting Icon"
-                  loading="lazy"
-                  class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-                  width="96"
-                  height="96"
-                />
-              </picture>
-              <h3
-                class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+              <div
+                class="relative z-10 flex flex-col justify-center items-center h-full"
               >
-                Gifting
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
-              >
-                A perfect gift extends the memory of an event. We specialize in
-                curating bespoke gifting experiences, from sourcing unique
-                products to designing branded merchandise that leaves a lasting
-                impression.
-              </p>
-            </div>
-          </article>
+                <picture>
+                  <source
+                    srcset="./assets/icons/gifting.avif"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="./assets/icons/gifting.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="./assets/icons/gifting.png"
+                    alt="Gifting Icon"
+                    loading="lazy"
+                    class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
+                    width="96"
+                    height="96"
+                  />
+                </picture>
+                <h3
+                  class="text-2xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
+                >
+                  Gifting
+                </h3>
+                <p
+                  class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
+                >
+                  A perfect gift extends the memory of an event. We specialize in
+                  curating bespoke gifting experiences, from sourcing unique
+                  products to designing branded merchandise that leaves a lasting
+                  impression.
+                </p>
+              </div>
+            </article>
+          </a>
         </div>
       </section>
 
@@ -1929,3 +1963,5 @@
     <script src="./assets/js/testimonials.js" defer></script>
   </body>
 </html>
+" in the Canvas.
+I want to change the navbar can you please change it with this co
