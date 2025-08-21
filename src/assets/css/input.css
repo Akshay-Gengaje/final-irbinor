@@ -12,6 +12,8 @@
    ========================================================================== */
 @import "tailwindcss";
 
+/* ==========================================================================
+
 /* --- START: @font-face rules for Garet --- */
 
 /* Garet Regular (Book) */
@@ -197,50 +199,6 @@
     @apply text-xs text-white/70 mt-2;
   }
   /* --- END: Gallery Modal, Loader, and Error State Styles --- */
-
-  /* --- START: YouTube Background Video Styles --- */
-  #home {
-      height: 100vh;
-  }
-
-  .video-background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    overflow: hidden;
-  }
-
-  .video-foreground,
-  .video-background iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-
-  /* This media query targets screens wider than 16:9 */
-  @media (min-aspect-ratio: 16/9) {
-    .video-foreground {
-      /* Scale the height to 300% and reposition it to hide the top/bottom black bars */
-      height: 300%;
-      top: -100%;
-    }
-  }
-
-  /* This media query targets screens taller than 16:9 */
-  @media (max-aspect-ratio: 16/9) {
-    .video-foreground {
-      /* Scale the width to 300% and reposition it to hide the left/right black bars */
-      width: 300%;
-      left: -100%;
-    }
-  }
-  /* --- END: YouTube Background Video Styles --- */
 }
 
 
