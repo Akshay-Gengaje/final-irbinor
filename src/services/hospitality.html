@@ -4,15 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Hospitality Services | IRBINOR</title>
+    <title>IRBINOR | Hospitality Services</title>
 
     <meta
       name="description"
-      content="Exceptional hospitality services from IRBINOR. We curate a seamless guest journey, ensuring every attendee feels welcomed and valued."
+      content="Experience seamless hospitality and guest management services with IRBINOR. We handle everything from travel and accommodation to on-site assistance for an unforgettable guest experience."
     />
-    <link rel="canonical" href="https://www.irbinor.com/hospitality.html" />
+    <link rel="canonical" href="https://www.irbinor.com/hospitality" />
 
+    <meta property="og:title" content="IRBINOR | Hospitality Services" />
+    <meta
+      property="og:description"
+      content="Larger than life experiences with a last mile touch."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1542314831-068cd1dbb563?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    />
+    <meta property="og:url" content="https://www.irbinor.com/hospitality" />
+    <meta property="og:type" content="website" />
+
+    <meta
+      name="keywords"
+      content="Event Hospitality, Guest Management, Travel Logistics, Accommodation, On-site Support, IRBINOR"
+    />
+    <meta name="author" content="IRBINOR" />
+
+    <!-- Link to your existing stylesheet -->
     <link href="../assets/css/tailwind.css" rel="stylesheet" />
+
     <script>
       // Prevent FOUC: Apply theme instantly before page renders
       (function () {
@@ -25,74 +45,76 @@
       })();
     </script>
   </head>
+
   <body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
+    <!-- Overlay for mobile sidebar -->
     <div
       id="sidebar-overlay"
       class="fixed inset-0 bg-black/60 z-30 opacity-0 pointer-events-none transition-opacity duration-300"
     ></div>
 
     <header
-      class="sticky top-0 z-20 bg-[var(--bg-primary)]/80 backdrop-blur-sm shadow-lg shadow-[var(--shadow-color)]"
+      id="main-header"
+      class="sticky top-0 z-20 bg-[var(--bg-primary)]/80 backdrop-blur-sm transition-shadow duration-300"
     >
       <nav aria-label="Main Navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex-shrink-0">
               <a
-                href="index.html#home"
+                href="../index.html#home"
                 aria-label="IRBINOR Company Logo"
                 class="h-10 w-40 logo-themed"
               >
               </a>
             </div>
 
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center justify-center flex-grow">
-              <div class="nav-container overflow-x-auto whitespace-nowrap">
-                <ul id="nav-links" class="flex space-x-8 items-center">
-                  <li>
-                    <a
-                      href="index.html#home"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Home</a
+              <ul id="nav-links" class="flex space-x-8 items-center">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+
+                <!-- Services Dropdown -->
+                <li class="nav-item dropdown">
+                  <button class="nav-link dropdown-toggle">
+                    Services
+                    <svg
+                      class="w-4 h-4 ml-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
                     >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#services"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Services</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#gallery"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Gallery</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#story"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Our Story</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#join"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Join Us</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="index.html#contact"
-                      class="nav-link text-md font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
-                      >Contact</a
-                    >
-                  </li>
-                </ul>
-              </div>
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 
+                     10.586l3.293-3.293a1 1 0 111.414 
+                     1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 
+                     1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="design.html">Design</a></li>
+                    <li><a href="management.html">Management</a></li>
+                    <li><a href="hospitality.html">Hospitality</a></li>
+                    <li><a href="gifting.html">Gifting</a></li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="../index.html#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li>
+                  <a href="../index.html#story" class="nav-link">Our Story</a>
+                </li>
+                <li>
+                  <a href="../index.html#join" class="nav-link">Join Us</a>
+                </li>
+                <li>
+                  <a href="../index.html#contact" class="nav-link">Contact</a>
+                </li>
+              </ul>
             </div>
 
             <div class="flex items-center">
@@ -182,32 +204,75 @@
       </button>
       <div id="mobile-menu-links" class="flex flex-col gap-4 mt-20 p-6">
         <a
-          href="index.html#home"
+          href="../index.html#home"
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
           >Home</a
         >
+        <!-- Mobile Services Accordion -->
+        <div>
+          <button
+            id="mobile-services-toggle"
+            class="w-full flex justify-between items-center text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+            aria-expanded="false"
+          >
+            <span>Services</span>
+            <svg
+              id="mobile-services-chevron"
+              class="w-6 h-6 transition-transform duration-300"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <div
+            id="mobile-services-submenu"
+            class="pl-4 mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          >
+            <a
+              href="design.html"
+              class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+              >Design</a
+            >
+            <a
+              href="management.html"
+              class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+              >Management</a
+            >
+            <a
+              href="hospitality.html"
+              class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+              >Hospitality</a
+            >
+            <a
+              href="gifting.html"
+              class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+              >Gifting</a
+            >
+          </div>
+        </div>
         <a
-          href="index.html#services"
-          class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
-          >Services</a
-        >
-        <a
-          href="index.html#gallery"
+          href="../index.html#gallery"
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
           >Gallery</a
         >
         <a
-          href="index.html#story"
+          href="../index.html#story"
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
           >Our Story</a
         >
         <a
-          href="index.html#join"
+          href="../index.html#join"
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
           >Join Us</a
         >
         <a
-          href="index.html#contact"
+          href="../index.html#contact"
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
           >Contact</a
         >
@@ -217,99 +282,561 @@
     <main>
       <!-- Hero Section -->
       <section
-        class="relative py-20 md:py-32 bg-cover bg-center"
-        style="background-image: url('https://placehold.co/1920x1080/064520/dcaf64?text=Hospitality')"
+        id="hospitality-hero"
+        class="relative py-20 md:py-32 bg-cover bg-center bg-no-repeat"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1512061942530-e6a4e9a5cf27?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        "
+        aria-labelledby="hospitality-heading"
       >
+        <div class="absolute inset-0 bg-black/60"></div>
         <div
-          class="absolute inset-0 bg-black/60"
-        ></div>
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h1 class="text-4xl md:text-6xl font-black tracking-tight">
-            Hospitality Services
+          class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10"
+        >
+          <h1
+            id="hospitality-heading"
+            class="text-4xl md:text-6xl font-black text-white tracking-tight"
+          >
+            Hospitality
           </h1>
-          <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
-            Hospitality is at the heart of every memorable event. We focus on curating a seamless guest journey, providing personalized services, and ensuring every attendee feels welcomed and valued.
+          <p
+            class="mt-4 text-xl md:text-2xl font-semibold text-[var(--accent)]"
+          >
+            Curating a Seamless & Memorable Guest Journey
+          </p>
+          <p
+            class="mt-6 max-w-3xl mx-auto text-lg text-gray-200 leading-relaxed"
+          >
+            At IRBINOR, hospitality is more than a service—it's the heart of
+            every memorable experience. We believe that the true success of an
+            event is measured by the comfort and delight of its guests. Our
+            dedicated hospitality team works behind the scenes to manage every
+            detail of the guest journey, ensuring a seamless, welcoming, and
+            personalized experience from arrival to departure.
           </p>
         </div>
       </section>
 
-      <!-- Detailed Services Section -->
-      <section class="py-20 md:py-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-[var(--text-primary)]">
-              The Art of Welcome
-            </h2>
-            <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
-              We go beyond basic services to create an atmosphere of genuine warmth and care, making every guest feel like a VIP.
+      <!-- Our Hospitality Services Section -->
+      <section
+        id="hospitality-services"
+        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        aria-labelledby="hospitality-services-heading"
+      >
+        <div class="text-center reveal">
+          <h2
+            id="hospitality-services-heading"
+            class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
+          >
+            Our Suite of Hospitality Services
+          </h2>
+          <p
+            class="mt-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto"
+          >
+            We offer a comprehensive range of hospitality services, tailored to
+            meet the unique needs of your event and your guests.
+          </p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service Card 1 -->
+          <div
+            class="custom-card p-8 text-center reveal flex flex-col items-center"
+          >
+            <div
+              class="w-20 h-20 bg-[var(--accent)]/10 text-[var(--accent)] rounded-2xl flex items-center justify-center mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
+              Guest Registration & Management
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Seamless online and on-site registration, personalized
+              communication, and dedicated support for all guest inquiries.
             </p>
           </div>
-          <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="custom-card p-8 text-center reveal">
-              <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
-                Guest Journey Curation
-              </h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">
-                From arrival to departure, we map out and manage every touchpoint of the guest experience to ensure it is seamless and enjoyable.
-              </p>
+          <!-- Service Card 2 -->
+          <div
+            class="custom-card p-8 text-center reveal flex flex-col items-center"
+            style="transition-delay: 150ms"
+          >
+            <div
+              class="w-20 h-20 bg-[var(--accent)]/10 text-[var(--accent)] rounded-2xl flex items-center justify-center mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                />
+              </svg>
             </div>
-            <div class="custom-card p-8 text-center reveal" style="transition-delay: 150ms">
-              <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
-                Personalized Concierge
-              </h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">
-                Our on-site hospitality teams provide personalized assistance, from travel arrangements to special requests, ensuring a comfortable stay.
-              </p>
+            <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
+              Travel & Logistics
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              End-to-end travel management, including flight and train bookings,
+              airport transfers, and local transportation coordination.
+            </p>
+          </div>
+          <!-- Service Card 3 -->
+          <div
+            class="custom-card p-8 text-center reveal flex flex-col items-center"
+            style="transition-delay: 300ms"
+          >
+            <div
+              class="w-20 h-20 bg-[var(--accent)]/10 text-[var(--accent)] rounded-2xl flex items-center justify-center mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                />
+              </svg>
             </div>
-            <div class="custom-card p-8 text-center reveal" style="transition-delay: 300ms">
-              <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
-                VIP & Speaker Management
-              </h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">
-                We provide dedicated handling for your most important guests, ensuring their needs are anticipated and met with the highest level of service.
-              </p>
+            <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
+              Accommodation Sourcing
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Securing and managing hotel blocks, boutique stays, and unique
+              lodging options that align with your event's style and budget.
+            </p>
+          </div>
+          <!-- Service Card 4 -->
+          <div
+            class="custom-card p-8 text-center reveal flex flex-col items-center"
+            style="transition-delay: 450ms"
+          >
+            <div
+              class="w-20 h-20 bg-[var(--accent)]/10 text-[var(--accent)] rounded-2xl flex items-center justify-center mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"
+                />
+              </svg>
             </div>
+            <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
+              On-Site Concierge & Support
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              A dedicated on-site hospitality desk and staff to assist guests
+              with any needs, from local recommendations to schedule inquiries.
+            </p>
+          </div>
+          <!-- Service Card 5 -->
+          <div
+            class="custom-card p-8 text-center reveal flex flex-col items-center"
+            style="transition-delay: 600ms"
+          >
+            <div
+              class="w-20 h-20 bg-[var(--accent)]/10 text-[var(--accent)] rounded-2xl flex items-center justify-center mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 012-2h3a2 2 0 012 2v3a2 2 0 01-2 2H7a2 2 0 01-2-2V5zM5 14a2 2 0 012-2h3a2 2 0 012 2v3a2 2 0 01-2 2H7a2 2 0 01-2-2v-3z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
+              VIP & Speaker Management
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              White-glove service for your most important attendees, including
+              personalized itineraries, green room management, and dedicated
+              liaisons.
+            </p>
+          </div>
+          <!-- Service Card 6 -->
+          <div
+            class="custom-card p-8 text-center reveal flex flex-col items-center"
+            style="transition-delay: 750ms"
+          >
+            <div
+              class="w-20 h-20 bg-[var(--accent)]/10 text-[var(--accent)] rounded-2xl flex items-center justify-center mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
+              Our Hospitality Philosophy
+            </h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              We believe proactive, warm, and detail-oriented hospitality
+              transforms a great event into an unforgettable one. Our goal is to
+              make every guest feel seen, valued, and cared for.
+            </p>
           </div>
         </div>
       </section>
-      
-      <!-- Testimonials Section -->
-      <section class="py-20 md:py-28 bg-[var(--bg-secondary)]">
+
+      <!-- Why Choose Us Section -->
+      <section
+        id="why-us"
+        class="my-20 md:my-32 bg-[var(--bg-secondary)] py-20"
+        aria-labelledby="why-us-heading"
+      >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-[var(--text-primary)]">
-              What Our Guests Say
+          <div class="text-center reveal">
+            <h2
+              id="why-us-heading"
+              class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
+            >
+              Why Entrust Us With Your Guests?
             </h2>
+            <p
+              class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
+            >
+              Our approach to hospitality is built on a foundation of
+              experience, technology, and a genuine passion for service.
+            </p>
           </div>
-          <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="custom-card p-8 reveal">
-              <p class="text-[var(--text-secondary)] italic">"The IRBINOR team made us feel so incredibly welcome. Every detail was taken care of, and we could simply relax and enjoy the event. It was first-class service from start to finish."</p>
-              <p class="mt-4 font-bold text-[var(--text-primary)]">- Corporate Event Attendee</p>
+          <div
+            class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            <div class="reveal">
+              <div class="space-y-8">
+                <div>
+                  <h3
+                    class="text-xl font-bold text-[var(--accent)] flex items-center gap-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                      />
+                    </svg>
+                    Integrated Approach
+                  </h3>
+                  <p class="text-[var(--text-secondary)] mt-2 pl-9">
+                    Our hospitality services are fully integrated with our event
+                    management and design teams, ensuring a cohesive experience
+                    where every detail is aligned.
+                  </p>
+                </div>
+                <div>
+                  <h3
+                    class="text-xl font-bold text-[var(--accent)] flex items-center gap-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    Proactive Problem-Solving
+                  </h3>
+                  <p class="text-[var(--text-secondary)] mt-2 pl-9">
+                    We anticipate needs and solve challenges before they arise.
+                    Our experienced team is adept at navigating the complexities
+                    of travel and logistics, ensuring a stress-free journey for
+                    your guests.
+                  </p>
+                </div>
+                <div>
+                  <h3
+                    class="text-xl font-bold text-[var(--accent)] flex items-center gap-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                    Technology-Driven Efficiency
+                  </h3>
+                  <p class="text-[var(--text-secondary)] mt-2 pl-9">
+                    We leverage cutting-edge event technology for registration,
+                    communication, and itinerary management, providing guests
+                    with instant access to information and support.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="custom-card p-8 reveal" style="transition-delay: 150ms">
-              <p class="text-[var(--text-secondary)] italic">"As a speaker, I've been to many conferences, but the hospitality provided by IRBINOR was exceptional. They anticipated my every need and made the entire experience seamless."</p>
-              <p class="mt-4 font-bold text-[var(--text-primary)]">- Keynote Speaker</p>
+            <div class="reveal">
+              <img
+                src="https://images.unsplash.com/photo-1544986581-efac024faf62?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="A waiter holding a tray with a glass of cocktail garnished with strawberries and ice, with a scenic view of mountains and valley in the background."
+                class="rounded-lg shadow-lg object-cover w-full h-full"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA Section -->
-      <section class="py-20 md:py-28">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="text-3xl md:text-4xl font-black text-[var(--text-primary)]">
-            Elevate Your Guest Experience
-          </h2>
-          <p class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Ensure your guests leave with lasting positive memories. Let us handle the hospitality for your next event.
-          </p>
-          <a href="index.html#contact" class="inline-block mt-8 bg-[var(--accent)] text-white font-bold rounded-full px-8 py-3 hover:bg-[var(--accent-hover)] transition-colors duration-300">
-            Enquire Now
-          </a>
+      <!-- FAQ Section -->
+      <section id="faq" class="my-20 md:my-32" aria-labelledby="faq-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center reveal">
+            <h2
+              id="faq-heading"
+              class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
+            >
+              Frequently Asked Questions
+            </h2>
+            <p
+              class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
+            >
+              Your questions about our hospitality services, answered.
+            </p>
+          </div>
+
+          <div
+            class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 reveal md:items-start"
+            style="transition-delay: 200ms"
+          >
+            <!-- FAQ Item 1 -->
+            <div class="custom-card p-0 overflow-hidden">
+              <button
+                class="faq-toggle w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+              >
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >How do you handle last-minute guest changes?</span
+                >
+                <div
+                  class="faq-icon w-6 h-6 flex-shrink-0 text-[var(--accent)]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-6 h-6 transition-transform duration-300 transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    Our team is built for flexibility. We have robust systems
+                    and a network of partners that allow us to manage
+                    last-minute travel changes, accommodation requests, and
+                    registration updates with efficiency and grace.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div class="custom-card p-0 overflow-hidden">
+              <button
+                class="faq-toggle w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+              >
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >Can you manage hospitality for international guests?</span
+                >
+                <div
+                  class="faq-icon w-6 h-6 flex-shrink-0 text-[var(--accent)]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-6 h-6 transition-transform duration-300 transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    Absolutely. We have extensive experience managing logistics
+                    for international delegations, including visa assistance
+                    guidance, multi-lingual support coordination, and curation
+                    of culturally-aware travel itineraries.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div class="custom-card p-0 overflow-hidden">
+              <button
+                class="faq-toggle w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+              >
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >What size of group can you accommodate?</span
+                >
+                <div
+                  class="faq-icon w-6 h-6 flex-shrink-0 text-[var(--accent)]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-6 h-6 transition-transform duration-300 transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    Our hospitality framework is scalable to any event size.
+                    We've managed intimate VIP retreats for a dozen guests and
+                    handled the complex logistics for international conferences
+                    with thousands of attendees.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- FAQ Item 4 -->
+            <div class="custom-card p-0 overflow-hidden">
+              <button
+                class="faq-toggle w-full text-left flex justify-between items-center p-6"
+                aria-expanded="false"
+              >
+                <span class="text-lg font-semibold text-[var(--text-primary)]"
+                  >How do you ensure guest data privacy?</span
+                >
+                <div
+                  class="faq-icon w-6 h-6 flex-shrink-0 text-[var(--accent)]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-6 h-6 transition-transform duration-300 transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              >
+                <div class="p-6 pt-0 text-[var(--text-secondary)]">
+                  <p>
+                    We take data privacy very seriously. All guest information
+                    is handled through secure, GDPR-compliant platforms. We have
+                    strict protocols in place to ensure the confidentiality and
+                    security of all personal data.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer
       class="bg-[var(--bg-primary)] text-[var(--text-secondary)] py-10 border-t border-[var(--border-color)]"
     >
@@ -317,7 +844,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="flex flex-col items-center md:items-start">
             <a
-              href="index.html#home"
+              href="../index.html#home"
               aria-label="IRBINOR Company Logo"
               class="h-12 w-48 logo-themed mb-4"
             >
@@ -333,20 +860,26 @@
             </h3>
             <ul class="space-y-2 text-sm">
               <li>
-                <a href="index.html#home" class="hover:text-[var(--accent)]">Home</a>
+                <a href="../index.html#home" class="hover:text-[var(--accent)]"
+                  >Home</a
+                >
               </li>
               <li>
-                <a href="index.html#services" class="hover:text-[var(--accent)]"
+                <a
+                  href="../index.html#services"
+                  class="hover:text-[var(--accent)]"
                   >Services</a
                 >
               </li>
               <li>
-                <a href="index.html#story" class="hover:text-[var(--accent)]"
+                <a href="../index.html#story" class="hover:text-[var(--accent)]"
                   >Our Story</a
                 >
               </li>
               <li>
-                <a href="index.html#contact" class="hover:text-[var(--accent)]"
+                <a
+                  href="../index.html#contact"
+                  class="hover:text-[var(--accent)]"
                   >Contact</a
                 >
               </li>
@@ -382,8 +915,6 @@
                 href="#"
                 class="hover:text-[var(--accent)]"
                 aria-label="Follow us on Facebook"
-                rel="noopener noreferrer"
-                target="_blank"
                 ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
@@ -394,8 +925,6 @@
                 href="#"
                 class="hover:text-[var(--accent)]"
                 aria-label="Follow us on Twitter"
-                rel="noopener noreferrer"
-                target="_blank"
                 ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
@@ -406,8 +935,6 @@
                 href="#"
                 class="hover:text-[var(--accent)]"
                 aria-label="Follow us on LinkedIn"
-                rel="noopener noreferrer"
-                target="_blank"
                 ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.136 1.447-2.136 2.941v5.665H9.352V9h3.414v1.561h.048c.477-.9 1.638-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 0 1 2.063-2.065 2.064 2.064 0 0 1 2.064 2.065 2.062 2.062 0 0 1-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"
@@ -425,6 +952,6 @@
       </div>
     </footer>
 
-    <script src="./assets/js/main.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
   </body>
 </html>
