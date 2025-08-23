@@ -4,10 +4,10 @@
  * 1. Mobile sidebar navigation with services accordion.
  * 2. Header scroll effect.
  * 3. Theme (dark/light mode) switching.
- * 4. Active navigation link highlighting.
- * 5. Circular carousel for the main gallery with optimized images.
- * 6. Revealing elements on scroll.
- * 7. FAQ Accordion.
+ * 4. Circular carousel for the main gallery.
+ * 5. Revealing elements on scroll.
+ * 6. FAQ Accordion (Improved).
+ * 7. Portfolio Tabs.
  * 8. Smooth scrolling for anchor links.
  */
 document.addEventListener("DOMContentLoaded", function () {
@@ -171,23 +171,65 @@ document.addEventListener("DOMContentLoaded", function () {
     revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  // --- FAQ Accordion ---
-  const faqQuestions = document.querySelectorAll(".faq-question");
-  faqQuestions.forEach(question => {
-    question.addEventListener("click", () => {
-      const answer = question.nextElementSibling;
-      const isExpanded = question.getAttribute("aria-expanded") === "true";
-      if (!isExpanded) {
-        faqQuestions.forEach(other => {
-          other.setAttribute("aria-expanded", "false");
-          other.nextElementSibling.style.maxHeight = null;
-          other.querySelector("svg").style.transform = "rotate(0deg)";
+  // --- Portfolio Tabs ---
+  const tabs = document.querySelectorAll('.portfolio-tab');
+  const galleries = document.querySelectorAll('.portfolio-gallery');
+
+  if (tabs.length) {
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.getAttribute('data-tab');
+
+          tabs.forEach(t => t.classList.remove('active-tab', 'border-[var(--accent)]', 'text-[var(--accent)]'));
+          tab.classList.add('active-tab', 'border-[var(--accent)]', 'text-[var(--accent)]');
+
+          galleries.forEach(gallery => {
+            if (gallery.id === target) {
+              gallery.classList.remove('hidden');
+            } else {
+              gallery.classList.add('hidden');
+            }
+          });
         });
+      });
+
+      const activeTab = document.querySelector('.portfolio-tab.active-tab');
+      if(activeTab) {
+          activeTab.classList.add('border-[var(--accent)]', 'text-[var(--accent)]');
       }
-      question.setAttribute("aria-expanded", String(!isExpanded));
-      answer.style.maxHeight = isExpanded ? null : answer.scrollHeight + "px";
-      question.querySelector("svg").style.transform = isExpanded ? "rotate(0deg)" : "rotate(180deg)";
-    });
+  }
+
+  // --- FAQ Accordion (Improved) ---
+  const faqToggles = document.querySelectorAll('.faq-toggle, .faq-question'); // Supports both old and new FAQ class names
+  faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+          const answer = toggle.nextElementSibling;
+          const iconSvg = toggle.querySelector('.faq-icon svg, .transform'); // Supports both icon structures
+          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+          // Close all other open FAQs
+          faqToggles.forEach(otherToggle => {
+              if (otherToggle !== toggle) {
+                  otherToggle.setAttribute('aria-expanded', 'false');
+                  otherToggle.nextElementSibling.style.maxHeight = null;
+                  const otherIcon = otherToggle.querySelector('.faq-icon svg, .transform');
+                  if (otherIcon) {
+                      otherIcon.style.transform = 'rotate(0deg)';
+                  }
+              }
+          });
+
+          // Toggle the clicked FAQ
+          if (isExpanded) {
+              toggle.setAttribute('aria-expanded', 'false');
+              answer.style.maxHeight = null;
+              if (iconSvg) iconSvg.style.transform = 'rotate(0deg)';
+          } else {
+              toggle.setAttribute('aria-expanded', 'true');
+              answer.style.maxHeight = answer.scrollHeight + 'px';
+              if (iconSvg) iconSvg.style.transform = 'rotate(45deg)';
+          }
+      });
   });
 
   // --- Smooth Scroll & Active Nav Link ---
