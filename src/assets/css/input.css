@@ -1,174 +1,249 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Import Tailwind CSS */
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Garet';
-  src: url('../fonts/Garet-Book.woff2') format('woff2'),
-    url('../fonts/Garet-Book.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Garet';
-  src: url('../fonts/Garet-Heavy.woff2') format('woff2'),
-    url('../fonts/Garet-Heavy.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
+/*
+==========================================
+  Base Layer: Variables & Global Styles
+==========================================
+*/
 @layer base {
-  html {
-    scroll-padding-top: 90px;
+  /* Font Face for Garet (assuming local files) */
+  @font-face {
+    font-family: 'Garet';
+    src: url('../fonts/Garet-Book.woff2') format('woff2'),
+         url('../fonts/Garet-Book.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Garet';
+    src: url('../fonts/Garet-Heavy.woff2') format('woff2'),
+         url('../fonts/Garet-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
   }
 
+  html {
+    scroll-padding-top: 120px; /* Adjust for taller sticky header */
+  }
+
+  /* Color Palette Variables */
   :root {
-    --bg-primary: #fff;
-    --bg-secondary: #FFFFFF;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
     --text-primary: #064520;
     --text-secondary: #39624b;
     --accent: #dcaf64;
     --accent-hover: #c99b50;
-    --border-color: #d1d9ce;
-    --shadow-color: rgba(6, 69, 32, 0.1);
-    --card-border-color: #e2e8f0;
-    --card-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07);
-    --card-shadow-hover: 0 10px 20px 0 rgba(6, 69, 32, 0.1);
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(6, 69, 32, 0.08);
   }
 
   html.dark {
-    --bg-primary: #064520;
-    --bg-secondary: #245e44;
-    --text-primary: #eff5ed;
-    --text-secondary: #8bab99;
-    --border-color: #39624b;
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --card-border-color: var(--border-color);
-    --card-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
-    --card-shadow-hover: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+    --bg-primary: #0a192f; /* Dark Navy */
+    --bg-secondary: #172a46; /* Lighter Navy */
+    --text-primary: #e6f1ff; /* Light Blueish White */
+    --text-secondary: #8892b0; /* Slate Gray */
+    --border-color: #233554;
+    --shadow-color: rgba(2, 12, 27, 0.7);
   }
 
   body {
     font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Garet', sans-serif;
+    font-weight: 900;
+    color: var(--text-primary);
   }
 }
 
+/*
+==========================================
+  Components Layer: Reusable UI Elements
+==========================================
+*/
 @layer components {
+  /* Logo Theming */
   .logo-themed {
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    @apply inline-block bg-no-repeat bg-contain bg-center;
     background-image: url('../images/logo-light.png');
   }
-
   .dark .logo-themed {
     background-image: url('../images/logo-dark.png');
   }
 
-  .custom-card {
-    @apply bg-[var(--bg-secondary)] rounded-2xl border border-[var(--card-border-color)] shadow-[var(--card-shadow)] transition-all duration-300 ease-in-out;
-  }
-
-  .custom-card:hover {
-    @apply shadow-[var(--card-shadow-hover)] border-[var(--accent)];
-  }
-
-  .header-scrolled {
+  /* Header Styling */
+  #main-header.header-scrolled {
     @apply shadow-lg shadow-[var(--shadow-color)];
   }
 
+  /* Desktop Navigation Links */
   .nav-link {
-    @apply relative py-2;
+    @apply relative font-medium text-[var(--text-secondary)] transition-all duration-300 hover:text-[var(--accent)];
   }
-
   .nav-link::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-full h-0.5 bg-[var(--accent)] transform scale-x-0 origin-center transition-transform duration-300 ease-in-out;
+    @apply absolute -bottom-2 left-0 w-full h-0.5 bg-[var(--accent)] transform scale-x-0 origin-center transition-transform duration-300;
   }
-
   .nav-link:hover::after,
   .nav-link.active::after {
-    @apply transform scale-x-100;
+    @apply scale-x-100;
+  }
+  
+  /* Mega Menu for Services */
+  .mega-menu-item {
+      @apply block p-4 rounded-lg transition-colors duration-300 hover:bg-[var(--bg-primary)];
   }
 
-  /* Dropdown Styles */
-  .dropdown {
-    position: relative;
+  /* Mobile Navigation Links */
+  .mobile-nav-link {
+      @apply text-2xl font-bold text-[var(--text-primary)] p-2 transition-colors duration-300 hover:text-[var(--accent)];
+  }
+  .mobile-submenu-link {
+      @apply block text-lg font-medium text-[var(--text-secondary)] p-2 rounded-lg hover:bg-[var(--bg-primary)] hover:text-[var(--accent)];
   }
 
-  .dropdown-toggle {
-    @apply flex items-center cursor-pointer bg-transparent border-0  text-inherit;
-    font: inherit;
+  /* Buttons */
+  .cta-btn {
+    @apply inline-block bg-transparent border-2 border-[var(--accent)] text-[var(--accent)] font-bold rounded-full px-6 py-2.5 text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-white;
+  }
+  .cta-btn-accent {
+      @apply inline-block bg-[var(--accent)] text-white font-bold rounded-full px-8 py-3 transition-all duration-300 hover:bg-[var(--accent-hover)] transform hover:scale-105;
+  }
+  .icon-btn {
+    @apply p-2.5 rounded-full text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--bg-secondary)] transition-colors duration-300;
   }
 
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 0.5rem;
-    min-width: 12rem;
-    background: var(--bg-secondary);
-    border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 50;
-    padding: 0.5rem 0;
+  /* Section Headings */
+  .section-heading {
+    @apply text-3xl md:text-5xl font-black tracking-tight;
+  }
+  .section-subheading {
+    @apply mt-4 text-lg max-w-3xl mx-auto text-[var(--text-secondary)];
   }
 
-  .dropdown-menu a {
-    display: block;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    transition: background 0.2s ease, color 0.2s ease;
+  /* Service Cards (New Design) */
+  .service-card {
+      @apply block bg-[var(--bg-secondary)] p-8 rounded-2xl text-center border border-transparent transition-all duration-300 transform hover:-translate-y-2 h-full;
+  }
+  .service-card:hover {
+      @apply border-[var(--accent)] shadow-2xl shadow-[var(--shadow-color)];
+  }
+  .service-card-icon {
+      @apply w-20 h-20 bg-[var(--accent)]/10 text-[var(--accent)] rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-300;
+  }
+  .service-card:hover .service-card-icon {
+      @apply bg-[var(--accent)] text-white scale-110;
+  }
+  .service-card-title {
+      @apply text-2xl font-bold mb-2;
+  }
+  .service-card-description {
+      @apply text-base text-[var(--text-secondary)];
   }
 
-  .dropdown-menu a:hover {
-    background: var(--bg-primary);
-    color: var(--accent);
+  /* Feature Cards (Why Us Section) */
+  .feature-card {
+    @apply bg-transparent p-6 flex flex-col sm:flex-row items-start gap-6;
+  }
+  .feature-card-icon {
+    @apply flex-shrink-0 w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] rounded-xl flex items-center justify-center;
+  }
+  .feature-card-title {
+    @apply text-xl font-bold mb-2;
+  }
+  .feature-card-description {
+    @apply text-[var(--text-secondary)] leading-relaxed;
   }
 
-  .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
+  /* Gallery Slider */
+  .slider-btn {
+      @apply absolute top-1/2 -translate-y-1/2 z-20 bg-[var(--bg-secondary)]/50 backdrop-blur-sm hover:bg-[var(--accent)] text-white rounded-full p-3 transition-all duration-300 shadow-lg border border-[var(--border-color)];
   }
+  
+  /* Content Card (Story Section) */
+  .content-card {
+    @apply bg-[var(--bg-primary)] p-8 rounded-2xl border border-[var(--border-color)] transition-all duration-300 hover:border-[var(--accent)] hover:shadow-xl hover:shadow-[var(--shadow-color)];
+  }
+  .content-card-title {
+      @apply text-xl font-bold mb-2;
+  }
+  .content-card-description {
+      @apply text-[var(--text-secondary)] leading-relaxed;
+  }
+  
+  /* Team Card */
+  .team-card {
+      @apply bg-[var(--bg-secondary)] text-center p-8 rounded-2xl border border-[var(--border-color)] transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--shadow-color)] hover:border-[var(--accent)];
+  }
+
+  /* Process Card */
+  .process-card {
+      @apply relative text-center;
+  }
+  .process-card-number {
+      @apply w-16 h-16 bg-[var(--accent)]/10 text-[var(--accent)] text-3xl font-bold flex items-center justify-center rounded-full shadow-md mx-auto mb-4;
+  }
+  .process-card-title {
+      @apply text-xl font-bold mb-2;
+  }
+  .process-card-description {
+      @apply text-sm text-[var(--text-secondary)];
+  }
+
+  /* FAQ Item */
+  .faq-item {
+      @apply bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border-color)] overflow-hidden;
+  }
+  .faq-question {
+      @apply w-full text-left flex justify-between items-center p-6 font-semibold text-[var(--text-primary)] text-lg;
+  }
+  .faq-answer {
+      @apply max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6 pb-6 text-[var(--text-secondary)];
+  }
+
+  /* Form Styles */
+  .form-label {
+      @apply block text-sm font-medium text-[var(--text-secondary)] mb-1;
+  }
+  .form-input {
+      @apply w-full rounded-md text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] focus:border-[var(--accent)] focus:ring-[var(--accent)] shadow-sm sm:text-sm p-3 placeholder-[var(--text-secondary)] transition-colors duration-300;
+  }
+
+  /* Footer */
+  .footer-heading {
+    @apply text-lg font-semibold text-[var(--text-primary)];
+  }
+  .footer-link {
+    @apply text-sm transition-colors duration-300 hover:text-[var(--accent)];
+  }
+  .footer-social-link {
+    @apply text-[var(--text-secondary)] transition-colors duration-300 hover:text-[var(--accent)];
+  }
+
 }
 
+/*
+==========================================
+  Utilities Layer: Animations & Helpers
+==========================================
+*/
 @layer utilities {
-
-  .nav-container::-webkit-scrollbar,
-  .testimonial-container::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-container,
-  .testimonial-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
+  /* Scroll Reveal Animation */
   .reveal {
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
-
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);

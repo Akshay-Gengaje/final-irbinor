@@ -1,163 +1,136 @@
 /**
- * Main application script for handling site-wide interactivity.
- * This consolidated script includes all logic for:
- * 1. Mobile sidebar navigation with services accordion.
- * 2. Header scroll effect.
- * 3. Theme (dark/light mode) switching.
- * 4. Circular carousel for the main gallery.
- * 5. Revealing elements on scroll.
- * 6. FAQ Accordion (Improved).
- * 7. Portfolio Tabs.
- * 8. Smooth scrolling for anchor links.
+ * Main application script for IRBINOR website (Revamped)
+ * Handles all site-wide interactivity with modern practices.
+ *
+ * 1. Header scroll effects
+ * 2. Mobile sidebar navigation & services accordion
+ * 3. Theme (dark/light mode) switching
+ * 4. Gallery slider functionality
+ * 5. Reveal elements on scroll using Intersection Observer
+ * 6. Smooth scrolling for anchor links
+ * 7. Active navigation link highlighting on scroll
+ * 8. FAQ Accordion
  */
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  const doc = document.documentElement;
   const body = document.body;
   const header = document.getElementById("main-header");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // --- 1. Header Scroll Effect ---
+  const handleScroll = () => {
+    header.classList.toggle("header-scrolled", window.scrollY > 50);
+  };
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  // --- 2. Mobile Sidebar & Accordion ---
   const menuBtn = document.getElementById("menu-btn");
-  const closeBtn = document.getElementById("sidebar-close-btn");
   const sidebar = document.getElementById("mobile-menu");
   const overlay = document.getElementById("sidebar-overlay");
+  const closeBtn = document.getElementById("sidebar-close-btn");
 
-  // --- Header Scroll Effect ---
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      header.classList.add("header-scrolled");
-    } else {
-      header.classList.remove("header-scrolled");
-    }
-  };
-  window.addEventListener("scroll", handleScroll);
-
-  // --- Mobile Sidebar Logic ---
   const toggleSidebar = () => {
-    if (!sidebar) return;
     const isSidebarOpen = !sidebar.classList.contains("translate-x-full");
-    sidebar.classList.toggle("translate-x-full");
-    overlay.classList.toggle("opacity-0");
-    overlay.classList.toggle("pointer-events-none");
+    sidebar.classList.toggle("translate-x-full", isSidebarOpen);
+    overlay.classList.toggle("opacity-0", isSidebarOpen);
+    overlay.classList.toggle("pointer-events-none", isSidebarOpen);
     body.classList.toggle("overflow-hidden", !isSidebarOpen);
     menuBtn.setAttribute("aria-expanded", String(!isSidebarOpen));
   };
 
-  if (menuBtn) {
+  if (menuBtn && sidebar && overlay && closeBtn) {
     menuBtn.addEventListener("click", toggleSidebar);
-    closeBtn.addEventListener("click", toggleSidebar);
     overlay.addEventListener("click", toggleSidebar);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !sidebar.classList.contains("translate-x-full")) {
-        toggleSidebar();
-      }
+    closeBtn.addEventListener("click", toggleSidebar);
+    
+    // Close sidebar on any link click within it
+    sidebar.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('click', (e) => {
+            // Only close if it's a direct link, not the accordion toggle
+            if (el.tagName === 'A' && el.getAttribute('href')?.startsWith('#')) {
+                 if (!sidebar.classList.contains('translate-x-full')) {
+                    setTimeout(toggleSidebar, 300); // Add a small delay for better UX
+                }
+            }
+        });
     });
+
+    const mobileServicesToggle = document.getElementById("mobile-services-toggle");
+    const mobileServicesSubmenu = document.getElementById("mobile-services-submenu");
+    const mobileServicesChevron = document.getElementById("mobile-services-chevron");
+
+    if (mobileServicesToggle) {
+      mobileServicesToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isExpanded = mobileServicesToggle.getAttribute("aria-expanded") === "true";
+        mobileServicesToggle.setAttribute("aria-expanded", String(!isExpanded));
+        mobileServicesSubmenu.style.maxHeight = isExpanded ? null : `${mobileServicesSubmenu.scrollHeight}px`;
+        mobileServicesChevron.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    }
   }
 
-  // --- Mobile Services Submenu Accordion ---
-  const mobileServicesToggle = document.getElementById("mobile-services-toggle");
-  const mobileServicesSubmenu = document.getElementById("mobile-services-submenu");
-  const mobileServicesChevron = document.getElementById("mobile-services-chevron");
-
-  if (mobileServicesToggle) {
-    mobileServicesToggle.addEventListener("click", () => {
-      const isExpanded = mobileServicesToggle.getAttribute("aria-expanded") === "true";
-      mobileServicesToggle.setAttribute("aria-expanded", String(!isExpanded));
-      if (mobileServicesSubmenu.style.maxHeight) {
-        mobileServicesSubmenu.style.maxHeight = null;
-        mobileServicesChevron.style.transform = "rotate(0deg)";
-      } else {
-        mobileServicesSubmenu.style.maxHeight = mobileServicesSubmenu.scrollHeight + "px";
-        mobileServicesChevron.style.transform = "rotate(180deg)";
-      }
-    });
-  }
-
-  // --- Close sidebar on link click (if not a submenu toggle) ---
-  const allLinks = document.querySelectorAll("#mobile-menu a");
-  allLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (!sidebar.classList.contains('translate-x-full')) {
-        toggleSidebar();
-      }
-    });
-  });
-
-
-  // --- Theme Toggler ---
+  // --- 3. Theme Toggler ---
   const themeToggleBtn = document.getElementById("theme-toggle");
   if (themeToggleBtn) {
     const darkIcon = document.getElementById("theme-toggle-dark-icon");
     const lightIcon = document.getElementById("theme-toggle-light-icon");
+    
     const applyTheme = (theme, store = false) => {
-      document.documentElement.classList.toggle("dark", theme === "dark");
+      doc.classList.toggle("dark", theme === "dark");
       darkIcon.classList.toggle("hidden", theme !== "dark");
       lightIcon.classList.toggle("hidden", theme === "dark");
       if (store) localStorage.setItem("theme", theme);
     };
-    const savedTheme = localStorage.getItem("theme") || "light";
-    applyTheme(savedTheme);
+
+    applyTheme(localStorage.getItem("theme") || "light");
+
     themeToggleBtn.addEventListener("click", () => {
-      const newTheme = document.documentElement.classList.contains("dark")
-        ? "light"
-        : "dark";
+      const newTheme = doc.classList.contains("dark") ? "light" : "dark";
       applyTheme(newTheme, true);
     });
   }
 
-  // --- Circular Carousel Gallery ---
-  const circularCarousel = document.getElementById("circular-carousel");
-  if (circularCarousel) {
-    const carouselImages = [
-      { avif: "assets/images/carousel/corporate-conference-event.avif", webp: "assets/images/carousel/corporate-conference-event.webp", fallback: "assets/images/carousel/corporate-conference-event.jpg", alt: "Corporate conference event setup" },
-      { avif: "assets/images/carousel/event-at-sea-side.avif", webp: "assets/images/carousel/event-at-sea-side.webp", fallback: "assets/images/carousel/event-at-sea-side.jpg", alt: "Seaside event setup" },
-      { avif: "assets/images/carousel/stage-decoration-at-event.avif", webp: "assets/images/carousel/stage-decoration-at-event.webp", fallback: "assets/images/carousel/stage-decoration-at-event.jpg", alt: "Decorated event stage" },
-      { avif: "assets/images/carousel/tent-outdoor-event-managment.avif", webp: "assets/images/carousel/tent-outdoor-event-managment.webp", fallback: "assets/images/carousel/tent-outdoor-event-managment.jpg", alt: "Outdoor event tent" },
+  // --- 4. Gallery Slider ---
+  const gallerySlider = document.getElementById("gallery-slider");
+  if (gallerySlider) {
+    const images = [
+      { avif: "./assets/images/carousel/corporate-conference-event.avif", webp: "./assets/images/carousel/corporate-conference-event.webp", fallback: "./assets/images/carousel/corporate-conference-event.jpg", alt: "Corporate conference event setup" },
+      { avif: "./assets/images/carousel/event-at-sea-side.avif", webp: "./assets/images/carousel/event-at-sea-side.webp", fallback: "./assets/images/carousel/event-at-sea-side.jpg", alt: "Seaside event setup" },
+      { avif: "./assets/images/carousel/stage-decoration-at-event.avif", webp: "./assets/images/carousel/stage-decoration-at-event.webp", fallback: "./assets/images/carousel/stage-decoration-at-event.jpg", alt: "Decorated event stage" },
+      { avif: "./assets/images/carousel/tent-outdoor-event-managment.avif", webp: "./assets/images/carousel/tent-outdoor-event-managment.webp", fallback: "./assets/images/carousel/tent-outdoor-event-managment.jpg", alt: "Outdoor event tent" },
     ];
-    const prevBtn = document.getElementById("carousel-prev-btn");
-    const nextBtn = document.getElementById("carousel-next-btn");
     let currentIndex = 0;
 
-    circularCarousel.innerHTML = carouselImages.map(img => `
-      <div class="carousel-item absolute w-3/4 md:w-1/2 transition-all duration-500 ease-in-out">
+    gallerySlider.innerHTML = images.map((img, index) => `
+      <div class="absolute w-full h-full transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}">
         <picture>
           <source srcset="${img.avif}" type="image/avif">
           <source srcset="${img.webp}" type="image/webp">
-          <img src="${img.fallback}" alt="${img.alt}" class="w-full h-full object-cover rounded-xl shadow-2xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/800x450/333/fff?text=Image+Not+Found';">
+          <img src="${img.fallback}" alt="${img.alt}" class="w-full h-full object-cover rounded-2xl shadow-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/333/fff?text=Image+Not+Found';">
         </picture>
-      </div>`).join('');
+      </div>
+    `).join('');
 
-    const items = circularCarousel.querySelectorAll(".carousel-item");
-    const totalItems = items.length;
+    const slides = gallerySlider.querySelectorAll("div");
+    const prevBtn = document.getElementById("gallery-prev");
+    const nextBtn = document.getElementById("gallery-next");
 
-    const updateCarousel = () => {
-      items.forEach((item, i) => {
-        const prevIndex = (currentIndex - 1 + totalItems) % totalItems;
-        const nextIndex = (currentIndex + 1) % totalItems;
-        item.style.transform = "translateX(0) scale(0.7)";
-        item.style.opacity = "0";
-        item.style.zIndex = "0";
-        item.style.filter = "blur(5px)";
-        if (i === currentIndex) {
-          item.style.transform = "translateX(0) scale(1)";
-          item.style.opacity = "1";
-          item.style.zIndex = "10";
-          item.style.filter = "blur(0)";
-        } else if (i === prevIndex) {
-          item.style.transform = "translateX(-50%) scale(0.8)";
-          item.style.opacity = "0.6";
-          item.style.zIndex = "5";
-          item.style.filter = "blur(3px)";
-        } else if (i === nextIndex) {
-          item.style.transform = "translateX(50%) scale(0.8)";
-          item.style.opacity = "0.6";
-          item.style.zIndex = "5";
-          item.style.filter = "blur(3px)";
-        }
-      });
+    const updateSlider = (newIndex) => {
+      slides[currentIndex].classList.remove('opacity-100');
+      currentIndex = (newIndex + slides.length) % slides.length;
+      slides[currentIndex].classList.add('opacity-100');
     };
-    nextBtn.addEventListener("click", () => { currentIndex = (currentIndex + 1) % totalItems; updateCarousel(); });
-    prevBtn.addEventListener("click", () => { currentIndex = (currentIndex - 1 + totalItems) % totalItems; updateCarousel(); });
-    updateCarousel();
+
+    if(prevBtn && nextBtn) {
+        prevBtn.addEventListener("click", () => updateSlider(currentIndex - 1));
+        nextBtn.addEventListener("click", () => updateSlider(currentIndex + 1));
+    }
+    
+    setInterval(() => updateSlider(currentIndex + 1), 5000);
   }
 
-  // --- Reveal on Scroll ---
+  // --- 5. Reveal on Scroll ---
   const revealElements = document.querySelectorAll(".reveal");
   if (revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -171,81 +144,60 @@ document.addEventListener("DOMContentLoaded", function () {
     revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  // --- Portfolio Tabs ---
-  const tabs = document.querySelectorAll('.portfolio-tab');
-  const galleries = document.querySelectorAll('.portfolio-gallery');
-
-  if (tabs.length) {
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const target = tab.getAttribute('data-tab');
-
-          tabs.forEach(t => t.classList.remove('active-tab', 'border-[var(--accent)]', 'text-[var(--accent)]'));
-          tab.classList.add('active-tab', 'border-[var(--accent)]', 'text-[var(--accent)]');
-
-          galleries.forEach(gallery => {
-            if (gallery.id === target) {
-              gallery.classList.remove('hidden');
-            } else {
-              gallery.classList.add('hidden');
-            }
-          });
+  // --- 6. Smooth Scroll for Anchor Links ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1 && document.querySelector(targetId)) {
+        e.preventDefault();
+        document.querySelector(targetId).scrollIntoView({
+          behavior: 'smooth'
         });
-      });
-
-      const activeTab = document.querySelector('.portfolio-tab.active-tab');
-      if(activeTab) {
-          activeTab.classList.add('border-[var(--accent)]', 'text-[var(--accent)]');
       }
-  }
+    });
+  });
 
-  // --- FAQ Accordion (Improved) ---
-  const faqToggles = document.querySelectorAll('.faq-toggle, .faq-question'); // Supports both old and new FAQ class names
+  // --- 7. Active Nav Link Highlighting ---
+  const sections = document.querySelectorAll("main section[id]");
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: "-30% 0px -70% 0px" });
+
+  if(sections.length > 0 && navLinks.length > 0){
+    sections.forEach(section => sectionObserver.observe(section));
+  }
+  
+  // --- 8. FAQ Accordion ---
+  const faqToggles = document.querySelectorAll('.faq-question');
   faqToggles.forEach(toggle => {
       toggle.addEventListener('click', () => {
           const answer = toggle.nextElementSibling;
-          const iconSvg = toggle.querySelector('.faq-icon svg, .transform'); // Supports both icon structures
+          const iconSvg = toggle.querySelector('svg');
           const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-          // Close all other open FAQs
+          // Close all other open FAQs before opening the new one
           faqToggles.forEach(otherToggle => {
               if (otherToggle !== toggle) {
                   otherToggle.setAttribute('aria-expanded', 'false');
                   otherToggle.nextElementSibling.style.maxHeight = null;
-                  const otherIcon = otherToggle.querySelector('.faq-icon svg, .transform');
-                  if (otherIcon) {
-                      otherIcon.style.transform = 'rotate(0deg)';
-                  }
+                  otherToggle.querySelector('svg').style.transform = 'rotate(0deg)';
               }
           });
 
           // Toggle the clicked FAQ
-          if (isExpanded) {
-              toggle.setAttribute('aria-expanded', 'false');
-              answer.style.maxHeight = null;
-              if (iconSvg) iconSvg.style.transform = 'rotate(0deg)';
-          } else {
-              toggle.setAttribute('aria-expanded', 'true');
-              answer.style.maxHeight = answer.scrollHeight + 'px';
-              if (iconSvg) iconSvg.style.transform = 'rotate(45deg)';
-          }
+          toggle.setAttribute('aria-expanded', String(!isExpanded));
+          answer.style.maxHeight = isExpanded ? null : `${answer.scrollHeight}px`;
+          iconSvg.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(45deg)';
       });
-  });
-
-  // --- Smooth Scroll & Active Nav Link ---
-  const navLinks = document.querySelectorAll('a[href^="#"]');
-  navLinks.forEach(link => {
-    link.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-      if (targetId.startsWith("#")) {
-        e.preventDefault();
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          const headerHeight = header ? header.offsetHeight : 0;
-          const offsetPosition = targetElement.offsetTop - headerHeight - 30;
-          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-        }
-      }
-    });
   });
 });
