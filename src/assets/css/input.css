@@ -27,6 +27,7 @@
   :root {
     --bg-primary: #fff;
     --bg-secondary: #FFFFFF;
+    --bg-hover-menu: #dedede;
     --text-primary: #064520;
     --text-secondary: #39624b;
     --accent: #dcaf64;
@@ -41,6 +42,7 @@
   html.dark {
     --bg-primary: #064520;
     --bg-secondary: #245e44;
+    --bg-hover-menu: #4a8c6e;
     --text-primary: #eff5ed;
     --text-secondary: #8bab99;
     --border-color: #39624b;
@@ -90,7 +92,7 @@
   }
 
   .nav-link {
-    @apply relative py-2;
+    @apply relative py-2 font-bold;
   }
 
   .nav-link::after {
@@ -103,51 +105,7 @@
     @apply transform scale-x-100;
   }
 
-  /* Dropdown Styles */
-  .dropdown {
-    position: relative;
-  }
 
-  .dropdown-toggle {
-    @apply flex items-center cursor-pointer bg-transparent border-0  text-inherit;
-    font: inherit;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 0.5rem;
-    min-width: 12rem;
-    background: var(--bg-secondary);
-    border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 50;
-    padding: 0.5rem 0;
-  }
-
-  .dropdown-menu a {
-    display: block;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-
-  .dropdown-menu a:hover {
-    background: var(--bg-primary);
-    color: var(--accent);
-  }
-
-  .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
-  }
 }
 
 @layer utilities {

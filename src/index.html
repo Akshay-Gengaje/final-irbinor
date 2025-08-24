@@ -93,39 +93,89 @@
               </a>
             </div>
 
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex min-h-full">
+              <ul id="nav-links" class="min-h-full flex space-x-8 items-center">
+                <li><a href="#home" class="nav-link">Home</a></li>
 
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center justify-center flex-grow">
-        <ul id="nav-links" class="flex space-x-8 items-center">
-          <li><a href="#home" class="nav-link">Home</a></li>
+                <!-- Services Dropdown -->
+                <li class="group relative h-full">
+                  <div class="h-full flex items-center cursor-pointer">
+                    <a href="#services" class="nav-link flex items-center">
+                      Services
+                      <svg
+                        class="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:rotate-180"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div
+                    class="absolute -left-2 w-max bg-[var(--bg-secondary)] rounded-b-xl shadow-4xl shadow-[var(--shadow-color)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto"
+                  >
+                    <div class="grid grid-cols-2 gap-4 p-6">
+                      <a
+                        href="./services/design.html"
+                        class="hover:bg-[var(--bg-hover-menu)] p-2 rounded-lg"
+                      >
+                        <h4 class="font-bold text-[var(--text-primary)]">
+                          Design
+                        </h4>
+                        <p class="text-sm text-[var(--text-secondary)]">
+                          Crafting immersive visual experiences.
+                        </p>
+                      </a>
+                      <a
+                        href="./services/management.html"
+                        class="hover:bg-[var(--bg-hover-menu)] p-2 rounded-lg"
+                      >
+                        <h4 class="font-bold text-[var(--text-primary)]">
+                          Management
+                        </h4>
+                        <p class="text-sm text-[var(--text-secondary)]">
+                          Meticulous execution for flawless events.
+                        </p>
+                      </a>
+                      <a
+                        href="./services/hospitality.html"
+                        class="hover:bg-[var(--bg-hover-menu)] p-2 rounded-lg"
+                      >
+                        <h4 class="font-bold text-[var(--text-primary)]">
+                          Hospitality
+                        </h4>
+                        <p class="text-sm text-[var(--text-secondary)]">
+                          Curating a seamless guest journey.
+                        </p>
+                      </a>
+                      <a
+                        href="./services/gifting.html"
+                        class="hover:bg-[var(--bg-hover-menu)] p-2 rounded-lg"
+                      >
+                        <h4 class="font-bold text-[var(--text-primary)]">
+                          Gifting
+                        </h4>
+                        <p class="text-sm text-[var(--text-secondary)]">
+                          Thoughtful gestures, lasting impressions.
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
 
-          <!-- Services Dropdown -->
-          <li class="nav-item dropdown">
-            <button class="nav-link dropdown-toggle">
-              Services
-              <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 
-                     10.586l3.293-3.293a1 1 0 111.414 
-                     1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 
-                     1 0 010-1.414z"
-                  clip-rule="evenodd" />
-              </svg>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="./services/design.html">Design</a></li>
-              <li><a href="./services/management.html">Management</a></li>
-              <li><a href="./services/hospitality.html">Hospitality</a></li>
-              <li><a href="./services/gifting.html">Gifting</a></li>
-            </ul>
-          </li>
-
-          <li><a href="#gallery" class="nav-link">Gallery</a></li>
-          <li><a href="#story" class="nav-link">Our Story</a></li>
-          <li><a href="#join" class="nav-link">Join Us</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </div>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#story" class="nav-link">Our Story</a></li>
+                <li><a href="#join" class="nav-link">Join Us</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+              </ul>
+            </div>
 
             <div class="flex items-center">
               <button
@@ -240,24 +290,27 @@
               />
             </svg>
           </button>
-          <div id="mobile-services-submenu" class="pl-4 mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <div
+            id="mobile-services-submenu"
+            class="pl-4 mt-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+          >
             <a
-              href="design.html"
+              href="./services/design.html"
               class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
               >Design</a
             >
             <a
-              href="management.html"
+              href="./services/management.html"
               class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
               >Management</a
             >
             <a
-              href="hospitality.html"
+              href="./services/hospitality.html"
               class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
               >Hospitality</a
             >
             <a
-              href="gifting.html"
+              href="./services/gifting.html"
               class="block text-[var(--text-primary)] text-lg font-medium p-2 rounded-lg hover:bg-[var(--bg-primary)]"
               >Gifting</a
             >
@@ -336,8 +389,14 @@
                 class="relative z-10 flex flex-col justify-center items-center h-full"
               >
                 <picture>
-                  <source srcset="./assets/icons/design.avif" type="image/avif" />
-                  <source srcset="./assets/icons/design.webp" type="image/webp" />
+                  <source
+                    srcset="./assets/icons/design.avif"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="./assets/icons/design.webp"
+                    type="image/webp"
+                  />
                   <img
                     src="./assets/icons/design.png"
                     alt="Design Icon"
@@ -355,10 +414,10 @@
                 <p
                   class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
                 >
-                  We believe great experiences begin with exceptional design. Our
-                  process involves conceptualizing unique themes, creating
-                  immersive spatial designs, and developing cohesive branding that
-                  tells your story.
+                  We believe great experiences begin with exceptional design.
+                  Our process involves conceptualizing unique themes, creating
+                  immersive spatial designs, and developing cohesive branding
+                  that tells your story.
                 </p>
               </div>
             </article>
@@ -399,8 +458,8 @@
                 >
                   From concept to execution, we provide meticulous end-to-end
                   event management. Our services include detailed logistical
-                  planning, vendor coordination, and on-site leadership to ensure
-                  every detail is handled flawlessly.
+                  planning, vendor coordination, and on-site leadership to
+                  ensure every detail is handled flawlessly.
                 </p>
               </div>
             </article>
@@ -441,8 +500,8 @@
                 >
                   Hospitality is at the heart of every memorable event. We focus
                   on curating a seamless guest journey, providing personalized
-                  services, and ensuring every attendee feels welcomed and valued
-                  from start to finish.
+                  services, and ensuring every attendee feels welcomed and
+                  valued from start to finish.
                 </p>
               </div>
             </article>
@@ -481,10 +540,10 @@
                 <p
                   class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
                 >
-                  A perfect gift extends the memory of an event. We specialize in
-                  curating bespoke gifting experiences, from sourcing unique
-                  products to designing branded merchandise that leaves a lasting
-                  impression.
+                  A perfect gift extends the memory of an event. We specialize
+                  in curating bespoke gifting experiences, from sourcing unique
+                  products to designing branded merchandise that leaves a
+                  lasting impression.
                 </p>
               </div>
             </article>
@@ -1963,5 +2022,5 @@
     <script src="./assets/js/testimonials.js" defer></script>
   </body>
 </html>
-" in the Canvas.
-I want to change the navbar can you please change it with this co
+" in the Canvas. I want to change the navbar can you please change it with this
+co
