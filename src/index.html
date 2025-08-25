@@ -11,7 +11,11 @@
       content="IRBINOR delivers larger-than-life experiences with a last-mile touch. Explore our innovative design, management, hospitality, and gifting services."
     />
     <link rel="canonical" href="https://www.irbinor.com/" />
-
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/images/logos/favicon.ico"
+    />
     <meta
       property="og:title"
       content="IRBINOR | Creative Services, Design, Hospitality & Management"
@@ -280,15 +284,14 @@
 
         <div class="absolut z-10"></div>
       </section>
-
       <section
         id="services"
-        class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        class="my-20 md:my-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-labelledby="services-heading"
       >
         <div class="text-center reveal">
           <h2
-            id="testimonial-heading"
+            id="services-heading"
             class="text-3xl md:text-4xl font-black text-[var(--text-primary)]"
           >
             Our Signature Services
@@ -296,171 +299,157 @@
           <p
             class="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto"
           >
-            From inspired design to flawless execution, we bring every detail of
-            your event to life with creativity, precision, and warmth.
+            We orchestrate unforgettable experiences through four pillars of
+            excellence. Discover how we can bring your vision to life.
           </p>
         </div>
 
-        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <article
-            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full"
-            >
-              <picture>
-                <source srcset="./assets/icons/design.avif" type="image/avif" />
-                <source srcset="./assets/icons/design.webp" type="image/webp" />
-                <img
-                  src="./assets/icons/design.png"
-                  alt="Design Icon"
-                  loading="lazy"
-                  class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-                  width="96"
-                  height="96"
-                />
-              </picture>
-              <h3
-                class="text-3xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
-              >
-                Design
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
-              >
-                We believe great experiences begin with exceptional design. Our
-                process involves conceptualizing unique themes, creating
-                immersive spatial designs, and developing cohesive branding that
-                tells your story.
-              </p>
-            </div>
-          </article>
+        <div
+          id="tabs-container"
+          class="relative flex justify-center space-x-4 md:space-x-8 mt-12 reveal"
+        >
+          <button class="tab-btn" data-target="design">
+            <span>Design</span>
+          </button>
+          <button class="tab-btn active" data-target="event">
+            <span>Events</span>
+          </button>
+          <button class="tab-btn" data-target="gifting">
+            <span>Gifting</span>
+          </button>
+          <button class="tab-btn" data-target="hospitality">
+            <span>Hospitality</span>
+          </button>
+        </div>
 
-          <article
-            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full"
-            >
-              <picture>
-                <source
-                  srcset="./assets/icons/management.avif"
-                  type="image/avif"
-                />
-                <source
-                  srcset="./assets/icons/management.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="./assets/icons/management.png"
-                  alt="Management Icon"
-                  loading="lazy"
-                  class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-                  width="96"
-                  height="96"
-                />
-              </picture>
-              <h3
-                class="text-3xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
-              >
-                Management
+        <div class="service-content-wrapper reveal">
+          <div id="design" class="content-panel">
+            <div class="panel-text-content">
+              <img
+                src="./assets/images/logos/Design.png"
+                alt="Design Logo"
+                class="w-40 mb-4 panel-icon"
+              />
+              <h3 class="text-3xl font-bold mb-4">
+                Creative Design & Storytelling
               </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
-              >
-                From concept to execution, we provide meticulous end-to-end
-                event management. Our services include detailed logistical
-                planning, vendor coordination, and on-site leadership to ensure
-                every detail is handled flawlessly.
+              <p class="leading-relaxed mb-6">
+                From fleeting moments to lasting memories, our design philosophy
+                is rooted in storytelling. We conceptualize immersive worlds,
+                crafting everything from the grandest stage to the smallest
+                detail to ensure your brand's narrative is not just seen, but
+                felt.
               </p>
+              <ul class="service-bullets">
+                <li>Thematic Environment Design</li>
+                <li>Brand Integration & Identity</li>
+                <li>Immersive Guest Journeys</li>
+              </ul>
             </div>
-          </article>
+            <div class="panel-image-content">
+              <img
+                src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="A stylish mood board with fabric swatches and color palettes for an event"
+                class="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
 
-          <article
-            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full"
-            >
-              <picture>
-                <source
-                  srcset="./assets/icons/hospitality.avif"
-                  type="image/avif"
-                />
-                <source
-                  srcset="./assets/icons/hospitality.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="./assets/icons/hospitality.png"
-                  alt="Hospitality Icon"
-                  loading="lazy"
-                  class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-                  width="96"
-                  height="96"
-                />
-              </picture>
-              <h3
-                class="text-3xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
-              >
-                Hospitality
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
-              >
-                Hospitality is at the heart of every memorable event. We focus
-                on curating a seamless guest journey, providing personalized
-                services, and ensuring every attendee feels welcomed and valued
-                from start to finish.
+          <div id="event" class="content-panel active">
+            <div class="panel-text-content">
+              <img
+                src="./assets/images/logos/Event.png"
+                alt="Event Logo"
+                class="w-40 mb-4 panel-icon"
+              />
+              <h3 class="text-3xl font-bold mb-4">Flawless Event Planning</h3>
+              <p class="leading-relaxed mb-6">
+                Consider us the architects of your peace of mind. Our management
+                team operates with precision, orchestrating hundreds of moving
+                parts into a seamless symphony. We are the invisible threads
+                that hold your event together, allowing you to be a guest, not a
+                manager.
               </p>
+              <ul class="service-bullets">
+                <li>Logistical & Financial Planning</li>
+                <li>Vendor Curation & Coordination</li>
+                <li>On-Site Leadership & Execution</li>
+              </ul>
             </div>
-          </article>
+            <div class="panel-image-content">
+              <img
+                src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1024&q=80"
+                alt="Event staff with headsets coordinating flawlessly behind the scenes"
+                class="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
 
-          <article
-            class="group relative custom-card min-h-[24rem] flex flex-col items-center justify-center text-center overflow-hidden p-8 reveal"
-          >
-            <div
-              class="relative z-10 flex flex-col justify-center items-center h-full"
-            >
-              <picture>
-                <source
-                  srcset="./assets/icons/gifting.avif"
-                  type="image/avif"
-                />
-                <source
-                  srcset="./assets/icons/gifting.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="./assets/icons/gifting.png"
-                  alt="Gifting Icon"
-                  loading="lazy"
-                  class="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110 group-hover:drop-shadow-lg"
-                  width="96"
-                  height="96"
-                />
-              </picture>
-              <h3
-                class="text-3xl font-semibold mb-2 text-[var(--text-primary)] transition-colors duration-300 group-hover:text-[var(--accent)]"
-              >
-                Gifting
-              </h3>
-              <p
-                class="text-sm text-[var(--text-secondary)] transition-colors duration-300"
-              >
-                A perfect gift extends the memory of an event. We specialize in
-                curating bespoke gifting experiences, from sourcing unique
-                products to designing branded merchandise that leaves a lasting
-                impression.
+          <div id="gifting" class="content-panel">
+            <div class="panel-text-content">
+              <img
+                src="./assets/images/logos/Gifts.png"
+                alt="Gifting Logo"
+                class="w-40 mb-4 panel-icon"
+              />
+              <h3 class="text-3xl font-bold mb-4">Bespoke Gifting</h3>
+              <p class="leading-relaxed mb-6">
+                A gift should be more than an object; it should be a token of
+                the experience. We specialize in creating bespoke gifting
+                moments that leave a lasting impression. We source, design, and
+                package thoughtful gifts that echo the story of your event and
+                your brand.
               </p>
+              <ul class="service-bullets">
+                <li>Bespoke Gift Curation</li>
+                <li>Branded Merchandise Design</li>
+                <li>Luxury Packaging & Delivery</li>
+              </ul>
             </div>
-          </article>
+            <div class="panel-image-content">
+              <img
+                src="https://images.unsplash.com/photo-1668775589980-58f9f0021ce5?q=80&w=1334&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="A flat lay of a beautifully curated gift box with high-end items and custom packaging"
+                class="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+
+          <div id="hospitality" class="content-panel">
+            <div class="panel-text-content">
+              <img
+                src="./assets/images/logos/Hospitality.png"
+                alt="Hospitality Logo"
+                class="w-40 mb-4 panel-icon"
+              />
+              <h3 class="text-3xl font-bold mb-4">Elevated Hospitality</h3>
+              <p class="leading-relaxed mb-6">
+                True luxury isn't just what guests see, but how they feel. Our
+                hospitality service is an obsession with perfecting the guest
+                experience. From the first invitation to the final farewell, we
+                anticipate needs and create a welcoming atmosphere that feels
+                both exclusive and effortless.
+              </p>
+              <ul class="service-bullets">
+                <li>Personalized Guest Services</li>
+                <li>VIP & Concierge Management</li>
+                <li>Seamless Attendee Journey</li>
+              </ul>
+            </div>
+            <div class="panel-image-content">
+              <img
+                src="https://images.unsplash.com/photo-1574578831425-41dbec20aa5c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="A beautifully set table with a personalized place setting for a luxury event"
+                class="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       <section
         id="gallery"
-        class="my-20 md:my-40 overflow-hidden"
+        class="my-20 md:my-40"
         aria-labelledby="gallery-heading"
       >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -479,7 +468,10 @@
             </p>
           </div>
 
-          <div class="relative flex items-center justify-center mt-16 reveal">
+          <div
+            id="carousel-area"
+            class="relative flex items-center justify-center mt-16 reveal"
+          >
             <button
               id="carousel-prev-btn"
               class="absolute left-0 md:-left-8 top-1/2 -translate-y-1/2 z-20 bg-[var(--bg-secondary)] hover:bg-[var(--accent)] text-[var(--text-primary)] hover:text-white rounded-full p-3 transition-all duration-300 ease-in-out shadow-lg border border-[var(--border-color)]"

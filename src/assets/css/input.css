@@ -152,6 +152,88 @@
     border-color: var(--accent);
   }
 
+/* --- START: Tabbed Services Section Styles --- */
+  .tab-btn {
+    @apply relative flex flex-col items-center gap-2 pb-3 px-4 -mb-px transition-colors duration-300;
+    color: var(--text-secondary);
+  }
+
+  .tab-btn svg {
+    @apply w-7 h-7;
+  }
+  
+  .tab-btn span {
+    @apply md:text-2xl font-semibold;
+  }
+  
+  .tab-btn:hover {
+    /* Changed to accent color for hover */
+    color: var(--accent);
+  }
+  
+  .tab-btn.active {
+    /* Changed to accent color for active text and icon */
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Creates the active underline */
+  .tab-btn.active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[3px] rounded-full;
+    /* Changed to accent color for the underline */
+    background-color: var(--accent);
+  }
+
+  .service-content-wrapper {
+    @apply rounded-2xl p-8 md:p-12 relative z-10 transition-colors duration-300;
+  }
+  
+  /* --- Light Mode Styling --- */
+  html:not(.dark) .service-content-wrapper {
+    background-color: #f9fbf8; /* A very light, elegant green-tinted white */
+    border: 1px solid var(--border-color);
+  }
+  
+  /* --- Dark Mode Styling --- */
+  html.dark .service-content-wrapper {
+    background-color: var(--bg-secondary);
+  }
+
+  .content-panel {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+    @apply flex-col md:flex-row items-center gap-8 md:gap-12;
+  }
+
+  .content-panel.active {
+    display: flex;
+  }
+
+  .panel-text-content {
+    @apply w-full md:w-1/2;
+  }
+
+  .panel-image-content {
+    @apply w-full md:w-1/2 mt-8 md:mt-0;
+  }
+  
+  .service-bullets {
+      @apply mt-6 space-y-2;
+  }
+  
+  .service-bullets li {
+      @apply flex items-center text-sm font-semibold text-[var(--text-secondary)];
+  }
+
+  /* Custom checkmark icon for bullet points */
+  .service-bullets li::before {
+      content: '✓';
+      @apply mr-3 text-lg font-bold text-[var(--accent)];
+  }
+/* --- END: Tabbed Services Section Styles --- */
+
+
   /* --- START: Gallery Modal, Loader, and Error State Styles --- */
   .modal-content.modal-enter {
     opacity: 1;
@@ -240,9 +322,15 @@
 }
 
 /* Keyframe animations need to be outside of layers */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.2); }

@@ -4,10 +4,11 @@
  * 1. Mobile sidebar navigation.
  * 2. Theme (dark/light mode) switching.
  * 3. Active navigation link highlighting.
- * 4. Circular carousel for the main gallery with optimized images.
+ * 4. Circular carousel for the main gallery with optimized images and auto-scroll.
  * 5. Revealing elements on scroll.
  * 6. FAQ Accordion.
- * 7. Smooth scrolling for anchor links.
+ * 7. Expanding Services Panel.
+ * 8. Smooth scrolling for anchor links.
  */
 document.addEventListener("DOMContentLoaded", function () {
   // --- Mobile Sidebar, Theme Toggler, and Nav Link Logic ---
@@ -72,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const circularCarousel = document.getElementById("circular-carousel");
   if (circularCarousel) {
     // --- Configuration ---
-    // Use local paths with webp and fallback formats for optimal performance.
     const carouselImages = [
       {
         avif: "assets/images/carousel/corporate-conference-event.avif",
@@ -103,15 +103,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Element References ---
     const prevBtn = document.getElementById("carousel-prev-btn");
     const nextBtn = document.getElementById("carousel-next-btn");
+    const carouselArea = document.getElementById("carousel-area");
 
     // --- State ---
     let currentIndex = 0;
+    let autoScrollInterval;
+    const autoScrollSpeed = 2000; // Time in milliseconds (e.g., 4 seconds)
 
     // --- Functions ---
     function initializeCarousel() {
       let carouselHTML = "";
       carouselImages.forEach((image) => {
-        // Use the <picture> element to serve optimized WebP images with a JPG/PNG fallback.
         carouselHTML += `
             <div class="carousel-item absolute w-3/4 md:w-1/2 transition-all duration-500 ease-in-out">
                 <picture>
@@ -133,26 +135,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const prevIndex = (currentIndex - 1 + totalItems) % totalItems;
         const nextIndex = (currentIndex + 1) % totalItems;
 
-        // Reset styles
         item.style.transform = "translateX(0) scale(0.7)";
         item.style.opacity = "0";
         item.style.zIndex = "0";
         item.style.filter = "blur(5px)";
 
         if (i === currentIndex) {
-          // Style for the active (center) item
           item.style.transform = "translateX(0) scale(1)";
           item.style.opacity = "1";
           item.style.zIndex = "10";
           item.style.filter = "blur(0)";
         } else if (i === prevIndex) {
-          // Style for the previous (left) item
           item.style.transform = "translateX(-50%) scale(0.8)";
           item.style.opacity = "0.6";
           item.style.zIndex = "5";
           item.style.filter = "blur(3px)";
         } else if (i === nextIndex) {
-          // Style for the next (right) item
           item.style.transform = "translateX(50%) scale(0.8)";
           item.style.opacity = "0.6";
           item.style.zIndex = "5";
@@ -161,21 +159,46 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
+    function startAutoScroll() {
+      stopAutoScroll(); // Ensure no multiple intervals are running
+      autoScrollInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % carouselImages.length;
+        updateCarousel();
+      }, autoScrollSpeed);
+    }
+
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+    }
+    
+    function resetAutoScroll() {
+        stopAutoScroll();
+        startAutoScroll();
+    }
+
     // --- Event Listeners ---
     nextBtn.addEventListener("click", () => {
       currentIndex = (currentIndex + 1) % carouselImages.length;
       updateCarousel();
+      resetAutoScroll();
     });
 
     prevBtn.addEventListener("click", () => {
-      currentIndex =
-        (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+      currentIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
       updateCarousel();
+      resetAutoScroll();
     });
+
+    // Pause on hover over the entire carousel area
+    if (carouselArea) {
+      carouselArea.addEventListener('mouseenter', stopAutoScroll);
+      carouselArea.addEventListener('mouseleave', startAutoScroll);
+    }
 
     // --- Initialization ---
     initializeCarousel();
     updateCarousel();
+    startAutoScroll(); // Start auto-scrolling on page load
   }
   // =========================================================================
   // --- END: CIRCULAR CAROUSEL GALLERY LOGIC ---
@@ -205,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const answer = question.nextElementSibling;
       const isExpanded = question.getAttribute("aria-expanded") === "true";
 
-      // Close all other open answers
       if (!isExpanded) {
         faqQuestions.forEach((otherQuestion) => {
           otherQuestion.setAttribute("aria-expanded", "false");
@@ -214,7 +236,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
 
-      // Toggle the clicked one
       question.setAttribute("aria-expanded", !isExpanded);
       answer.style.maxHeight = isExpanded ? null : answer.scrollHeight + "px";
       question.querySelector("svg").style.transform = isExpanded
@@ -223,6 +244,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+// =========================================================================
+  // --- START: TABBED SERVICES LOGIC ---
+  // =========================================================================
+  const tabsContainer = document.getElementById("tabs-container");
+  if (tabsContainer) {
+    const tabButtons = tabsContainer.querySelectorAll('.tab-btn');
+    const contentPanels = document.querySelectorAll('.content-panel');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.dataset.target;
+            
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            contentPanels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            button.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+  }
+  // =========================================================================
+  // --- END: TABBED SERVICES LOGIC ---
+  // =========================================================================
   // =========================================================================
   // --- START: SMOOTH SCROLL & SECTION CENTERING ---
   // =========================================================================
@@ -231,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
-      e.preventDefault(); // Stop the default anchor link behavior
+      e.preventDefault(); 
 
       const targetId = this.getAttribute("href");
       const targetElement = document.querySelector(targetId);
