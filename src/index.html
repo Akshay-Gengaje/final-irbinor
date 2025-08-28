@@ -57,22 +57,25 @@
       id="sidebar-overlay"
       class="fixed inset-0 bg-black/60 z-30 opacity-0 pointer-events-none transition-opacity duration-300"
     ></div>
-
     <header
       class="sticky top-0 z-20 bg-[var(--bg-primary)]/80 backdrop-blur-sm shadow-lg shadow-[var(--shadow-color)]"
     >
       <nav aria-label="Main Navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
-            <div class="flex-shrink-0">
+            <div class="flex-shrink-0 flex items-center">
               <a
                 href="#home"
                 aria-label="IRBINOR Company Logo"
-                class="h-12 w-42 logo-themed"
+                class="inline-block"
               >
+                <img
+                  src="./assets/images/logo-light.png"
+                  alt="IRBINOR Logo"
+                  class="h-11 w-auto"
+                />
               </a>
             </div>
-
             <div class="hidden md:flex items-center justify-center flex-grow">
               <ul class="flex space-x-8 items-center">
                 <li>
@@ -103,7 +106,7 @@
                     >Our Story</a
                   >
                 </li>
-            
+
                 <li>
                   <a
                     href="#contact"
@@ -218,7 +221,7 @@
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
           >Our Story</a
         >
-   
+
         <a
           href="#contact"
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
@@ -417,7 +420,7 @@
             </button>
             <div
               id="circular-carousel"
-              class="w-full h-80 flex items-center justify-center "
+              class="w-full h-80 flex items-center justify-center"
             ></div>
             <button
               id="carousel-next-btn"
@@ -596,7 +599,12 @@
             />
           </div>
           <div class="reveal">
-            <h2 id="story-heading" class="heading-display flex justify-center md:justify-start">Who We Are</h2>
+            <h2
+              id="story-heading"
+              class="heading-display flex justify-center md:justify-start"
+            >
+              Who We Are
+            </h2>
             <p class="paragraph-intro mt-6">
               IRBINOR is a purpose-driven experience company that combines
               storytelling, aesthetic excellence, and hospitality to create
@@ -747,8 +755,6 @@
         </div>
       </section>
 
-
-
       <section
         id="contact"
         class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -815,17 +821,22 @@
       </section>
     </main>
 
-<footer
+    <footer
       class="bg-[var(--bg-primary)] text-[var(--text-secondary)] py-10 border-t border-[var(--border-color)]"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="flex flex-col items-center md:items-start">
-            <a
-              href="#home"
-              aria-label="IRBINOR Company Logo"
-              class="h-12 w-48 logo-themed mb-4"
-            ></a>
+               <a
+                href="#home"
+                aria-label="IRBINOR Company Logo"
+                class="inline-block"
+              >
+                <img
+                  src="./assets/images/logo-light.png"
+                  alt="IRBINOR Logo"
+                  class="h-9 w-auto mb-4"
+                />
             <p class="text-sm text-center md:text-left">
               Delivering experiences larger than life with a last mile touch.
             </p>
@@ -908,7 +919,7 @@
         <div
           class="mt-8 border-t border-[var(--border-color)] pt-6 text-center flex justify-center"
         >
-          <p class="text-sm ">&copy; 2025 IRBINOR. All rights reserved.</p>
+          <p class="text-sm">&copy; 2025 IRBINOR. All rights reserved.</p>
         </div>
       </div>
     </footer>

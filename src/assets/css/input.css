@@ -114,17 +114,6 @@
    ========================================================================== */
 @layer components {
 
-  .logo-themed {
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    background-image: url('../images/logo-light.png');
-  }
-
-  .dark .logo-themed {
-    background-image: url('../images/logo-dark.png');
-  }
 
   .custom-card {
     background-color: var(--bg-secondary);
@@ -212,17 +201,22 @@
   .heading-display {
     @apply text-4xl md:text-5xl;
   }
+
   .heading-sub-large {
-    @apply text-2xl lg:text-3xl font-bold; /* Overrides base h3 font-black for balance */
+    @apply text-2xl lg:text-3xl font-bold;
+    /* Overrides base h3 font-black for balance */
   }
+
   .paragraph-intro {
     @apply text-lg;
   }
+
   .paragraph-dynamic {
     @apply text-base md:text-lg;
   }
+
   .paragraph-quote {
-      @apply italic text-lg font-semibold;
+    @apply italic text-lg font-semibold;
   }
 }
 
@@ -246,6 +240,13 @@
 
 /* Keyframe animations need to be outside of layers */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
