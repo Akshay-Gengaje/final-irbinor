@@ -1,49 +1,33 @@
 /* ==========================================================================
    FONT IMPORTS
-   - Imports Google Fonts used in the project.
-   - Using @import is fine here as Tailwind CLI will process it into a single file.
    ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* ==========================================================================
    TAILWIND DIRECTIVES
-   - These directives inject Tailwind's base, components, and utilities styles.
    ========================================================================== */
 @import "tailwindcss";
 
 /* ==========================================================================
-
-/* --- START: @font-face rules for Garet --- */
-
-/* Garet Regular (Book) */
+   FONT DEFINITIONS
+   ========================================================================== */
 @font-face {
   font-family: 'Garet';
   src: url('../fonts/Garet-Book.woff2') format('woff2'),
-    /* */
     url('../fonts/Garet-Book.woff') format('woff');
-  /* */
   font-weight: 400;
-  /* 'normal' weight */
   font-style: normal;
   font-display: swap;
 }
 
-/* Garet Heavy */
 @font-face {
   font-family: 'Garet';
   src: url('../fonts/Garet-Heavy.woff2') format('woff2'),
-    /* */
     url('../fonts/Garet-Heavy.woff') format('woff');
-  /* */
   font-weight: 900;
-  /* 'heavy' or 'black' weight */
   font-style: normal;
   font-display: swap;
 }
-
-/* --- END: @font-face rules for Garet --- */
-
 
 /* ==========================================================================
    BASE LAYER & THEME VARIABLES
@@ -51,70 +35,77 @@
 @layer base {
   html {
     scroll-padding-top: 90px;
-    /* scroll-behavior: smooth; */
   }
 
   :root {
-    /* Light Theme Palette (NEW) */
+    /* Light Theme Palette */
     --bg-primary: #fff;
-    /*--bg-primary: #eff5ed;     /* saltpan */
     --bg-secondary: #FFFFFF;
-    /* white */
     --text-primary: #064520;
-    /* zuccini */
     --text-secondary: #39624b;
-    /* killarney */
     --accent: #dcaf64;
-    /* equator */
     --accent-hover: #c99b50;
-    /* darker equator */
     --border-color: #d1d9ce;
-    /* light gray-green */
     --shadow-color: rgba(6, 69, 32, 0.1);
-
-    /* Custom Card Variables */
     --card-border-color: #e2e8f0;
     --card-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07);
     --card-shadow-hover: 0 10px 20px 0 rgba(6, 69, 32, 0.1);
   }
 
   html.dark {
-    /* Dark Theme Palette (NEW) */
+    /* Dark Theme Palette */
     --bg-primary: #064520;
-    /* zuccini */
     --bg-secondary: #245e44;
-    /* green-pea */
     --text-primary: #eff5ed;
-    /* saltpan */
     --text-secondary: #8bab99;
-    /* envy */
-    --accent: #dcaf64;
-    /* equator */
+    --accent: #f9b314;
     --accent-hover: #c99b50;
-    /* darker equator */
     --border-color: #39624b;
-    /* killarney */
     --shadow-color: rgba(0, 0, 0, 0.2);
-
-    /* Custom Card Variables */
     --card-border-color: var(--border-color);
     --card-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
     --card-shadow-hover: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   }
 
-  /* Set the base font for the entire document (Secondary Typeface) */
+  /* --- TYPOGRAPHY BEST PRACTICES --- */
+
+  /* 1. Base body styles */
   body {
-    font-family: 'Poppins', sans-serif;
+    @apply text-base leading-relaxed text-[var(--text-secondary)];
+    font-family: 'Inter', sans-serif;
   }
 
-  /* Set a different font for headings for stylistic contrast (Primary Typeface) */
+  /* 2. Set max-width for paragraphs to improve readability on large screens */
+  p {
+    @apply max-w-prose;
+  }
+
+  /* 3. Base heading styles */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    @apply font-black text-[var(--text-primary)] tracking-tight;
     font-family: 'Garet', sans-serif;
+  }
+
+  /* 4. Responsive Typographic Scale */
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h4 {
+    @apply text-lg font-bold;
   }
 }
 
@@ -128,74 +119,60 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    /* Set the background to the light logo by default */
     background-image: url('../images/logo-light.png');
   }
 
   .dark .logo-themed {
-    /* Change the background to the dark logo in dark mode */
     background-image: url('../images/logo-dark.png');
   }
 
   .custom-card {
     background-color: var(--bg-secondary);
     border-radius: 1rem;
-    /* equivalent to rounded-2xl */
     border: 1px solid var(--card-border-color);
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
 
   .custom-card:hover {
-    /* transform: translateY(-8px); */
     box-shadow: var(--card-shadow-hover);
     border-color: var(--accent);
   }
 
-/* --- START: Tabbed Services Section Styles --- */
+  /* --- START: Tabbed Services Section Styles --- */
   .tab-btn {
     @apply relative flex flex-col items-center gap-2 pb-3 px-4 -mb-px transition-colors duration-300;
     color: var(--text-secondary);
   }
 
-  .tab-btn svg {
-    @apply w-7 h-7;
-  }
-  
   .tab-btn span {
     @apply md:text-2xl font-semibold;
   }
-  
+
   .tab-btn:hover {
-    /* Changed to accent color for hover */
     color: var(--accent);
   }
-  
+
   .tab-btn.active {
-    /* Changed to accent color for active text and icon */
     color: var(--accent);
     font-weight: 700;
   }
 
-  /* Creates the active underline */
   .tab-btn.active::after {
     content: '';
     @apply absolute bottom-0 left-0 w-full h-[3px] rounded-full;
-    /* Changed to accent color for the underline */
     background-color: var(--accent);
   }
 
   .service-content-wrapper {
     @apply rounded-2xl p-8 md:p-12 relative z-10 transition-colors duration-300;
   }
-  
-  /* --- Light Mode Styling --- */
+
   html:not(.dark) .service-content-wrapper {
-    background-color: #f9fbf8; /* A very light, elegant green-tinted white */
+    background-color: #f9fbf8;
     border: 1px solid var(--border-color);
   }
-  
-  /* --- Dark Mode Styling --- */
+
   html.dark .service-content-wrapper {
     background-color: var(--bg-secondary);
   }
@@ -217,70 +194,36 @@
   .panel-image-content {
     @apply w-full md:w-1/2 mt-8 md:mt-0;
   }
-  
+
   .service-bullets {
-      @apply mt-6 space-y-2;
+    @apply mt-6 space-y-2;
   }
-  
+
   .service-bullets li {
-      @apply flex items-center text-sm font-semibold text-[var(--text-secondary)];
+    @apply flex items-center text-sm font-semibold text-[var(--text-secondary)];
   }
 
-  /* Custom checkmark icon for bullet points */
   .service-bullets li::before {
-      content: '✓';
-      @apply mr-3 text-lg font-bold text-[var(--accent)];
+    content: '✓';
+    @apply mr-3 text-lg font-bold text-[var(--accent)];
   }
-/* --- END: Tabbed Services Section Styles --- */
 
-
-  /* --- START: Gallery Modal, Loader, and Error State Styles --- */
-  .modal-content.modal-enter {
-    opacity: 1;
-    transform: none;
+  /* --- Typography Component Variants --- */
+  .heading-display {
+    @apply text-4xl md:text-5xl;
   }
-  .loading-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
+  .heading-sub-large {
+    @apply text-2xl lg:text-3xl font-bold; /* Overrides base h3 font-black for balance */
   }
-  .loading-spinner {
-    width: 3rem;
-    height: 3rem;
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top-color: var(--accent, #dcaf64);
-    border-radius: 50%;
-    animation: spin 1s ease-in-out infinite, pulse 1.5s ease-in-out infinite;
+  .paragraph-intro {
+    @apply text-lg;
   }
-  .error-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(200, 50, 50, 0.8));
-    color: white;
-    text-align: center;
-    padding: 1rem;
+  .paragraph-dynamic {
+    @apply text-base md:text-lg;
   }
-  .error-container p {
-    @apply text-xl font-medium mb-4;
+  .paragraph-quote {
+      @apply italic text-lg font-semibold;
   }
-  .error-container button {
-    @apply bg-white/20 text-white py-2 px-4 border border-white/50 rounded-md cursor-pointer transition-colors hover:bg-white/30;
-  }
-  .modal-disclaimer {
-    @apply text-xs text-white/70 mt-2;
-  }
-  /* --- END: Gallery Modal, Loader, and Error State Styles --- */
 }
 
 
@@ -289,25 +232,6 @@
    ========================================================================== */
 @layer utilities {
 
-  /* A utility for creating a text stroke effect using the accent color */
-  .text-stroke {
-    -webkit-text-stroke: 1px white;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Utility to hide scrollbars on specific containers for a cleaner look */
-  .nav-container::-webkit-scrollbar,
-  .testimonial-container::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-container,
-  .testimonial-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-
   .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -315,7 +239,6 @@
   }
 
   .reveal.visible {
-    /* This class now matches your JavaScript */
     opacity: 1;
     transform: translateY(0);
   }
@@ -325,13 +248,4 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
 }
