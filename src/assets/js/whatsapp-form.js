@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const phone = iti.getNumber(); // Gets number with country code
       const message = document.getElementById("wa-message").value.trim();
 
-      const yourWhatsAppNumber = "918329228857"; // Your number without "+"
+      const yourWhatsAppNumber = "919356114881"; // Your number without "+"
       const fullMessage =
         `Hi, my name is ${name}.\n` +
         `My email is ${email}.\n` +

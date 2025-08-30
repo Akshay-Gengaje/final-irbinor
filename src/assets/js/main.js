@@ -222,29 +222,36 @@ document.addEventListener("DOMContentLoaded", function () {
     revealElements.forEach((el) => revealObserver.observe(el));
   }
 
-  // --- FAQ Accordion ---
+   // --- FAQ Accordion ---
   const faqQuestions = document.querySelectorAll(".faq-question");
-  faqQuestions.forEach((question) => {
-    question.addEventListener("click", () => {
-      const answer = question.nextElementSibling;
-      const isExpanded = question.getAttribute("aria-expanded") === "true";
+  faqQuestions.forEach((questionToHandle) => {
+    questionToHandle.addEventListener("click", () => {
+      const isOpening =
+        questionToHandle.getAttribute("aria-expanded") !== "true";
 
-      // Optional: Close other accordions when one is opened
-      // if (!isExpanded) {
-      //   faqQuestions.forEach((otherQuestion) => {
-      //     otherQuestion.setAttribute("aria-expanded", "false");
-      //     otherQuestion.nextElementSibling.style.maxHeight = null;
-      //     otherQuestion.querySelector("svg").style.transform = "rotate(0deg)";
-      //   });
-      // }
+      // Close all other questions first
+      faqQuestions.forEach((question) => {
+        if (question !== questionToHandle) {
+          question.setAttribute("aria-expanded", "false");
+          question.classList.remove("active");
+          question.nextElementSibling.style.maxHeight = null;
+        }
+      });
 
-      question.setAttribute("aria-expanded", !isExpanded);
-      answer.style.maxHeight = isExpanded ? null : answer.scrollHeight + "px";
-      question.querySelector("svg").style.transform = isExpanded
-        ? "rotate(0deg)"
-        : "rotate(180deg)";
+      // Toggle the clicked question
+      if (isOpening) {
+        questionToHandle.setAttribute("aria-expanded", "true");
+        questionToHandle.classList.add("active");
+        const answer = questionToHandle.nextElementSibling;
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      } else {
+        questionToHandle.setAttribute("aria-expanded", "false");
+        questionToHandle.classList.remove("active");
+        questionToHandle.nextElementSibling.style.maxHeight = null;
+      }
     });
   });
+
 
 // =========================================================================
   // --- START: TABBED SERVICES LOGIC ---

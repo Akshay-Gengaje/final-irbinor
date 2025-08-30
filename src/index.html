@@ -61,7 +61,7 @@
       class="sticky top-0 z-20 bg-[var(--bg-primary)]/80 backdrop-blur-sm shadow-lg shadow-[var(--shadow-color)]"
     >
       <nav aria-label="Main Navigation">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
           <div class="flex justify-between items-center h-20">
             <div class="flex-shrink-0 justify-center items-center flex">
               <a
@@ -101,7 +101,13 @@
                     >Our Story</a
                   >
                 </li>
-
+                <li>
+                  <a
+                    href="#join"
+                    class="nav-link text-lg font-semibold text-[var(--text-secondary)] hover:text-[var(--accent)] transition-all duration-300"
+                    >Join Us</a
+                  >
+                </li>
                 <li>
                   <a
                     href="#contact"
@@ -216,6 +222,11 @@
           class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
           >Our Story</a
         >
+        <a
+          href="#join"
+          class="text-[var(--text-primary)] text-xl font-semibold p-2 rounded-lg hover:bg-[var(--bg-primary)]"
+          >Join Us</a
+        >
 
         <a
           href="#contact"
@@ -252,9 +263,9 @@
         aria-labelledby="services-heading"
       >
         <div class="text-center reveal">
-          <h2 id="services-heading">The Art of Crafting the Extraordinary</h2>
+          <h2 id="services-heading">Art of Crafting the Extraordinary</h2>
           <p class="paragraph-intro mt-4 max-w-2xl mx-auto">
-            What We Craft & Curate
+            How We Bring It to Life
           </p>
         </div>
         <div
@@ -577,47 +588,76 @@
           </article>
         </div>
       </section>
-
       <section
         id="story"
         class="my-20 md:my-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-labelledby="story-heading"
       >
-        <div
-          class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-        >
-          <div class="reveal order-last lg:order-first">
-            <img
-              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
-              alt="Elegant and modern interior design"
-              class="rounded-2xl shadow-xl w-full h-full object-cover aspect-[4/3]"
-            />
-          </div>
-          <div class="reveal">
-            <h2
-              id="story-heading"
-              class="heading-display flex justify-center md:justify-start"
-            >
-              Who We Are
-            </h2>
-            <p class="paragraph-intro mt-6">
-              IRBINOR is a purpose-driven experience company that combines
-              storytelling, aesthetic excellence, and hospitality to create
-              visually stunning, personalized experiences. We emphasize
-              authenticity, cultural depth, and refined elegance.
+        <div class="max-w-4xl mx-auto text-center reveal">
+          <div class="flex flex-col items-center">
+            <h2 id="story-heading" class="heading-display">Who We Are</h2>
+            <p class="paragraph-intro mt-6 text-center">
+              IRBINOR is more than just a name — it is a philosophy, a
+              narrative, and a beacon for what the brand embodies. Rooted in a
+              blend of ancient linguistic traditions and global cultural
+              influences.
             </p>
-            <div
-              class="mt-8 p-6 border-l-4 border-[var(--accent)] bg-[var(--bg-secondary)] rounded-r-lg shadow-lg"
-            >
-              <p class="paragraph-quote">
-                “Inspiring Radiance, Beautiful Interactions, Navigating Our
-                Radiant path.”
-              </p>
-              <p class="mt-4">
-                The name represents a company that is boldly global yet deeply
-                human—a journey into beauty, brilliance, and a better future.
+          </div>
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            <div class="p-6">
+              <h3
+                class="text-xl md:text-2xl font-bold text-[var(--text-primary)]"
+              >
+                "IR"
+              </h3>
+              <p class="mt-2 text-[var(--accent)] font-semibold">
+                – A Journey Forward –
               </p>
             </div>
+            <div class="p-6">
+              <h3
+                class="text-xl md:text-2xl font-bold text-[var(--text-primary)]"
+              >
+                "BI"
+              </h3>
+              <p class="mt-2 text-[var(--accent)] font-semibold">
+                – Beauty and Unity –
+              </p>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl md:text-2xl font-bold text-[var(--text-primary)]"
+              >
+                "NOR"
+              </h3>
+              <p class="mt-2 text-[var(--accent)] font-semibold">
+                – Guiding Brilliance –
+              </p>
+            </div>
+          </div>
+          <div class="mt-8 p-6 border-t-4 border-b-4 border-[var(--accent)]">
+            <p
+              class="paragraph-dynamic font-semibold text-[var(--text-primary)]"
+            >
+              Together, IRBINOR stands for:
+            </p>
+            <p class="paragraph-quote mt-2 text-xl">
+              “Inspiring Radiance, Beautiful Interactions, Navigating Our
+              Radiant path.”
+            </p>
+          </div>
+          <div
+            class="mt-10 space-y-4 max-w-3xl mx-auto flex flex-col items-center"
+          >
+            <p>
+              The name represents a company that is boldly global yet deeply
+              human — a brand that seamlessly blends creativity, purpose, and a
+              commitment to excellence. IRBINOR is not just a business; it is a
+              journey into beauty, brilliance, and a better future.
+            </p>
+            <p class="font-semibold text-lg text-[var(--text-primary)]">
+              With Last mile touch we make experience to legacy.
+            </p>
           </div>
         </div>
       </section>
@@ -626,122 +666,291 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center reveal">
             <h2 id="faq-heading">Frequently Asked Questions</h2>
-            <p class="paragraph-intro mt-4 max-w-2xl mx-auto">
-              Have questions? We have answers. If you can't find what you're
-              looking for, feel free to contact us.
+            <p class="paragraph-intro mt-4 max-w-3xl mx-auto">
+              Your questions, answered. Discover more about our philosophy and
+              how we bring extraordinary visions to life.
             </p>
           </div>
           <div
-            class="mt-16 max-w-4xl mx-auto space-y-4 reveal"
+            class="mt-8 max-w-4xl mx-auto space-y-2 reveal"
             style="transition-delay: 200ms"
           >
-            <div class="custom-card overflow-hidden p-0">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
               <button
-                class="faq-question w-full text-left flex justify-between items-center p-6"
+                class="faq-question"
                 aria-expanded="false"
                 aria-controls="faq-answer-1"
               >
-                <span class="text-lg font-semibold text-[var(--text-primary)]"
-                  >What services does IRBINOR offer?</span
-                >
-                <svg
-                  class="h-6 w-6 text-[var(--accent)] transition-transform duration-300"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
+                <span>What is IRBINOR?</span>
+                <div class="faq-icon">
+                  <svg
+                    class="plus-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </div>
               </button>
-              <div
-                id="faq-answer-1"
-                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
-              >
+              <div id="faq-answer-1" class="faq-answer">
                 <div class="p-6 pt-0">
                   <p>
-                    We provide a comprehensive suite of creative services under
-                    four pillars: Design, Management, Hospitality, and Gifting.
-                    We offer an integrated, in-house solution to ensure a
-                    cohesive and flawlessly executed experience.
+                    IRBINOR is a purpose-driven experiential brand that blends
+                    storytelling, design, hospitality, and gifting into
+                    unforgettable moments. We combine global sensibilities with
+                    Indian heritage to create experiences that are both elegant
+                    and impactful.
                   </p>
                 </div>
               </div>
             </div>
-            <div class="custom-card overflow-hidden p-0">
+            <!-- FAQ 2 -->
+            <div class="faq-item">
               <button
-                class="faq-question w-full text-left flex justify-between items-center p-6"
+                class="faq-question"
                 aria-expanded="false"
                 aria-controls="faq-answer-2"
               >
-                <span class="text-lg font-semibold text-[var(--text-primary)]"
-                  >What types of events do you specialize in?</span
-                >
-                <svg
-                  class="h-6 w-6 text-[var(--accent)] transition-transform duration-300"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
+                <span>What services does IRBINOR offer?</span>
+                <div class="faq-icon">
+                  <svg
+                    class="plus-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </div>
               </button>
-              <div
-                id="faq-answer-2"
-                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+              <div id="faq-answer-2" class="faq-answer">
+                <div class="p-6 pt-0">
+                  <p class="mb-4">
+                    We work across four verticals to deliver integrated,
+                    cohesive experiences:
+                  </p>
+                  <ul
+                    class="space-y-2 list-disc list-inside text-[var(--text-secondary)]"
+                  >
+                    <li>
+                      <strong>Events:</strong> Immersive, story-driven
+                      gatherings from weddings to corporate experiences.
+                    </li>
+                    <li>
+                      <strong>Design:</strong> Bespoke creative aesthetics that
+                      merge culture with innovation.
+                    </li>
+                    <li>
+                      <strong>Gifting:</strong> Curated, thoughtful gifts that
+                      strengthen personal and professional bonds.
+                    </li>
+                    <li>
+                      <strong>Hospitality:</strong> Personalized luxury with
+                      seamless guest experiences.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-answer-3"
               >
+                <span>Who is IRBINOR’s ideal client?</span>
+                <div class="faq-icon">
+                  <svg
+                    class="plus-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </div>
+              </button>
+              <div id="faq-answer-3" class="faq-answer">
                 <div class="p-6 pt-0">
                   <p>
-                    We specialize in crafting "larger than life" experiences and
-                    have a proven history of managing mega-scale events,
-                    including large corporate conferences, intimate brand
-                    launches, and private celebrations.
+                    IRBINOR is for those who believe experiences should be
+                    larger than life, yet crafted with a last mile touch. We
+                    work with individuals, families, and organizations who value
+                    authenticity, storytelling, and timeless elegance in every
+                    detail.
                   </p>
                 </div>
               </div>
             </div>
-            <div class="custom-card overflow-hidden p-0">
+            <!-- FAQ 4 -->
+            <div class="faq-item">
               <button
-                class="faq-question w-full text-left flex justify-between items-center p-6"
+                class="faq-question"
                 aria-expanded="false"
-                aria-controls="faq-answer-3"
+                aria-controls="faq-answer-4"
               >
-                <span class="text-lg font-semibold text-[var(--text-primary)]"
-                  >How is IRBINOR different?</span
-                >
-                <svg
-                  class="h-6 w-6 text-[var(--accent)] transition-transform duration-300"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
+                <span>What makes IRBINOR unique?</span>
+                <div class="faq-icon">
+                  <svg
+                    class="plus-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </div>
               </button>
-              <div
-                id="faq-answer-3"
-                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
-              >
+              <div id="faq-answer-4" class="faq-answer">
                 <div class="p-6 pt-0">
                   <p>
-                    Our core difference is our ability to deliver grand-scale
-                    execution with a meticulous "last mile touch." We are
-                    distinguished by our integrated in-house power, a strong
-                    legacy, and a core value of "Client Obsession."
+                    IRBINOR stands apart through our philosophy of crafting
+                    moments that feel both grand and deeply personal. Every
+                    creation is rooted in cultural richness, shaped with global
+                    finesse, and perfected through our signature last mile
+                    touch.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-answer-5"
+              >
+                <span>Does IRBINOR handle international projects?</span>
+                <div class="faq-icon">
+                  <svg
+                    class="plus-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </div>
+              </button>
+              <div id="faq-answer-5" class="faq-answer">
+                <div class="p-6 pt-0">
+                  <p>
+                    Yes. Our expertise lies in blending cultures and curating
+                    experiences across borders. Whether in India or abroad,
+                    IRBINOR ensures seamless execution with global standards of
+                    luxury and creativity.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-answer-6"
+              >
+                <span>How is “Last Mile Touch” reflected in your work?</span>
+                <div class="faq-icon">
+                  <svg
+                    class="plus-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </div>
+              </button>
+              <div id="faq-answer-6" class="faq-answer">
+                <div class="p-6 pt-0">
+                  <p>
+                    It’s our signature approach—where we go beyond execution to
+                    ensure every detail feels personal, thoughtful, and
+                    impactful. It’s what transforms an event, design, or gift
+                    into a memory that lasts forever.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- FAQ 7 -->
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-answer-7"
+              >
+                <span>How can I collaborate with IRBINOR?</span>
+                <div class="faq-icon">
+                  <svg
+                    class="plus-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </div>
+              </button>
+              <div id="faq-answer-7" class="faq-answer">
+                <div class="p-6 pt-0">
+                  <p>
+                    You can connect with us through our website or social media
+                    handles. Once you share your vision, our team will curate a
+                    tailored proposal to bring your imagination to life with
+                    precision and elegance.
                   </p>
                 </div>
               </div>
@@ -749,8 +958,7 @@
           </div>
         </div>
       </section>
-
-         <section
+      <section
         id="join"
         class="my-20 md:my-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-labelledby="join-heading"
@@ -807,12 +1015,17 @@
         aria-labelledby="contact-heading"
       >
         <div class="custom-card p-6 sm:p-10 reveal">
-          <h2 id="contact-heading" class="text-center mb-4">Get in Touch</h2>
-          <p class="paragraph-dynamic text-center mb-10">
-            We’d love to hear from you. Fill out the form below and we’ll get
-            back to you soon.
-          </p>
-          <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2" novalidate>
+          <div class="flex justify-center flex-col items-center text-center">
+            <h2 id="contact-heading" class="text-center mb-4">Let's Connect</h2>
+            <p class="paragraph-dynamic text-center mb-10">
+              The first step to unforgettable experiences begins right here
+            </p>
+          </div>
+          <form
+            id="contact-form"
+            class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2"
+            novalidate
+          >
             <div class="space-y-2">
               <div>
                 <label for="name" class="block text-sm font-medium mb-1"
@@ -864,17 +1077,30 @@
                 class="inline-flex items-center justify-center bg-[var(--accent)] text-white font-bold rounded-full px-8 py-3 hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span id="submit-btn-text">Send Message</span>
-                 <svg id="submit-spinner" class="animate-spin ml-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <svg
+                  id="submit-spinner"
+                  class="animate-spin ml-3 h-5 w-5 text-white hidden"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
                 </svg>
               </button>
             </div>
           </form>
-          <!-- Notification Toast -->
-          <div id="notification" class="fixed top-24 right-5 text-white py-3 px-6 rounded-lg shadow-lg transform translate-x-[120%] transition-transform duration-500 ease-in-out z-50">
-            <p id="notification-message"></p>
-          </div>
         </div>
       </section>
     </main>
@@ -937,8 +1163,8 @@
               </li>
               <li>
                 <a href="tel:+918888591205" class="hover:text-[var(--accent)]"
-                  >+91 83292 28857</a
-                >
+                  >+91 93561 14881
+                </a>
               </li>
             </ul>
           </div>
@@ -977,6 +1203,36 @@
         </div>
       </div>
     </footer>
+
+    <!-- Submission Status Modal -->
+    <div
+      id="status-modal-overlay"
+      class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="status-modal"
+        class="bg-[var(--bg-secondary)] rounded-2xl shadow-2xl w-full max-w-md p-8 text-center transform scale-95 transition-all duration-300"
+      >
+        <div
+          id="modal-icon-container"
+          class="mx-auto flex items-center justify-center h-16 w-16 rounded-full mb-5"
+        >
+          <!-- SVG icon will be injected here by JavaScript -->
+        </div>
+        <h3
+          id="modal-title"
+          class="text-2xl font-bold text-[var(--text-primary)] mb-3"
+        ></h3>
+        <p id="modal-message" class="text-[var(--text-secondary)] mb-8"></p>
+        <button
+          id="modal-close-btn"
+          class="text-white font-bold rounded-full px-10 py-3 transition-colors"
+        >
+          OK
+        </button>
+      </div>
+    </div>
+
     <button
       id="wa-toggle"
       aria-label="Contact us on WhatsApp"

@@ -233,6 +233,36 @@
   .paragraph-quote {
     @apply italic text-lg font-semibold;
   }
+
+    /* --- START: New FAQ Styles --- */
+  .faq-item {
+    @apply border-b border-[var(--border-color)] transition-all duration-300;
+  }
+
+  .faq-question {
+    @apply w-full text-left flex justify-between items-center p-6 text-lg font-semibold text-[var(--text-primary)] transition-colors duration-300;
+  }
+
+  .faq-question:hover {
+    color: var(--accent);
+  }
+
+  .faq-question.active {
+    background-color: var(--accent)/10;
+    color: var(--accent);
+  }
+  
+  .faq-icon {
+      @apply text-[var(--accent)] transition-transform duration-300 ease-in-out;
+  }
+
+  .faq-question.active .faq-icon {
+      transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    @apply max-h-0 overflow-hidden transition-all duration-500 ease-in-out;
+  }
 }
 
 
