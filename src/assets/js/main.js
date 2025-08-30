@@ -9,6 +9,7 @@
  * 6. FAQ Accordion.
  * 7. Expanding Services Panel.
  * 8. Smooth scrolling for anchor links.
+ * 9. Contact form validation and submission.
  */
 document.addEventListener("DOMContentLoaded", function () {
   // --- Mobile Sidebar, Theme Toggler, and Nav Link Logic ---
@@ -228,13 +229,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const answer = question.nextElementSibling;
       const isExpanded = question.getAttribute("aria-expanded") === "true";
 
-      if (!isExpanded) {
-        faqQuestions.forEach((otherQuestion) => {
-          otherQuestion.setAttribute("aria-expanded", "false");
-          otherQuestion.nextElementSibling.style.maxHeight = null;
-          otherQuestion.querySelector("svg").style.transform = "rotate(0deg)";
-        });
-      }
+      // Optional: Close other accordions when one is opened
+      // if (!isExpanded) {
+      //   faqQuestions.forEach((otherQuestion) => {
+      //     otherQuestion.setAttribute("aria-expanded", "false");
+      //     otherQuestion.nextElementSibling.style.maxHeight = null;
+      //     otherQuestion.querySelector("svg").style.transform = "rotate(0deg)";
+      //   });
+      // }
 
       question.setAttribute("aria-expanded", !isExpanded);
       answer.style.maxHeight = isExpanded ? null : answer.scrollHeight + "px";
@@ -300,4 +302,139 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================================================
   // --- END: SMOOTH SCROLL & SECTION CENTERING ---
   // =========================================================================
+
+  // =========================================================================
+  // --- START: CONTACT FORM LOGIC ---
+  // =========================================================================
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const messageInput = document.getElementById("message");
+
+      const nameError = document.getElementById("name-error");
+      const emailError = document.getElementById("email-error");
+      const messageError = document.getElementById("message-error");
+
+      const submitBtn = document.getElementById("submit-btn");
+      const submitBtnText = document.getElementById("submit-btn-text");
+      const submitSpinner = document.getElementById("submit-spinner");
+      
+      const validateEmail = (email) => {
+          const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(String(email).toLowerCase());
+      };
+
+      /**
+       * Displays a message within the form for success or server-side errors.
+       * @param {string} message The message to display.
+       * @param {boolean} isSuccess True for success (green text), false for error (red text).
+       */
+      const showFormMessage = (message, isSuccess = true) => {
+          const submitBtnContainer = submitBtn.parentElement;
+          let formStatus = document.getElementById('form-status-message');
+
+          // Create the status element if it doesn't exist and prepend it before the submit button.
+          if (!formStatus) {
+              formStatus = document.createElement('p');
+              formStatus.id = 'form-status-message';
+              formStatus.className = 'text-center text-sm mb-4';
+              submitBtnContainer.prepend(formStatus);
+          }
+          
+          formStatus.textContent = message;
+          formStatus.classList.remove('text-green-500', 'text-red-500'); // Reset colors
+          formStatus.classList.add(isSuccess ? 'text-green-500' : 'text-red-500');
+      };
+
+      contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          let isValid = true;
+
+          const inputs = [nameInput, emailInput, messageInput];
+          const errors = [nameError, emailError, messageError];
+
+          // Hide general form message on new submission attempt
+          const formStatus = document.getElementById('form-status-message');
+          if (formStatus) {
+              formStatus.textContent = '';
+          }
+
+          // Reset errors
+          errors.forEach(error => error.textContent = "");
+          inputs.forEach(input => input.classList.remove('border-red-500'));
+
+          // Validate Name
+          if (nameInput.value.trim() === "") {
+              nameError.textContent = "Name is required.";
+              nameInput.classList.add('border-red-500');
+              isValid = false;
+          }
+
+          // Validate Email
+          if (emailInput.value.trim() === "") {
+              emailError.textContent = "Email is required.";
+              emailInput.classList.add('border-red-500');
+              isValid = false;
+          } else if (!validateEmail(emailInput.value)) {
+              emailError.textContent = "Please enter a valid email address.";
+              emailInput.classList.add('border-red-500');
+              isValid = false;
+          }
+
+          // Validate Message
+          if (messageInput.value.trim() === "") {
+              messageError.textContent = "Message is required.";
+              messageInput.classList.add('border-red-500');
+              isValid = false;
+          } else if (messageInput.value.trim().length < 10) {
+              messageError.textContent = "Message must be at least 10 characters long.";
+              messageInput.classList.add('border-red-500');
+              isValid = false;
+          }
+
+          if (isValid) {
+              // Disable button and show spinner
+              submitBtn.disabled = true;
+              submitBtnText.textContent = 'Sending...';
+              submitSpinner.classList.remove('hidden');
+
+              const formData = new FormData(contactForm);
+
+              // IMPORTANT: Replace "contact.php" with the actual URL to your PHP script on your server.
+              fetch("contact.php", {
+                  method: "POST",
+                  body: formData
+              })
+              .then(response => {
+                  if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  if (data.success) {
+                      showFormMessage("Message sent successfully!", true);
+                      contactForm.reset();
+                  } else {
+                      showFormMessage(data.message || "An error occurred. Please try again.", false);
+                  }
+              })
+              .catch(error => {
+                  console.error("Error:", error);
+                  showFormMessage("Could not connect to the server. Please try again later.", false);
+              })
+              .finally(() => {
+                  // Re-enable button and hide spinner
+                  submitBtn.disabled = false;
+                  submitBtnText.textContent = 'Send Message';
+                  submitSpinner.classList.add('hidden');
+              });
+          }
+      });
+  }
+  // =========================================================================
+  // --- END: CONTACT FORM LOGIC ---
+  // =========================================================================
 });
+
