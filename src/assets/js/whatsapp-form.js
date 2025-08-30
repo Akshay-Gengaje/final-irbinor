@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `My phone number is ${phone}.\n\n` +
         `Message:\n${message}`;
 
-      const waUrl = `https://wa.me/${yourWhatsAppNumber}?text=${encodeURIComponent(fullMessage)}`;
+      const waUrl = `https://api.whatsapp.com/send?phone=${yourWhatsAppNumber}&text=${encodeURIComponent(fullMessage)}`;
       window.open(waUrl, "_blank");
       
       // Optional: close and reset form after submission
