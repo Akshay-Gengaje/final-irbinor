@@ -114,6 +114,21 @@
    ========================================================================== */
 @layer components {
 
+  .logo-themed {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* Set the background to the light logo by default */
+    background-image: url('../images/logo-light.png');
+  }
+
+  .dark .logo-themed {
+    /* Change the background to the dark logo in dark mode */
+    background-image: url('../images/logo-dark.png');
+  }
+
+
 
   .custom-card {
     background-color: var(--bg-secondary);
