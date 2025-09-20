@@ -306,8 +306,8 @@ async function build() {
     await Promise.all([
       // processVideos().then(() => console.log("✅ Videos processed")),
       // copyFonts().then(() => console.log("✅ Fonts copied")),
-      // optimizeIcons().then(() => console.log("✅ Icons optimized")),
-      // optimizeImages().then(() => console.log("✅ Images optimized")),
+      optimizeIcons().then(() => console.log("✅ Icons optimized")),
+      optimizeImages().then(() => console.log("✅ Images optimized")),
       minifyHtml().then(() => console.log("✅ HTML minified")),
       minifyJs().then(() => console.log("✅ JS minified")),
     ]);
