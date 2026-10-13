@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -11,6 +11,15 @@
       content="IRBINOR delivers larger-than-life experiences with a last-mile touch. Explore our innovative design, management, hospitality, and gifting services."
     />
     <link rel="canonical" href="https://www.irbinor.com/" />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/videos/hero-video-poster.jpg"
+      fetchpriority="high"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link
       rel="icon"
       type="image/x-icon"
@@ -26,7 +35,7 @@
     />
     <meta
       property="og:image"
-      content="https://www.irbinor.com/assets/images/"
+      content="https://www.irbinor.com/assets/videos/hero-video-poster.jpg"
     />
     <meta property="og:url" content="https://www.irbinor.com/" />
     <meta property="og:type" content="website" />
@@ -37,20 +46,15 @@
     />
     <meta name="author" content="IRBINOR" />
 
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
     <link href="./assets/css/tailwind.css?v=2" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css"
     />
-    <script>
-      // Prevent FOUC: Apply theme instantly before page renders
-      (function () {
-        const theme = localStorage.getItem("theme");
-        if (theme === "dark") {
-          document.documentElement.classList.add("dark");
-        }
-      })();
-    </script>
   </head>
   <body class="bg-[var(--bg-primary)] text-[var(--text-primary)]">
     <div
@@ -118,59 +122,28 @@
               </ul>
             </div>
 
-            <div class="flex items-center">
+            <div class="md:hidden">
               <button
-                id="theme-toggle"
-                aria-label="Toggle dark and light mode"
-                class="p-2 rounded-full text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--bg-secondary)] focus:outline-none transition-colors"
+                id="menu-btn"
+                class="text-[var(--text-secondary)] focus:outline-none z-50"
+                aria-label="Toggle mobile menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
               >
                 <svg
-                  id="theme-toggle-dark-icon"
-                  class="w-5 h-5 hidden"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-                  ></path>
-                </svg>
-                <svg
-                  id="theme-toggle-light-icon"
-                  class="w-5 h-5 hidden"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
                   ></path>
                 </svg>
               </button>
-
-              <div class="md:hidden ml-2">
-                <button
-                  id="menu-btn"
-                  class="text-[var(--text-secondary)] focus:outline-none z-50"
-                  aria-label="Toggle mobile menu"
-                  aria-expanded="false"
-                  aria-controls="mobile-menu"
-                >
-                  <svg
-                    class="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 12h16m-7 6h7"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -237,20 +210,17 @@
     </aside>
 
     <main>
-      <section
-        id="home"
-        aria-labelledby="hero-heading"
-        class="relative flex items-center overflow-hidden"
-      >
+      <section id="home" class="relative flex items-center overflow-hidden">
         <video
           autoplay
           loop
           muted
           playsinline
+          aria-hidden="true"
+          tabindex="-1"
           poster="./assets/videos/hero-video-poster.jpg"
           class="hero-video"
         >
-          <source src="./assets/videos/hero-video.webm?v=2" type="video/webm" />
           <source src="./assets/videos/hero-video.mp4?v=2" type="video/mp4" />
         </video>
 
@@ -263,7 +233,12 @@
         aria-labelledby="services-heading"
       >
         <div class="text-center reveal">
-          <h2 id="services-heading">Art of Crafting the Extraordinary</h2>
+          <h1
+            id="services-heading"
+            class="text-3xl md:text-4xl lg:text-5xl font-black text-[var(--text-primary)] tracking-tight"
+          >
+            Art of Crafting the Extraordinary
+          </h1>
           <p class="paragraph-intro mt-4 max-w-2xl mx-auto">
             How We Bring It to Life
           </p>
@@ -287,9 +262,9 @@
             <div class="panel-text-content">
               <h3 class="heading-sub-large mb-4">From Vision to Masterpiece</h3>
               <p class="paragraph-dynamic mb-6">
-                Design is the soul of expression and at IRBINOR,we craft it to
-                inspire,influence,and ignite imagination.Every line,curve,and
-                color reflects the story you want the world to remember.
+                Design is the soul of expression, and at IRBINOR, we craft it to
+                inspire, influence, and ignite imagination. Every line, curve,
+                and color reflects the story you want the world to remember.
               </p>
               <ul class="service-bullets">
                 <li class="paragraph-dynamic">
@@ -319,9 +294,9 @@
             <div class="panel-text-content">
               <h3 class="heading-sub-large mb-4">Orchestrated to Perfection</h3>
               <p class="paragraph-dynamic mb-6">
-                At IRBINOR,events aren’t managed—they’re orchestrated.Every
-                moment is designed to captivate,every detail refined to
-                perfection.We turn imagination into experiences that feel
+                At IRBINOR, events aren’t managed—they’re orchestrated. Every
+                moment is designed to captivate, every detail refined to
+                perfection. We turn imagination into experiences that feel
                 limitless yet personal.
               </p>
               <ul class="service-bullets">
@@ -352,8 +327,8 @@
             <div class="panel-text-content">
               <h3 class="heading-sub-large mb-4">Thoughtful.Timeless.</h3>
               <p class="paragraph-dynamic mb-6">
-                A gift is more than an object;it’s an emotion wrapped in
-                elegance.We curate gifts that speak louder than words,designed
+                A gift is more than an object; it’s an emotion wrapped in
+                elegance. We curate gifts that speak louder than words, designed
                 to touch hearts and build bonds that last.
               </p>
               <ul class="service-bullets">
@@ -384,8 +359,8 @@
             <div class="panel-text-content">
               <h3 class="heading-sub-large mb-4">The Art of Anticipation</h3>
               <p class="paragraph-dynamic mb-6">
-                Hospitality isn’t a service;it’s an art of anticipation.Every
-                detail is designed to make guests feel valued,indulged,and at
+                Hospitality isn’t a service;it’s an art of anticipation. Every
+                detail is designed to make guests feel valued, indulged, and at
                 home in an atmosphere that is effortless yet extraordinary.
               </p>
               <ul class="service-bullets">
@@ -622,17 +597,21 @@
         class="my-20 md:my-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-labelledby="story-heading"
       >
-        <div class="max-w-4xl mx-auto text-center reveal">
+        <div class="story-content max-w-4xl mx-auto text-center reveal">
           <div class="flex flex-col items-center">
             <h2 id="story-heading" class="heading-display">Who We Are</h2>
-            <p class="paragraph-intro mt-6 text-center">
+            <p class="story-intro paragraph-intro mt-6 text-center">
               IRBINOR is more than just a name — it is a philosophy, a
-              narrative, and a beacon for what the brand embodies. Rooted in a
-              blend of ancient linguistic traditions and global cultural
-              influences.
+              narrative, and a beacon for what the brand embodies.<br
+                class="hidden lg:block"
+              />
+              Rooted in a blend of ancient linguistic traditions and global
+              cultural influences.
             </p>
           </div>
-          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          <div
+            class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center max-w-4xl mx-auto"
+          >
             <div class="p-6">
               <h3
                 class="text-xl md:text-2xl font-bold text-[var(--text-primary)]"
@@ -664,13 +643,15 @@
               </p>
             </div>
           </div>
-          <div class="mt-8 p-6 border-t-4 border-b-4 border-[var(--accent)]">
+          <div
+            class="mt-8 p-6 border-t-4 border-b-4 border-[var(--accent)] text-center max-w-4xl mx-auto"
+          >
             <p
-              class="paragraph-dynamic font-semibold text-[var(--text-primary)]"
+              class="paragraph-dynamic font-semibold text-[var(--text-primary)] mx-auto"
             >
               Together, IRBINOR stands for:
             </p>
-            <p class="paragraph-quote mt-2 text-xl">
+            <p class="paragraph-quote mt-2 text-xl mx-auto">
               “Inspiring Radiance, Beautiful Interactions, Navigating Our
               Radiant path.”
             </p>
@@ -1181,8 +1162,6 @@
             </h3>
             <ul class="space-y-2 text-sm">
               <li>IRBINOR PRIVATE LIMITED</li>
-              <li>F-Residency, Kalyani Nagar</li>
-              <li>Pune, Maharashtra, 411014</li>
               <li>
                 <a
                   href="mailto:connect@irbinor.com"
@@ -1191,7 +1170,7 @@
                 >
               </li>
               <li>
-                <a href="tel:+918888591205" class="hover:text-[var(--accent)]"
+                <a href="tel:+919356114881" class="hover:text-[var(--accent)]"
                   >+91 93561 14881
                 </a>
               </li>
@@ -1212,14 +1191,44 @@
                   />
                 </svg>
               </a>
+
               <a
-                href="https://www.instagram.com/irbinor_pvt_ltd?igsh=MTg1MmtnYXFsNGFwZA=="
+                href="https://www.instagram.com/irbinor/"
                 class="hover:text-[var(--accent)]"
                 aria-label="Follow us on Instagram"
-                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2c2.716 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.592 1.77.1.554.554.912 1.11 1.168 1.77.248.638.415 1.363.465 2.428.05 1.066.06 1.406.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.217 1.79-.465 2.428-.254.66-.592 1.216-1.168 1.77-.554.554-1.11.912-1.77 1.168-.638.248-1.363.415-2.428.465-1.066.05-1.406.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.217-2.428-.465-.66-.254-1.216-.592-1.77-1.168-.554-.554-.912-1.11-1.168-1.77-.248-.638-.415-1.363-.465-2.428-.05-1.066-.06-1.406-.06-4.122s.01-3.056.06-4.122c.05-1.065.217-1.79.465-2.428.254-.66.592-1.216 1.168-1.77.554-.554 1.11-.912 1.77-1.168.638-.248 1.363-.415 2.428.465C8.944 2.01 9.284 2 12 2zm0-2c-2.776 0-3.138.012-4.225.064C6.696.165 5.584.425 4.502.837 3.465 1.258 2.562 1.838 1.677 2.723S.437 4.535.064 5.613C.012 6.7.0 7.062.0 9.838s.012 3.138.064 4.225c.051 1.088.311 2.2.723 3.282.421 1.037.995 1.94 1.88 2.825s1.788 1.465 2.825 1.88c1.088.412 2.2.672 3.282.723 1.087.052 1.449.064 4.225.064s3.138-.012 4.225-.064c1.088-.051 2.2-.311 3.282-.723 1.037-.421 1.94-.995 2.825-1.88s1.465-1.788 1.88-2.825c.412-1.088.672-2.2.723-3.282.052-1.087.064-1.449.064-4.225s-.012-3.138-.064-4.225c-.051-1.088-.311-2.2-.723-3.282-.421-1.037-.995-1.94-1.88-2.825S19.465.437 18.387.064C17.3.012 16.938.0 14.162.0H12zm0 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.5-11.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"
-                  />
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 512 512"
+                  class="w-6 h-6"
+                >
+                  <!-- Background rounded square matching the reference image style -->
+                  <rect width="512" height="512" rx="112" />
+
+                  <!-- White Instagram icon elements with reduced margin (larger outer box, larger inner lens) -->
+                  <g
+                    fill="none"
+                    stroke="#FFFFFF"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <!-- Outer rounded camera body -->
+                    <rect
+                      x="96"
+                      y="96"
+                      width="320"
+                      height="320"
+                      rx="88"
+                      stroke-width="24"
+                    />
+
+                    <!-- Inner camera lens circle -->
+                    <circle cx="256" cy="256" r="82" stroke-width="24" />
+                  </g>
+
+                  <!-- Top-right flash dot -->
+                  <circle cx="360" cy="152" r="14" fill="#FFFFFF" />
                 </svg>
               </a>
             </div>
@@ -1228,7 +1237,7 @@
         <div
           class="mt-8 border-t border-[var(--border-color)] pt-6 text-center flex justify-center"
         >
-          <p class="text-sm">&copy; 2025 IRBINOR. All rights reserved.</p>
+          <p class="text-sm">&copy; 2026 IRBINOR. All rights reserved.</p>
         </div>
       </div>
     </footer>

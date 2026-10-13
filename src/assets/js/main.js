@@ -2,19 +2,18 @@
  * Main application script for handling site-wide interactivity.
  * This consolidated script includes all logic for:
  * 1. Mobile sidebar navigation.
- * 2. Theme (dark/light mode) switching.
- * 3. Active navigation link highlighting.
- * 4. Circular carousel for the main gallery with optimized images and auto-scroll.
- * 5. Revealing elements on scroll.
- * 6. FAQ Accordion.
- * 7. Expanding Services Panel.
- * 8. Smooth scrolling for anchor links.
- * 9. Contact form validation and submission with a status modal.
+ * 2. Active navigation link highlighting.
+ * 3. Circular carousel for the main gallery with optimized images and auto-scroll.
+ * 4. Revealing elements on scroll.
+ * 5. FAQ Accordion.
+ * 6. Expanding Services Panel.
+ * 7. Smooth scrolling for anchor links.
+ * 8. Contact form validation and submission with a status modal.
  */
 document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
 
-  // --- Mobile Sidebar, Theme Toggler, and Nav Link Logic ---
+  // --- Mobile Sidebar and Nav Link Logic ---
   const menuBtn = document.getElementById("menu-btn");
   const closeBtn = document.getElementById("sidebar-close-btn");
   const sidebar = document.getElementById("mobile-menu");
@@ -23,12 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const toggleSidebar = () => {
     if (!sidebar) return;
-    const isSidebarOpen = sidebar.classList.contains("translate-x-full");
+    const isSidebarClosed = sidebar.classList.contains("translate-x-full");
     sidebar.classList.toggle("translate-x-full");
     overlay.classList.toggle("opacity-0");
     overlay.classList.toggle("pointer-events-none");
     body.classList.toggle("overflow-hidden");
-    menuBtn.setAttribute("aria-expanded", !isSidebarOpen);
+    menuBtn.setAttribute("aria-expanded", isSidebarClosed);
   };
 
   if (menuBtn) {
@@ -45,27 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
       ) {
         toggleSidebar();
       }
-    });
-  }
-
-  // Theme Toggler
-  const themeToggleBtn = document.getElementById("theme-toggle");
-  if (themeToggleBtn) {
-    const darkIcon = document.getElementById("theme-toggle-dark-icon");
-    const lightIcon = document.getElementById("theme-toggle-light-icon");
-    const applyTheme = (theme, store = false) => {
-      document.documentElement.classList.toggle("dark", theme === "dark");
-      darkIcon.classList.toggle("hidden", theme !== "dark");
-      lightIcon.classList.toggle("hidden", theme === "dark");
-      if (store) localStorage.setItem("theme", theme);
-    };
-    const savedTheme = localStorage.getItem("theme") || "light";
-    applyTheme(savedTheme);
-    themeToggleBtn.addEventListener("click", () => {
-      const newTheme = document.documentElement.classList.contains("dark")
-        ? "light"
-        : "dark";
-      applyTheme(newTheme, true);
     });
   }
 

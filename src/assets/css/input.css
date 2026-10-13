@@ -1,9 +1,4 @@
 /* ==========================================================================
-   FONT IMPORTS
-   ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-/* ==========================================================================
    TAILWIND DIRECTIVES
    ========================================================================== */
 @import "tailwindcss";
@@ -38,6 +33,7 @@
   }
 
   :root {
+    color-scheme: light;
     /* Light Theme Palette */
     --bg-primary: #fff;
     --bg-secondary: #FFFFFF;
@@ -50,21 +46,6 @@
     --card-border-color: #e2e8f0;
     --card-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07);
     --card-shadow-hover: 0 10px 20px 0 rgba(6, 69, 32, 0.1);
-  }
-
-  html.dark {
-    /* Dark Theme Palette */
-    --bg-primary: #064520;
-    --bg-secondary: #245e44;
-    --text-primary: #eff5ed;
-    --text-secondary: #8bab99;
-    --accent: #f9b314;
-    --accent-hover: #c99b50;
-    --border-color: #39624b;
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --card-border-color: var(--border-color);
-    --card-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
-    --card-shadow-hover: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
   }
 
   /* --- TYPOGRAPHY BEST PRACTICES --- */
@@ -123,13 +104,6 @@
     background-image: url('../images/logo-light.png');
   }
 
-  .dark .logo-themed {
-    /* Change the background to the dark logo in dark mode */
-    background-image: url('../images/logo-dark.png');
-  }
-
-
-
   .custom-card {
     background-color: var(--bg-secondary);
     border-radius: 1rem;
@@ -172,13 +146,9 @@
     @apply rounded-2xl p-8 md:p-12 relative z-10 transition-colors duration-300;
   }
 
-  html:not(.dark) .service-content-wrapper {
+  .service-content-wrapper {
     background-color: #f9fbf8;
     border: 1px solid var(--border-color);
-  }
-
-  html.dark .service-content-wrapper {
-    background-color: var(--bg-secondary);
   }
 
   .content-panel {
@@ -293,5 +263,20 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (min-width: 64rem) {
+  #story > .story-content {
+    max-width: 64rem;
+  }
+
+  #story .story-intro {
+    width: 100%;
+    max-width: none;
+  }
+
+  #story .story-intro br {
+    display: block;
   }
 }
