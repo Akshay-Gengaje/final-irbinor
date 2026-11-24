@@ -78,7 +78,7 @@ async function processImagesRecursive(inputDir, outputDir) {
                       webpQuality -= 10;
                     } else if (webpStat.size >= origStat.size) {
                       console.error(`❌ WebP ${file} still larger than original at minimum quality`);
-                      await fs.unlink(webpPath).catch(() => {}); // Remove failed WebP
+                      await fs.unlink(webpPath).catch(() => { }); // Remove failed WebP
                       throw new Error(`Failed to compress WebP ${file}`);
                     }
                   } while (webpStat.size >= origStat.size && webpQuality > 20);
@@ -101,7 +101,7 @@ async function processImagesRecursive(inputDir, outputDir) {
                       avifQuality -= 10;
                     } else if (avifStat.size >= origStat.size) {
                       console.error(`❌ AVIF ${file} still larger than original at minimum quality`);
-                      await fs.unlink(avifPath).catch(() => {}); // Remove failed AVIF
+                      await fs.unlink(avifPath).catch(() => { }); // Remove failed AVIF
                       throw new Error(`Failed to compress AVIF ${file}`);
                     }
                   } while (avifStat.size >= origStat.size && avifQuality > 20);
@@ -298,6 +298,25 @@ async function minifyJs() {
   await Promise.all(tasks);
 }
 
+// Copy PHP files
+async function copyPhp() {
+  const files = await fs.readdir(srcDir);
+  const tasks = [];
+
+  for (const file of files) {
+    if (path.extname(file).toLowerCase() === ".php") {
+      const inputPath = path.join(srcDir, file);
+      const outputPath = path.join(publicDir, file);
+      tasks.push(
+        fs.copyFile(inputPath, outputPath).then(() => {
+          console.log(`✅ Copied PHP script: ${file}`);
+        })
+      );
+    }
+  }
+  await Promise.all(tasks);
+}
+
 // Main Build Function
 async function build() {
   console.log("🚀 Starting build process...");
@@ -305,11 +324,12 @@ async function build() {
   try {
     await Promise.all([
       // processVideos().then(() => console.log("✅ Videos processed")),
-      // copyFonts().then(() => console.log("✅ Fonts copied")),
+      copyFonts().then(() => console.log("✅ Fonts copied")),
       optimizeIcons().then(() => console.log("✅ Icons optimized")),
       optimizeImages().then(() => console.log("✅ Images optimized")),
       minifyHtml().then(() => console.log("✅ HTML minified")),
       minifyJs().then(() => console.log("✅ JS minified")),
+      copyPhp().then(() => console.log("✅ PHP files copied")),
     ]);
     console.log("🎉 Build completed successfully!");
   } catch (err) {
